@@ -15,6 +15,7 @@ import uuid
 import tempfile
 import threading
 import numpy as np
+import random
 from pathlib import Path
 from datetime import datetime
 from flask import Flask, request, jsonify, send_file
@@ -285,6 +286,16 @@ class TimetableProcessor:
         self.start_time = datetime.now()
         de = None
         try:
+            # Ensure randomized runs per job
+            try:
+                import secrets
+                seed = secrets.randbits(64)
+                random.seed(seed)
+                np.random.seed(None)
+                print(f"[{job_id}] RNG seeded for this run (seed bits set) with pop={pop_size}, gens={max_gen}")
+            except Exception as seed_err:
+                print(f"[{job_id}] Warning: RNG seeding failed: {seed_err}")
+
             # Initialize DE with correct parameters
             de = DifferentialEvolution(input_data, pop_size, F, CR)
 

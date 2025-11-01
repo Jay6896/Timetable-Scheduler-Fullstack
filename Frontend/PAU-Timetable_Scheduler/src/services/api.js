@@ -139,9 +139,10 @@ export const uploadFile = async (file) => {
  * Generate timetable from uploaded file
  * @param {string} uploadId - ID of the uploaded file
  * @param {Function} progressCallback - Callback for progress updates
+ * @param {Object} options - Optional parameters to override defaults (e.g., max_generations)
  * @returns {Promise<Object>} Generated timetable data
  */
-export const generateTimetable = async (uploadId, progressCallback) => {
+export const generateTimetable = async (uploadId, progressCallback, options) => {
   try {
     // Start the generation process
     const body = {
@@ -153,6 +154,11 @@ export const generateTimetable = async (uploadId, progressCallback) => {
         CR: Number(process.env.REACT_APP_DE_CR) || 0.9
       }
     };
+
+    // Allow overrides from caller (e.g., user-provided generations)
+    if (options && typeof options === 'object') {
+      body.config = { ...body.config, ...options };
+    }
 
     console.log('Starting timetable generation with:', body);
     const startResponse = await makeRequestWithRetry(() =>

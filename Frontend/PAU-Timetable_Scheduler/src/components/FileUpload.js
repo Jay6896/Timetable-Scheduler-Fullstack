@@ -9,7 +9,12 @@ const FileUpload = ({
   isProcessing,
   progress,
   progressText,
-  error
+  error,
+  // New optional props to control enable/disable of generate button and show select
+  disableGenerate,
+  showGenerationsSelector,
+  generations,
+  onGenerationsChange
 }) => {
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef(null);
@@ -133,10 +138,26 @@ const FileUpload = ({
           
           {selectedFile && (
             <div className="action-buttons visible">
+              {/* Generations selector to the left of Generate button */}
+              {showGenerationsSelector && (
+                <select
+                  className="generations-select"
+                  value={generations || ''}
+                  onChange={(e) => onGenerationsChange && onGenerationsChange(e.target.value)}
+                >
+                  <option value="" disabled>Generations</option>
+                  <option value="1">1</option>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+              )}
+
               <button 
                 className="generate-btn" 
                 onClick={onGenerate}
-                disabled={isProcessing}
+                disabled={isProcessing || disableGenerate}
                 type="button"
               >
                 <span className="btn-icon">

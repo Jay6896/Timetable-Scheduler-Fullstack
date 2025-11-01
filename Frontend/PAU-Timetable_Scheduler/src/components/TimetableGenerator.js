@@ -16,12 +16,19 @@ const TimetableGenerator = () => {
   const [showInstructions, setShowInstructions] = useState(false);
   const [error, setError] = useState('');
 
+  // New state: ask user for number of generations
+  const [generations, setGenerations] = useState('');
+  const [awaitingGenerations, setAwaitingGenerations] = useState(false);
+
   const handleFileSelect = (file) => {
     console.log('File selected:', file);
     setSelectedFile(file);
     setError('');
     setGeneratedData([]);
     setUploadId(null); // Reset upload ID
+    setGenerations('');
+    // Immediately show generations selector with the first appearance of Generate button
+    setAwaitingGenerations(true);
   };
 
   const handleFileReset = () => {
@@ -33,6 +40,64 @@ const TimetableGenerator = () => {
     setProgressText('');
     setGeneratedData([]);
     setError('');
+    setGenerations('');
+    setAwaitingGenerations(false);
+  };
+
+  const startGeneration = async (currentUploadId) => {
+    // Start generation with progress updates and user-provided generations
+    setProgress(30);
+    setProgressText('Starting timetable generation...');
+
+    const progressCallback = (progressData) => {
+      console.log('Progress update:', progressData);
+      if (!progressData) return;
+      const pct = typeof progressData.percentage === 'number' ? progressData.percentage : null;
+      if (pct !== null) {
+        // Allow progress to reach 100 when backend reports completion
+        const clampedProgress = Math.min(Math.max(pct, 30), 100);
+        setProgress(clampedProgress);
+      }
+      if (progressData.message) {
+        setProgressText(progressData.message);
+      }
+    };
+
+    // Build options: require generations
+    const gens = parseInt(generations, 10);
+    const options = Number.isFinite(gens) && gens > 0 ? { max_generations: gens } : {};
+
+    // Generate timetable using the upload ID with options
+    console.log('Generating timetable with ID:', currentUploadId, 'options:', options);
+    const timetableData = await generateTimetable(currentUploadId, progressCallback, options);
+    console.log('Timetable generation completed:', timetableData);
+
+    // Extract timetables from response - handle different response formats
+    let timetables = [];
+    if (timetableData) {
+      timetables =
+        timetableData.timetables ||
+        timetableData.data?.timetables ||
+        timetableData.results ||
+        (Array.isArray(timetableData) ? timetableData : []);
+    }
+
+    console.log('Extracted timetables:', timetables);
+
+    if (!Array.isArray(timetables)) {
+      console.warn('Timetables is not an array, converting:', timetables);
+      timetables = timetables ? [timetables] : [];
+    }
+
+    setProgress(100);
+    setProgressText('Complete!');
+    setGeneratedData(timetables);
+
+    setTimeout(() => {
+      setIsProcessing(false);
+      setProgress(0);
+      setProgressText('');
+    }, 1500);
   };
 
   const handleGenerate = async () => {
@@ -41,106 +106,77 @@ const TimetableGenerator = () => {
       return;
     }
 
-    console.log('Starting timetable generation...');
-    setIsProcessing(true);
-    setError('');
-    setGeneratedData([]);
-    setProgress(5);
-    setProgressText('Preparing upload...');
+    // Ensure valid generations before proceeding
+    const gens = parseInt(generations, 10);
+    if (!Number.isFinite(gens) || gens <= 0) {
+      setError('Please select the number of generations.');
+      return;
+    }
 
-    try {
-      // Upload file
-      setProgress(10);
-      setProgressText('Uploading file...');
-      console.log('Uploading file:', selectedFile.name);
-      
-      const uploadResponse = await uploadFile(selectedFile);
-      console.log('Upload response:', uploadResponse);
+    if (!uploadId) {
+      // Perform upload first, then immediately start generation
+      console.log('Starting upload then generation...');
+      setIsProcessing(true);
+      setError('');
+      setGeneratedData([]);
+      setProgress(5);
+      setProgressText('Preparing upload...');
 
-      // Extract uploadId from response - be very defensive
-      const currentUploadId =
-        uploadResponse?.uploadId ||
-        uploadResponse?.upload_id ||
-        uploadResponse?.fileId ||
-        uploadResponse?.id ||
-        (uploadResponse?.meta && (
-          uploadResponse.meta.upload_id || 
-          uploadResponse.meta.uploadId || 
-          uploadResponse.meta.id
-        ));
+      try {
+        setProgress(10);
+        setProgressText('Uploading file...');
+        console.log('Uploading file:', selectedFile.name);
 
-      console.log('Extracted upload ID:', currentUploadId);
+        const uploadResponse = await uploadFile(selectedFile);
+        console.log('Upload response:', uploadResponse);
 
-      if (!currentUploadId) {
-        throw new Error('Upload ID not returned by server. Response: ' + JSON.stringify(uploadResponse));
-      }
+        const currentUploadId =
+          uploadResponse?.uploadId ||
+          uploadResponse?.upload_id ||
+          uploadResponse?.fileId ||
+          uploadResponse?.id ||
+          (uploadResponse?.meta && (
+            uploadResponse.meta.upload_id ||
+            uploadResponse.meta.uploadId ||
+            uploadResponse.meta.id
+          ));
 
-      // Store the upload ID for later use
-      setUploadId(currentUploadId);
+        console.log('Extracted upload ID:', currentUploadId);
 
-      // Start generation with progress updates
-      setProgress(30);
-      setProgressText('Starting timetable generation...');
-
-      const progressCallback = (progressData) => {
-        console.log('Progress update:', progressData);
-        if (!progressData) return;
-        
-        const pct = typeof progressData.percentage === 'number' ? progressData.percentage : null;
-        if (pct !== null) {
-          const clampedProgress = Math.min(Math.max(pct, 30), 95); // Keep between 30-95%
-          setProgress(clampedProgress);
+        if (!currentUploadId) {
+          throw new Error('Upload ID not returned by server. Response: ' + JSON.stringify(uploadResponse));
         }
-        
-        if (progressData.message) {
-          setProgressText(progressData.message);
+
+        setUploadId(currentUploadId);
+        // Hide the selector while processing
+        setAwaitingGenerations(false);
+        await startGeneration(currentUploadId);
+        return;
+      } catch (err) {
+        console.error('Timetable generation error:', err);
+        let errorMessage = 'An error occurred while generating the timetable';
+        if (err?.response?.data?.error) {
+          errorMessage = err.response.data.error;
+        } else if (err?.response?.data?.message) {
+          errorMessage = err.response.data.message;
+        } else if (err?.message) {
+          errorMessage = err.message;
         }
-      };
-
-      // Generate timetable using the upload ID
-      console.log('Generating timetable with ID:', currentUploadId);
-      const timetableData = await generateTimetable(currentUploadId, progressCallback);
-      console.log('Timetable generation completed:', timetableData);
-
-      // Extract timetables from response - handle different response formats
-      let timetables = [];
-      
-      if (timetableData) {
-        // Try different possible locations for timetable data
-        timetables = 
-          timetableData.timetables || 
-          timetableData.data?.timetables || 
-          timetableData.results || 
-          (Array.isArray(timetableData) ? timetableData : []);
-      }
-
-      console.log('Extracted timetables:', timetables);
-
-      // Validate the timetables data
-      if (!Array.isArray(timetables)) {
-        console.warn('Timetables is not an array, converting:', timetables);
-        timetables = timetables ? [timetables] : [];
-      }
-
-      // Set final progress and results
-      setProgress(100);
-      setProgressText('Complete!');
-      setGeneratedData(timetables);
-
-      // Show completion message briefly
-      setTimeout(() => {
+        setError(errorMessage);
         setIsProcessing(false);
         setProgress(0);
         setProgressText('');
-        // Do not set an error if empty; allow Dash UI to open and guide the user
-      }, 1500);
+        return;
+      }
+    }
 
+    try {
+      setIsProcessing(true);
+      setAwaitingGenerations(false);
+      await startGeneration(uploadId);
     } catch (err) {
       console.error('Timetable generation error:', err);
-      
-      // Handle different error formats
       let errorMessage = 'An error occurred while generating the timetable';
-      
       if (err?.response?.data?.error) {
         errorMessage = err.response.data.error;
       } else if (err?.response?.data?.message) {
@@ -148,7 +184,6 @@ const TimetableGenerator = () => {
       } else if (err?.message) {
         errorMessage = err.message;
       }
-
       setError(errorMessage);
       setIsProcessing(false);
       setProgress(0);
@@ -161,7 +196,7 @@ const TimetableGenerator = () => {
       setError('No timetable data available for download - missing upload ID');
       return;
     }
-    
+
     if (generatedData.length === 0) {
       setError('No timetable data available for download - no generated data');
       return;
@@ -174,9 +209,7 @@ const TimetableGenerator = () => {
       console.log('Download completed successfully');
     } catch (err) {
       console.error('Download error:', err);
-      
       let errorMessage = 'An error occurred while downloading';
-      
       if (err?.response?.data?.error) {
         errorMessage = err.response.data.error;
       } else if (err?.response?.data?.message) {
@@ -184,7 +217,6 @@ const TimetableGenerator = () => {
       } else if (err?.message) {
         errorMessage = err.message;
       }
-      
       setError(errorMessage);
     }
   };
@@ -217,6 +249,10 @@ const TimetableGenerator = () => {
           progress={progress}
           progressText={progressText}
           error={error}
+          disableGenerate={!!selectedFile && (!generations || isProcessing)}
+          showGenerationsSelector={!!selectedFile && awaitingGenerations}
+          generations={generations}
+          onGenerationsChange={(val) => setGenerations(val)}
         />
 
         {uploadId && !isProcessing && (
