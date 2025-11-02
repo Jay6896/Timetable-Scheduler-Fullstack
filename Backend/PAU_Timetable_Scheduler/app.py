@@ -1011,6 +1011,26 @@ def export_timetable():
         return jsonify({'error': f'Export failed: {str(exc)}'}), 500
 
 
+@app.route('/api/download-template', methods=['GET'])
+def download_template():
+    """Download the Excel template file for timetable input"""
+    try:
+        template_path = os.path.join(os.path.dirname(__file__), 'data', 'NEWLY updated Timetable_Input_Template.xlsx')
+        
+        if not os.path.exists(template_path):
+            return jsonify({'error': 'Template file not found'}), 404
+        
+        return send_file(
+            template_path,
+            as_attachment=True,
+            download_name='Timetable_Input_Template.xlsx',
+            mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        )
+    except Exception as exc:
+        print(f"Template download error: {exc}")
+        return jsonify({'error': f'Template download failed: {str(exc)}'}), 500
+
+
 @app.route('/', methods=['GET'])
 def index():
     return jsonify({'status': 'ok', 'message': 'Timetable Generator API is running.'}), 200
