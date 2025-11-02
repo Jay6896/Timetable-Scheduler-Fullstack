@@ -2,9 +2,13 @@ import axios from 'axios';
 
 // Determine API base URL based on environment
 const getApiBaseUrl = () => {
+  // For development, use relative URLs to work with proxy
+  if (process.env.NODE_ENV === 'development') {
+    return '';
+  }
   // Always prefer explicit env override if provided
   if (process.env.REACT_APP_API_BASE_URL) return process.env.REACT_APP_API_BASE_URL;
-  // Default to local Flask backend in SEPT 13 folder
+  // Default to local Flask backend
   return 'http://localhost:7860';
 };
 

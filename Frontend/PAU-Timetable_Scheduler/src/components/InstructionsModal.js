@@ -5,6 +5,7 @@ const InstructionsModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
   const closeButtonRef = useRef(null);
   const [activeTab, setActiveTab] = useState('uploading');
+  const [expandedImage, setExpandedImage] = useState(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -19,7 +20,11 @@ const InstructionsModal = ({ isOpen, onClose }) => {
       // Handle escape key
       const handleEscape = (e) => {
         if (e.key === 'Escape') {
-          onClose();
+          if (expandedImage) {
+            setExpandedImage(null);
+          } else {
+            onClose();
+          }
         }
       };
       
@@ -30,22 +35,30 @@ const InstructionsModal = ({ isOpen, onClose }) => {
         document.body.classList.remove('modal-open');
       };
     }
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, expandedImage]);
 
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
-      onClose();
+      if (expandedImage) {
+        setExpandedImage(null);
+      } else {
+        onClose();
+      }
     }
   };
 
   const handleDownloadTemplate = () => {
     // Create a link to download the template file
     const link = document.createElement('a');
-    link.href = '/api/download-template'; // This would need to be implemented in your backend
+    link.href = '/api/download-template';
     link.download = 'Timetable_Input_Template.xlsx';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const handleImageClick = (imageName) => {
+    setExpandedImage(imageName);
   };
 
   if (!isOpen) return null;
@@ -143,12 +156,23 @@ const InstructionsModal = ({ isOpen, onClose }) => {
                   <div className="sheet-list">
                     <div className="sheet-item">
                       <h5>1. Courses</h5>
-                      <p>Contains course information with columns: Course Code, Course Name, Credits, Duration</p>
+                      <p>Contains course information with columns: Course Code, Course Name, Credits, Duration, Assigned Lecturer Emails</p>
+                      <div className="format-details">
+                        <strong>⚠️ Important:</strong> For multiple lecturers, separate emails with "/" or "," (e.g., "prof1@pau.edu.ng/prof2@pau.edu.ng")
+                      </div>
                     </div>
                     
                     <div className="sheet-item">
-                      <h5>2. Faculty</h5>
-                      <p>Contains faculty information with columns: Faculty ID, Faculty Name, Department, Available Days</p>
+                      <h5>2. Lecturers</h5>
+                      <p>Contains lecturer information with columns: Lecturer Email, Lecturer Name, Department, Status, Available Days, Available Times</p>
+                      <div className="format-details">
+                        <strong>⚠️ Important:</strong>
+                        <ul>
+                          <li><strong>Status:</strong> Must be exactly "Full-Time" or "Adjunct"</li>
+                          <li><strong>Available Days:</strong> Use format "Mon,Tue,Wed,Thu,Fri" (comma-separated, no spaces)</li>
+                          <li><strong>Available Times:</strong> Use exact time format as shown in image example</li>
+                        </ul>
+                      </div>
                     </div>
                     
                     <div className="sheet-item">
@@ -157,7 +181,7 @@ const InstructionsModal = ({ isOpen, onClose }) => {
                     </div>
                     
                     <div className="sheet-item">
-                      <h5>4. Rooms</h5>
+                      <h5>4. Classrooms</h5>
                       <p>Contains room information with columns: Room ID, Room Name, Capacity, Type, Equipment</p>
                     </div>
                   </div>
@@ -165,126 +189,206 @@ const InstructionsModal = ({ isOpen, onClose }) => {
 
                 <div className="format-examples">
                   <h4>📊 Format Examples</h4>
-                  <p>Required column structure for each sheet:</p>
+                  <p>Required column structure for each sheet. Click "View Image Example" to see the exact Excel format:</p>
                   
                   <div className="format-tables">
                     <div className="format-table">
-                      <h5>Courses Sheet</h5>
-                      <table className="example-table">
-                        <thead>
-                          <tr>
-                            <th>Course Code</th>
-                            <th>Course Name</th>
-                            <th>Credits</th>
-                            <th>Duration</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>CSC101</td>
-                            <td>Introduction to Programming</td>
-                            <td>3</td>
-                            <td>2</td>
-                          </tr>
-                          <tr>
-                            <td>MTH201</td>
-                            <td>Calculus II</td>
-                            <td>4</td>
-                            <td>3</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      <div className="table-header">
+                        <h5>Courses Sheet</h5>
+                        <button 
+                          className="view-image-btn"
+                          onClick={() => handleImageClick('Columns For Courses Sheet.png')}
+                        >
+                          📷 View Image Example
+                        </button>
+                      </div>
+                      <div className="table-wrapper">
+                        <table className="example-table">
+                          <thead>
+                            <tr>
+                              <th>Course Code</th>
+                              <th>Course Name</th>
+                              <th>Course Type</th>
+                              <th>Credit Units</th>
+                              <th>Classroom Type</th>
+                              <th>Assigned Lecturer Emails</th>
+                              <th>Student Group 1</th>
+                              <th>Student Group 2</th>
+                              <th>Student Group 3</th>
+                              <th>Student Group 4</th>
+                              <th>Department</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>CSC101</td>
+                              <td>Introduction to Programming</td>
+                              <td>Lecture</td>
+                              <td>3</td>
+                              <td>Computer Lab</td>
+                              <td>prof.smith@pau.edu.ng</td>
+                              <td>CSC 100</td>
+                              <td>SEN 100</td>
+                              <td></td>
+                              <td></td>
+                              <td>Computer Science</td>
+                            </tr>
+                            <tr>
+                              <td>MTH201</td>
+                              <td>Calculus II</td>
+                              <td>Lecture</td>
+                              <td>4</td>
+                              <td>Lecture Hall</td>
+                              <td>dr.johnson@pau.edu.ng/prof.adams@pau.edu.ng</td>
+                              <td>CSC 200 - 1</td>
+                              <td>CSC 200 - 2</td>
+                              <td>SEN 200</td>
+                              <td></td>
+                              <td>Mathematics</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                     
                     <div className="format-table">
-                      <h5>Faculty Sheet</h5>
-                      <table className="example-table">
-                        <thead>
-                          <tr>
-                            <th>Faculty ID</th>
-                            <th>Faculty Name</th>
-                            <th>Department</th>
-                            <th>Available Days</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>F001</td>
-                            <td>Dr. Smith</td>
-                            <td>Computer Science</td>
-                            <td>Mon,Tue,Wed,Thu,Fri</td>
-                          </tr>
-                          <tr>
-                            <td>F002</td>
-                            <td>Prof. Johnson</td>
-                            <td>Mathematics</td>
-                            <td>Mon,Wed,Fri</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      <div className="table-header">
+                        <h5>Lecturers Sheet</h5>
+                        <button 
+                          className="view-image-btn"
+                          onClick={() => handleImageClick('Columns For Lecturer Sheet.png')}
+                        >
+                          📷 View Image Example
+                        </button>
+                      </div>
+                      <div className="table-wrapper">
+                        <table className="example-table">
+                          <thead>
+                            <tr>
+                              <th>Lecturer Email</th>
+                              <th>Lecturer Name</th>
+                              <th>Department</th>
+                              <th>Status</th>
+                              <th>Available Days</th>
+                              <th>Available Times</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>F001</td>
+                              <td>Dr. Smith</td>
+                              <td>Computer Science</td>
+                              <td>Full-Time</td>
+                              <td>Mon,Tue,Wed,Thu,Fri</td>
+                              <td>9:00-17:00</td>
+                            </tr>
+                            <tr>
+                              <td>F002</td>
+                              <td>Prof. Johnson</td>
+                              <td>Mathematics</td>
+                              <td>Adjunct</td>
+                              <td>Mon,Wed,Fri</td>
+                              <td>10:00-15:00</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                     
                     <div className="format-table">
-                      <h5>Student Groups Sheet</h5>
-                      <table className="example-table">
-                        <thead>
-                          <tr>
-                            <th>Group ID</th>
-                            <th>Group Name</th>
-                            <th>Year</th>
-                            <th>Semester</th>
-                            <th>Size</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>G001</td>
-                            <td>CS Year 1 Group A</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>30</td>
-                          </tr>
-                          <tr>
-                            <td>G002</td>
-                            <td>Math Year 2 Group B</td>
-                            <td>2</td>
-                            <td>1</td>
-                            <td>25</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      <div className="table-header">
+                        <h5>Student Groups Sheet</h5>
+                        <button 
+                          className="view-image-btn"
+                          onClick={() => handleImageClick('Columns For Student Groups Sheet.png')}
+                        >
+                          📷 View Image Example
+                        </button>
+                      </div>
+                      <div className="table-wrapper">
+                        <table className="example-table">
+                          <thead>
+                            <tr>
+                              <th>Group ID</th>
+                              <th>Group Name</th>
+                              <th>Year</th>
+                              <th>Semester</th>
+                              <th>Size</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>G001</td>
+                              <td>CS Year 1 Group A</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td>30</td>
+                            </tr>
+                            <tr>
+                              <td>G002</td>
+                              <td>Math Year 2 Group B</td>
+                              <td>2</td>
+                              <td>1</td>
+                              <td>25</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                     
                     <div className="format-table">
-                      <h5>Rooms Sheet</h5>
-                      <table className="example-table">
-                        <thead>
-                          <tr>
-                            <th>Room ID</th>
-                            <th>Room Name</th>
-                            <th>Capacity</th>
-                            <th>Type</th>
-                            <th>Equipment</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>R001</td>
-                            <td>Lecture Hall A</td>
-                            <td>50</td>
-                            <td>Lecture</td>
-                            <td>Projector,Audio</td>
-                          </tr>
-                          <tr>
-                            <td>R002</td>
-                            <td>Computer Lab 1</td>
-                            <td>30</td>
-                            <td>Lab</td>
-                            <td>Computers,Projector</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      <div className="table-header">
+                        <h5>Classrooms Sheet</h5>
+                        <button 
+                          className="view-image-btn"
+                          onClick={() => handleImageClick('Columns For Classroom Sheet.png')}
+                        >
+                          📷 View Image Example
+                        </button>
+                      </div>
+                      <div className="table-wrapper">
+                        <table className="example-table">
+                          <thead>
+                            <tr>
+                              <th>Room ID</th>
+                              <th>Room Name</th>
+                              <th>Capacity</th>
+                              <th>Type</th>
+                              <th>Equipment</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>R001</td>
+                              <td>Lecture Hall A</td>
+                              <td>50</td>
+                              <td>Lecture</td>
+                              <td>Projector,Audio</td>
+                            </tr>
+                            <tr>
+                              <td>R002</td>
+                              <td>Computer Lab 1</td>
+                              <td>30</td>
+                              <td>Lab</td>
+                              <td>Computers,Projector</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
+                  </div>
+                  
+                  <div className="sheets-overview">
+                    <div className="sheets-overview-header">
+                      <h5>Required Sheets Overview</h5>
+                      <button 
+                        className="view-image-btn"
+                        onClick={() => handleImageClick('Sheets Required.png')}
+                      >
+                        📷 View Sheets Overview
+                      </button>
+                    </div>
+                    <p>Click the button above to see how all four required sheets should appear in your Excel workbook.</p>
                   </div>
                 </div>
 
@@ -292,17 +396,66 @@ const InstructionsModal = ({ isOpen, onClose }) => {
                   <h4>⚠️ Important Notes</h4>
                   <ul>
                     <li><strong>Column names must match exactly</strong> - case sensitive</li>
-                    <li><strong>Sheet names must be exactly:</strong> "Courses", "Faculty", "Student Groups", "Rooms"</li>
+                    <li><strong>Sheet names must be exactly:</strong> "Courses", "Lecturers", "Student Groups", "Classrooms"</li>
                     <li><strong>File format:</strong> .xlsx only (not .xls or .csv)</li>
                     <li><strong>No empty rows</strong> between headers and data</li>
                     <li><strong>UTF-8 encoding</strong> recommended for special characters</li>
                   </ul>
+                  
+                  <div className="format-specifics">
+                    <h5>📋 Format-Specific Requirements</h5>
+                    
+                    <div className="format-requirement">
+                      <h6>Courses Sheet:</h6>
+                      <ul>
+                        <li><strong>Assigned Lecturer Emails:</strong> For multiple lecturers, use "/" or "," to separate emails</li>
+                        <li>Example: "prof1@pau.edu.ng/prof2@pau.edu.ng" or "prof1@pau.edu.ng,prof2@pau.edu.ng"</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="format-requirement">
+                      <h6>Lecturers Sheet:</h6>
+                      <ul>
+                        <li><strong>Employment Type:</strong> Must be exactly "Full-Time" or "Adjunct" (case-sensitive)</li>
+                        <li><strong>Available Days:</strong> Use format "Mon,Tue,Wed,Thu,Fri" (comma-separated, no spaces)</li>
+                        <li><strong>Available Times:</strong> Follow exact time format as shown in image (e.g., "8:00 AM - 5:00 PM")</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="format-requirement">
+                      <h6>General:</h6>
+                      <ul>
+                        <li><strong>All text values</strong> must match the exact format and case shown in examples</li>
+                        <li><strong>Time formats</strong> must follow the convention shown in the image examples</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
           </div>
         </div>
       </div>
+
+      {/* Image Expansion Modal */}
+      {expandedImage && (
+        <div className="image-modal" onClick={() => setExpandedImage(null)}>
+          <div className="image-modal-content">
+            <button 
+              className="image-close-btn" 
+              onClick={() => setExpandedImage(null)}
+              aria-label="Close image"
+            >
+              ×
+            </button>
+            <img 
+              src={`/images/${expandedImage}`} 
+              alt={`Excel format example: ${expandedImage}`}
+              className="expanded-image"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

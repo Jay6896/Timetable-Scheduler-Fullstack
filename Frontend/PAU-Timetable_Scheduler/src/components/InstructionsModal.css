@@ -33,7 +33,7 @@
 .modal-content {
   background: white;
   border-radius: 16px;
-  max-width: 900px;
+  max-width: 1400px;
   width: 100%;
   max-height: 85vh;
   display: flex;
@@ -303,8 +303,31 @@
 .sheet-item p {
   color: #64748b;
   font-size: 0.9rem;
-  margin: 0;
+  margin: 0 0 0.5rem 0;
   line-height: 1.5;
+}
+
+.format-details {
+  background: #fef3c7;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border-left: 4px solid #f59e0b;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.format-details strong {
+  color: #d97706;
+}
+
+.format-details ul {
+  margin: 0.5rem 0 0 1rem;
+  padding: 0;
+}
+
+.format-details li {
+  margin-bottom: 0.25rem;
+  color: #92400e;
 }
 
 /* Format Examples */
@@ -339,38 +362,116 @@
   padding: 1.5rem;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .format-table h5 {
   color: #1e40af;
   font-size: 1rem;
   font-weight: 700;
-  margin: 0 0 1rem 0;
+  margin: 0;
+}
+
+.view-image-btn {
+  background: linear-gradient(135deg, #7c3aed, #5b21b6);
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(124, 58, 237, 0.3);
+}
+
+.view-image-btn:hover {
+  background: linear-gradient(135deg, #5b21b6, #4c1d95);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(124, 58, 237, 0.4);
+}
+
+.sheets-overview {
+  background: #f0f9ff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #0ea5e9;
+  margin-top: 1.5rem;
+}
+
+.sheets-overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sheets-overview h5 {
+  color: #0369a1;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.sheets-overview p {
+  color: #0f172a;
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 .example-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   background: white;
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  table-layout: auto;
+  min-width: 800px;
 }
 
 .example-table th {
   background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   color: white;
-  padding: 0.75rem 0.5rem;
+  padding: 0.6rem 0.3rem;
   text-align: left;
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  min-width: 80px;
 }
 
 .example-table td {
-  padding: 0.5rem;
+  padding: 0.4rem 0.3rem;
   border-bottom: 1px solid #e2e8f0;
   color: #374151;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  min-width: 80px;
 }
 
 .example-table tbody tr:hover {
@@ -414,6 +515,55 @@
 }
 
 .important-notes li:last-child {
+  margin-bottom: 0;
+}
+
+.format-specifics {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #fbbf24;
+}
+
+.format-specifics h5 {
+  color: #d97706;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.format-requirement {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #3b82f6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.format-requirement:last-child {
+  margin-bottom: 0;
+}
+
+.format-requirement h6 {
+  color: #1e40af;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.format-requirement ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.format-requirement li {
+  color: #374151;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+}
+
+.format-requirement li:last-child {
   margin-bottom: 0;
 }
 
@@ -568,14 +718,66 @@
   margin: 0;
 }
 
+/* Image Expansion Modal */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+  padding: 2rem;
+}
+
+.image-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.image-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 1002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-close-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.expanded-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .modal-content {
-    max-width: 800px;
-  }
-  
-  .format-images {
-    grid-template-columns: repeat(2, 1fr);
+    max-width: 1200px;
   }
 }
 
@@ -631,13 +833,31 @@
     margin-bottom: 1.5rem;
   }
   
-  .format-images {
-    grid-template-columns: 1fr;
+  .example-table {
+    font-size: 0.7rem;
+    min-width: 600px;
+  }
+  
+  .example-table th,
+  .example-table td {
+    padding: 0.4rem 0.2rem;
+    font-size: 0.65rem;
+  }
+  
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.75rem;
   }
   
-  .format-image img {
-    height: 100px;
+  .view-image-btn {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.5rem;
+  }
+  
+  .sheets-overview-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -679,12 +899,24 @@
   }
   
   .example-table {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+    min-width: 500px;
   }
   
   .example-table th,
   .example-table td {
-    padding: 0.375rem 0.2rem;
+    padding: 0.3rem 0.15rem;
+    font-size: 0.6rem;
+  }
+  
+  .image-modal {
+    padding: 1rem;
+  }
+  
+  .image-close-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
   }
 }
 
