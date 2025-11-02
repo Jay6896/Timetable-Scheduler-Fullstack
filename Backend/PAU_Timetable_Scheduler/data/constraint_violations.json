@@ -1,0 +1,16 @@
+{
+  "room_constraints": 161.5,
+  "student_group_constraints": 80,
+  "lecturer_availability": 56,
+  "room_time_conflict": 0,
+  "building_assignments": 47.0,
+  "same_course_same_room_per_day": 32,
+  "break_time_constraint": 0,
+  "course_allocation_completeness": 214,
+  "lecturer_schedule_constraints": 370,
+  "lecturer_workload_constraints": 180,
+  "single_event_per_day": 26.800000000000246,
+  "consecutive_timeslots": 3.5200000000000022,
+  "spread_events": 0.05,
+  "total": 1170.8700000000003
+}

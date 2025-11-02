@@ -64,6 +64,22 @@ def _load_saved_timetable():
     return [], []
 
 
+def _load_constraint_details():
+    """Load constraint details produced by the backend optimizer if available."""
+    try:
+        data_dir = os.path.join(os.path.dirname(__file__), 'data')
+        # Backend persists violations here
+        path = os.path.join(data_dir, 'constraint_violations.json')
+        if os.path.exists(path):
+            with open(path, 'r', encoding='utf-8') as f:
+                details = json.load(f)
+            if isinstance(details, dict):
+                return details
+    except Exception:
+        pass
+    return {}
+
+
 def _extract_room(cell_content):
     if not cell_content or str(cell_content).strip().upper() in ("FREE", "BREAK"):
         return None
@@ -278,6 +294,32 @@ def create_errors_modal_content(constraint_details, expanded_constraint=None, to
             create_errors_modal_content.expanded_states.add(toggle_constraint)
     if expanded_constraint:
         create_errors_modal_content.expanded_states.add(expanded_constraint)
+
+    # Inject OG summary block if provided under _og_summary
+    content = []
+    try:
+        if isinstance(constraint_details, dict) and isinstance(constraint_details.get('_og_summary'), dict):
+            og = constraint_details['_og_summary']
+            rows = []
+            for k in sorted(og.keys(), key=lambda x: (x != 'total', x)):
+                v = og[k]
+                try:
+                    v_str = (f"{int(v)}" if isinstance(v, (int,)) else f"{float(v):.2f}" if isinstance(v, float) else str(v))
+                except Exception:
+                    v_str = str(v)
+                rows.append(html.Div([html.Span(str(k).replace('_',' ').title()), html.Span(v_str)], style={"display":"flex","justifyContent":"space-between","padding":"6px 10px","borderBottom":"1px solid #f0f0f0"}))
+            header = html.Div([
+                html.Span('Overall Constraint Summary', style={"flex":"1"}),
+                html.Span('▼', className='constraint-arrow')
+            ], className='constraint-header active', id={"type":"constraint-header","index":"Overall Constraint Summary"}, n_clicks=0)
+            content.append(html.Div([
+                header,
+                html.Div(rows, className='constraint-details expanded', id={"type":"constraint-details","index":"Overall Constraint Summary"})
+            ], className='constraint-dropdown'))
+    except Exception:
+        pass
+
+    # Existing mapped sections
     mapping = {
         'Same Student Group Overlaps': 'Same Student Group Overlaps',
         'Different Student Group Overlaps': 'Different Student Group Overlaps',
@@ -290,7 +332,7 @@ def create_errors_modal_content(constraint_details, expanded_constraint=None, to
         'Room Capacity/Type Conflicts': 'Room Capacity/Type Conflicts',
         'Classes During Break Time': 'Classes During Break Time'
     }
-    content = []
+
     for display_name, internal_name in mapping.items():
         items = constraint_details.get(internal_name, []) if isinstance(constraint_details, dict) else []
         count = len(items)
@@ -315,13 +357,49 @@ def create_errors_modal_content(constraint_details, expanded_constraint=None, to
                     else:
                         details_content.append(html.Div(f"Lecturer '{v.get('lecturer','?')}' has clashing courses {', '.join(v.get('courses',[]))} on {v.get('location','?')}", className="constraint-item"))
                 else:
-                    details_content.append(html.Div(json.dumps(v), className="constraint-item"))
+                    try:
+                        details_content.append(html.Div(json.dumps(v), className="constraint-item"))
+                    except Exception:
+                        details_content.append(html.Div(str(v), className="constraint-item"))
         else:
             details_content.append(html.Div("No violations found.", className="constraint-item", style={"color": "#28a745", "fontStyle": "italic"}))
         content.append(html.Div([
             header,
             html.Div(details_content, className=f"constraint-details{' expanded' if is_expanded else ''}", id={"type": "constraint-details", "index": display_name})
         ], className="constraint-dropdown"))
+
+    # Include any additional keys from backend we don't explicitly map, excluding _og_summary
+    try:
+        if isinstance(constraint_details, dict):
+            extra_keys = [k for k in constraint_details.keys() if k not in mapping and k != '_og_summary']
+            for k in extra_keys:
+                items = constraint_details.get(k, [])
+                # If it's a scalar (like numeric), render as one row with the value
+                if not isinstance(items, (list, tuple)):
+                    items = [items]
+                count = len(items)
+                is_expanded = k in getattr(create_errors_modal_content, 'expanded_states', set())
+                header = html.Div([
+                    html.Span(str(k).replace('_',' ').title(), style={"flex": "1"}),
+                    html.Span(f"{count} Item{'s' if count != 1 else ''}", className=("constraint-count zero" if count == 0 else "constraint-count non-zero")),
+                    html.Span("^", className=f"constraint-arrow{' rotated' if is_expanded else ''}")
+                ], className=f"constraint-header{' active' if is_expanded else ''}", id={"type": "constraint-header", "index": k}, n_clicks=0)
+                details_content = []
+                if items:
+                    for v in items:
+                        try:
+                            details_content.append(html.Div(json.dumps(v), className="constraint-item"))
+                        except Exception:
+                            details_content.append(html.Div(str(v), className="constraint-item"))
+                else:
+                    details_content.append(html.Div("No data.", className="constraint-item", style={"color": "#28a745", "fontStyle": "italic"}))
+                content.append(html.Div([
+                    header,
+                    html.Div(details_content, className=f"constraint-details{' expanded' if is_expanded else ''}", id={"type": "constraint-details", "index": k})
+                ], className="constraint-dropdown"))
+    except Exception:
+        pass
+
     return content
 
 
@@ -332,10 +410,20 @@ def create_app(_ctx: dict | None = None):
     # global-like state for this app instance
     session_state = {'has_swaps': False}
 
-    # compute initial constraints like OG (simplified)
-    initial_constraints = recompute_constraint_violations_simplified(timetables, rooms_data) or {}
+    # Load backend OG summary counts and compute simplified per-cell violations
+    backend_summary = _load_constraint_details()  # numeric counts
+    simplified = recompute_constraint_violations_simplified(timetables, rooms_data) or {}
+    # Merge: keep detailed lists, and tuck OG summary under a dedicated key
+    initial_constraints = dict(simplified)
+    if isinstance(backend_summary, dict) and backend_summary:
+        initial_constraints['_og_summary'] = backend_summary
 
-    app = dash.Dash(__name__)
+    # IMPORTANT: No path prefixes here; app is mounted under /interactive by the parent Flask app
+    app = dash.Dash(
+        __name__,
+        assets_url_path="/assets",
+        suppress_callback_exceptions=True,
+    )
 
     # Use OG index_string CSS
     app.index_string = '''
@@ -482,10 +570,14 @@ def create_app(_ctx: dict | None = None):
         dcc.Store(id='rooms-data-store', data=rooms_data),
         dcc.Store(id='original-timetables-store', data=[json.loads(json.dumps(t)) for t in timetables]),
         dcc.Store(id='constraint-details-store', data=initial_constraints),
+        # Added missing source store to satisfy clientside logging callback inputs
+        dcc.Store(id='constraint-source-store', data='initial'),
         dcc.Store(id='swap-data', data=None),
         dcc.Store(id='room-change-data', data=None),
         dcc.Store(id='missing-class-data', data=None),
         dcc.Store(id='manual-cells-store', data=manual_cells or []),
+        # hidden sink for console logging
+        html.Div(id='console-log-sink', style={'display': 'none'}),
 
         html.Div(id='trigger', style={'display': 'none'}),
         html.Div(id='timetable-container'),
@@ -498,7 +590,7 @@ def create_app(_ctx: dict | None = None):
                 dcc.Input(id='room-search-input', type='text', placeholder='Search classrooms...', className='room-search'),
                 html.Div(id='room-options-container', className='room-options'),
                 html.Div([
-                    html.Button('Cancel', id='room-cancel-btn', style={"backgroundColor": "#f5f5f5", "color": "#666", "padding": "8px 16px", "border": "1px solid #ddd", "borderRadius": "5px", "marginRight": "10px", "cursor": "pointer"}),
+                    html.Button('Cancel', id='room-cancel-btn', style={"backgroundColor": "#f5f5f5", "color": "#666", "padding": "8px 16px", "border": "1px solid #ddd", "borderRadius": "5px", "cursor": "pointer"}),
                     html.Button('DELETE SCHEDULE', id='room-delete-btn', style={"backgroundColor": "#dc3545", "color": "white", "padding": "8px 16px", "border": "none", "borderRadius": "5px", "cursor": "pointer", "marginRight": "10px", "fontWeight": "600", "display": "none"}),
                     html.Button('Confirm', id='room-confirm-btn', style={"backgroundColor": "#11214D", "color": "white", "padding": "8px 16px", "border": "none", "borderRadius": "5px", "cursor": "pointer"})
                 ], style={"textAlign": "right", "marginTop": "20px", "paddingTop": "15px", "borderTop": "1px solid #f0f0f0"})
@@ -593,7 +685,7 @@ def create_app(_ctx: dict | None = None):
                                 html.Span('Break time - Classes cannot be scheduled')
                             ], className='color-item'),
                             html.Div([
-                                html.Div(className='color-box room-conflict'),
+                                html.Div(className='color-box.room-conflict'),
                                 html.Span('Room conflict - Same classroom used by multiple groups')
                             ], className='color-item'),
                             html.Div([
@@ -624,9 +716,9 @@ def create_app(_ctx: dict | None = None):
     @app.callback(
         [Output('timetable-container', 'children'), Output('trigger', 'children')],
         [Input('student-group-dropdown', 'value')],
-        [State('all-timetables-store', 'data'), State('manual-cells-store', 'data')]
+        [State('all-timetables-store', 'data'), State('manual-cells-store', 'data'), State('constraint-details-store', 'data')]
     )
-    def create_timetable(selected_group_idx, all_timetables_data, manual_cells_state):
+    def create_timetable(selected_group_idx, all_timetables_data, manual_cells_state, constraint_details):
         if selected_group_idx is None or not all_timetables_data:
             return html.Div('No data available'), 'trigger'
         if selected_group_idx >= len(all_timetables_data):
@@ -634,6 +726,83 @@ def create_app(_ctx: dict | None = None):
         tdata = all_timetables_data[selected_group_idx]
         name = tdata['student_group']['name'] if isinstance(tdata['student_group'], dict) else getattr(tdata['student_group'], 'name', str(tdata['student_group']))
         rows = tdata['timetable']
+        # Build overlay conflicts from constraints (day/time -> row/col)
+        overlay = {}
+        try:
+            day_map = {'Mon':0,'Tue':1,'Wed':2,'Thu':3,'Fri':4,'Monday':0,'Tuesday':1,'Wednesday':2,'Thursday':3,'Friday':4}
+            def add_overlay(day_idx, time_label, typ):
+                try:
+                    # Expect time_label like '9:00' or '09:00'
+                    hour = None
+                    if isinstance(time_label, str) and ':' in time_label:
+                        hour = int(time_label.split(':')[0])
+                    elif isinstance(time_label, (int, float)):
+                        hour = int(time_label)
+                    if hour is None:
+                        return
+                    r = hour - 9
+                    if 0 <= r < len(rows) and 0 <= int(day_idx) <= 4:
+                        key = f"{r}_{int(day_idx)}"
+                        if key not in overlay:
+                            overlay[key] = typ
+                        else:
+                            if overlay[key] != typ:
+                                overlay[key] = 'both'
+                except Exception:
+                    return
+            if isinstance(constraint_details, dict):
+                for v in constraint_details.get('Different Student Group Overlaps', []) or []:
+                    if isinstance(v, dict):
+                        d = v.get('day', None)
+                        t = v.get('time', None)
+                        # Fallback: parse from 'location' like "Mon at 9:00"
+                        if (d is None or t is None) and isinstance(v.get('location'), str):
+                            try:
+                                loc = v.get('location')
+                                # extract day word and hour
+                                varr = loc.replace(' at ', ' ').replace(',', ' ').split()
+                                # find first day-like token and first token with ':'
+                                dd = None; tt = None
+                                for token in varr:
+                                    if token[:3] in ['Mon','Tue','Wed','Thu','Fri','Sat','Sun','Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fri.']:
+                                        dd = token[:3]
+                                    if ':' in token:
+                                        tt = token
+                                if dd and not d:
+                                    d = dd
+                                if tt and not t:
+                                    t = tt
+                            except Exception:
+                                pass
+                        if isinstance(d, str):
+                            d = day_map.get(d, None)
+                        add_overlay(d, t, 'room')
+                for v in constraint_details.get('Lecturer Clashes', []) or []:
+                    if isinstance(v, dict):
+                        d = v.get('day', None)
+                        t = v.get('time', None)
+                        if (d is None or t is None) and isinstance(v.get('location'), str):
+                            try:
+                                loc = v.get('location')
+                                varr = loc.replace(' at ', ' ').replace(',', ' ').split()
+                                dd = None; tt = None
+                                for token in varr:
+                                    if token[:3] in ['Mon','Tue','Wed','Thu','Fri','Sat','Sun','Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fri.']:
+                                        dd = token[:3]
+                                    if ':' in token:
+                                        tt = token
+                                if dd and not d:
+                                    d = dd
+                                if tt and not t:
+                                    t = tt
+                            except Exception:
+                                pass
+                        if isinstance(d, str):
+                            d = day_map.get(d, None)
+                        add_overlay(d, t, 'lecturer')
+        except Exception:
+            overlay = {}
+        # Runtime detection across groups
         conflicts = _detect_conflicts(all_timetables_data, selected_group_idx)
         header_cells = [html.Th('Time', style={"backgroundColor": "#11214D", "color": "white", "padding": "12px 10px", "fontWeight": "600", "fontSize": "13px", "textAlign": "center", "border": "1px solid #0d1a3d"})]
         for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]:
@@ -648,6 +817,12 @@ def create_app(_ctx: dict | None = None):
                 is_break = text_upper == 'BREAK'
                 key = f"{r}_{c-1}"
                 ctype = conflicts.get(key, {}).get('type', 'none') if key in conflicts else 'none'
+                # overlay from constraints file
+                if key in overlay:
+                    if ctype == 'none':
+                        ctype = overlay[key]
+                    elif ctype != overlay[key]:
+                        ctype = 'both'
                 manual_key = f"{selected_group_idx}_{r}_{c-1}"
                 is_manual = bool(manual_cells_state) and manual_key in (manual_cells_state or [])
                 if is_break:
@@ -687,14 +862,14 @@ def create_app(_ctx: dict | None = None):
     @app.callback(
         Output('timetable-container', 'children', allow_duplicate=True),
         Input('all-timetables-store', 'data'),
-        [State('student-group-dropdown', 'value'), State('manual-cells-store', 'data')],
+        [State('student-group-dropdown', 'value'), State('manual-cells-store', 'data'), State('constraint-details-store', 'data')],
         prevent_initial_call=True
     )
-    def update_timetable_content(all_timetables_data, selected_group_idx, manual_cells_state):
+    def update_timetable_content(all_timetables_data, selected_group_idx, manual_cells_state, constraint_details):
         if selected_group_idx is None or not all_timetables_data or selected_group_idx >= len(all_timetables_data):
             raise dash.exceptions.PreventUpdate
         # reuse create_timetable body to render container only
-        children, _ = create_timetable(selected_group_idx, all_timetables_data, manual_cells_state)
+        children, _ = create_timetable(selected_group_idx, all_timetables_data, manual_cells_state, constraint_details)
         return children
 
     # Navigation arrows
@@ -840,6 +1015,7 @@ def create_app(_ctx: dict | None = None):
         updated_manual = manual_cells_state.copy() if manual_cells_state else []
         trigger_id = ctx.triggered[0]['prop_id'].split('.')[0]
         # Delete manual
+       
         if trigger_id == 'room-delete-btn' and delete_clicks:
             if not room_change_data:
                 return dash.no_update, dash.no_update, dash.no_update, dash.no_update
@@ -933,6 +1109,12 @@ def create_app(_ctx: dict | None = None):
         if not session_state['has_swaps']:
             return dash.no_update
         updated = recompute_constraint_violations_simplified(timetables_data, rooms)
+        # Log to server console for verification
+        try:
+            print("[Dash_UI] Updated constraint details:")
+            print(json.dumps(updated or {}, indent=2))
+        except Exception:
+            pass
         return updated or current_constraints
 
     # Errors modal open/close and content
@@ -953,6 +1135,20 @@ def create_app(_ctx: dict | None = None):
         if trigger_id in ['errors-modal-close-btn', 'errors-close-btn', 'errors-modal-overlay']:
             return {"display": "none"}, {"display": "none"}, []
         raise dash.exceptions.PreventUpdate
+
+    # Log full constraints to browser console whenever they change
+    clientside_callback(
+        """
+        function(data, source){
+            try { console.log('[Dash] Constraint source:', source); } catch(e){}
+            try { console.log('[Dash] Constraint violations:', data); } catch(e){}
+            return '';
+        }
+        """,
+        Output('console-log-sink', 'children'),
+        [Input('constraint-details-store', 'data'), Input('constraint-source-store', 'data')],
+        prevent_initial_call=False
+    )
 
     # Toggle constraint dropdown
     @app.callback(
@@ -982,7 +1178,13 @@ def create_app(_ctx: dict | None = None):
         if not isinstance(constraint_details, dict):
             return '0'
         hard = ['Same Student Group Overlaps','Different Student Group Overlaps','Lecturer Clashes','Lecturer Schedule Conflicts (Day/Time)','Lecturer Workload Violations','Consecutive Slot Violations','Missing or Extra Classes','Same Course in Multiple Rooms on Same Day','Room Capacity/Type Conflicts','Classes During Break Time']
-        n = sum(len(constraint_details.get(k, [])) for k in hard)
+        n = sum(len(constraint_details.get(k, [])) for k in hard if isinstance(constraint_details.get(k), list))
+        if n == 0:
+            # Fallback: sum all list-like entries
+            try:
+                n = sum(len(v) for v in constraint_details.values() if isinstance(v, list))
+            except Exception:
+                n = 0
         return str(n)
 
     # Missing classes modal open/populate (basic placeholder using constraints store)
@@ -1187,8 +1389,8 @@ def create_app(_ctx: dict | None = None):
 
     clientside_callback(
         """
-        function(n){ if(n){ const m=document.getElementById('room-selection-modal'); const o=document.getElementById('modal-overlay'); if(m&&o){ m.style.display='none'; o.style.display='none'; } const fb=document.getElementById('feedback'); if(fb){ fb.innerHTML='✅ Classroom updated successfully'; fb.style.color='green'; fb.style.backgroundColor='#e8f5e8'; fb.style.padding='10px'; fb.style.borderRadius='5px'; fb.style.border='2px solid #4caf50'; } } return window.dash_clientside.no_update;
-        }""",
+        function(n){ if(n){ const m=document.getElementById('room-selection-modal'); const o=document.getElementById('modal-overlay'); if(m&&o){ m.style.display='none'; o.style.display='none'; } const fb=document.getElementById('feedback'); if(fb){ fb.innerHTML='✅ Classroom updated successfully'; fb.style.color='green'; fb.style.backgroundColor='#e8f5e8'; fb.style.padding='10px'; fb.style.borderRadius='5px'; fb.style.border='2px solid #4caf50'; } } return window.dash_clientside.no_update; }
+        """,
         Output('room-confirm-btn', 'style'),
         Input('room-confirm-btn', 'n_clicks'),
         prevent_initial_call=True

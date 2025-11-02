@@ -485,6 +485,32 @@ class TimetableProcessor:
             },
         }
 
+        # Persist violations separately for Dash UI and print a concise summary to console
+        try:
+            dash_data_dir = os.path.join(os.path.dirname(__file__), 'data')
+            os.makedirs(dash_data_dir, exist_ok=True)
+            violations_path = os.path.join(dash_data_dir, 'constraint_violations.json')
+            with open(violations_path, 'w', encoding='utf-8') as vf:
+                import json as _json
+                _json.dump(result.get('constraint_violations', {}), vf, indent=2, ensure_ascii=False)
+            # Print a compact summary
+            try:
+                v = result.get('constraint_violations') or {}
+                if isinstance(v, dict):
+                    print("[VIOLATIONS] Summary:")
+                    for k, val in v.items():
+                        try:
+                            count = len(val) if isinstance(val, list) else (int(val) if isinstance(val, (int, float)) else 1)
+                        except Exception:
+                            count = 0
+                        print(f"  - {k}: {count}")
+                else:
+                    print("[VIOLATIONS] No violations dict available")
+            except Exception as _log_err:
+                print(f"[VIOLATIONS] Warning: could not print summary: {_log_err}")
+        except Exception as dash_save_error:
+            print(f"[{job_id}] WARNING: Could not save constraint violations for Dash UI. Error: {dash_save_error}")
+
         try:
             dash_data_dir = os.path.join(os.path.dirname(__file__), 'data')
             os.makedirs(dash_data_dir, exist_ok=True)
@@ -1036,26 +1062,20 @@ def index():
     return jsonify({'status': 'ok', 'message': 'Timetable Generator API is running.'}), 200
 
 # Ensure Dash knows it is mounted under /interactive so it generates correct asset URLs
+# IMPORTANT: Since we mount Dash via DispatcherMiddleware at '/interactive', do NOT set
+# requests_pathname_prefix or routes_pathname_prefix here. Dash will respect SCRIPT_NAME
+# from the WSGI mount and generate correct asset URLs automatically.
 try:
-    dash_app.config.requests_pathname_prefix = '/interactive/'
-    dash_app.config.routes_pathname_prefix = '/interactive/'
-    # Also try to ensure assets resolve under the prefix (older Dash versions)
-    if hasattr(dash_app, 'assets_url_path'):
-        dash_app.assets_url_path = '/interactive/assets'
-    # Safety flags
     if hasattr(dash_app, 'config'):
         dash_app.config.suppress_callback_exceptions = True
 except Exception as e:
-    print(f"Warning: Could not set Dash path prefixes: {e}")
+    print(f"Warning: Could not adjust Dash config: {e}")
 
-# Mount Dash UI under /interactive with compatibility for multiple Dash versions
-# Prefer init_app when available; otherwise fall back to DispatcherMiddleware
+# Mount Dash UI under /interactive using DispatcherMiddleware (most reliable across Dash versions)
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
-
-# Redirect shims in case any absolute URLs get generated without the prefix
-# This covers component bundles, layout, dependencies, favicon, update endpoint, and assets
 from flask import redirect
 
+# Redirect shims in case any absolute URLs get generated without the prefix
 @app.route('/_dash-component-suites/<path:path>')
 def dash_bundle_redirect(path):
     return redirect(f'/interactive/_dash-component-suites/{path}', code=302)
@@ -1081,94 +1101,69 @@ def dash_favicon_redirect():
 def dash_assets_redirect(path):
     return redirect(f'/interactive/assets/{path}', code=302)
 
+# Convenience redirect to ensure trailing slash
+@app.route('/interactive')
+def dash_trailing_redirect():
+    return redirect('/interactive/', code=302)
 
-dash_mounted = False
+# Unconditionally mount the Dash server under /interactive
 try:
-    if hasattr(dash_app, 'init_app'):
-        dash_app.init_app(
-            app,
-            routes_pathname_prefix='/interactive/',
-            requests_pathname_prefix='/interactive/'
-        )
-        dash_mounted = True
-        print("Dash app successfully mounted via init_app at /interactive/")
-    else:
-        raise AttributeError('Dash.init_app not available')
+    app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {'/interactive': dash_app.server})
+    print("Dash app mounted via DispatcherMiddleware at /interactive/")
 except Exception as e:
-    print(f"Warning: init_app mount failed: {e}. Trying DispatcherMiddleware...")
+    print(f"Warning: Failed to mount Dash app via DispatcherMiddleware: {e}")
+
+# If something still fails later in startup, provide a simple fallback page at /interactive
+@app.route('/interactive/', defaults={'path': ''})
+@app.route('/interactive/<path:path>')
+def interactive_fallback(path):
     try:
-        # Help Dash generate correct asset URLs when mounted under a prefix
-        try:
-            dash_app.config.routes_pathname_prefix = '/interactive/'
-            dash_app.config.requests_pathname_prefix = '/interactive/'
-            if hasattr(dash_app, 'assets_url_path'):
-                dash_app.assets_url_path = '/interactive/assets'
-        except Exception:
-            pass
-        # Mount the Dash WSGI app under /interactive
-        app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {'/interactive': dash_app.server})
-        dash_mounted = True
-        print("Dash app successfully mounted via DispatcherMiddleware at /interactive/")
-    except Exception as e2:
-        print(f"Warning: Failed to mount Dash app via DispatcherMiddleware: {e2}")
-
-# If Dash failed to mount, provide a simple fallback page so the iframe shows useful output instead of 404
-if not dash_mounted:
-    @app.route('/interactive/', defaults={'path': ''})
-    @app.route('/interactive/<path:path>')
-    def interactive_fallback(path):
-        try:
-            data_dir = os.path.join(os.path.dirname(__file__), 'data')
-            fresh_path = os.path.join(data_dir, 'fresh_timetable_data.json')
-            saved_path = os.path.join(data_dir, 'timetable_data.json')
-
-            content = None
-            title = None
-
-            # Prefer fresh results if available
-            if os.path.exists(fresh_path):
-                try:
-                    with open(fresh_path, 'r', encoding='utf-8') as f:
-                        content = f.read()
-                        title = 'Latest fresh_timetable_data.json'
-                except Exception as read_err:
-                    content = f"Error reading fresh_timetable_data.json: {read_err}"
-                    title = 'fresh_timetable_data.json (error)'
-
-            # Fallback to saved session data
-            if content is None and os.path.exists(saved_path):
-                try:
-                    with open(saved_path, 'r', encoding='utf-8') as f:
-                        content = f.read()
-                        title = 'Latest timetable_data.json'
-                except Exception as read_err:
-                    content = f"Error reading timetable_data.json: {read_err}"
-                    title = 'timetable_data.json (error)'
-
-            if content is None:
-                content = 'No fresh or saved timetable JSON found. Please generate a timetable using the API.'
-                title = 'No timetable JSON found'
-
-            html = f"""
-            <!doctype html>
-            <html>
-              <head>
-                <meta charset='utf-8'/>
-                <title>Interactive Timetable (Fallback)</title>
-                <style>body{{font-family:Arial,Helvetica,sans-serif;padding:20px}} pre{{white-space:pre-wrap;background:#f6f8fa;padding:12px;border-radius:6px;border:1px solid #e1e4e8}}</style>
-              </head>
-              <body>
-                <h2>Interactive Timetable (Fallback)</h2>
-                <p>The Dash UI failed to mount on this server. Instead you can review the most recent generated timetable data below.</p>
-                <p>If you expect the Dash UI to be available, check the backend logs for mount errors and ensure Dash is installed and compatible.</p>
-                <h3>{title}</h3>
-                <pre>{content}</pre>
-              </body>
-            </html>
-            """
-            return html, 200
-        except Exception as e:
-            return jsonify({'error': f'Fallback page error: {str(e)}'}), 500
+        # If the request is for dash internal endpoints, let the mounted app handle them (no fallback)
+        if path.startswith('_dash') or path.startswith('assets'):
+            return ('', 404)
+        data_dir = os.path.join(os.path.dirname(__file__), 'data')
+        fresh_path = os.path.join(data_dir, 'fresh_timetable_data.json')
+        saved_path = os.path.join(data_dir, 'timetable_data.json')
+        content = None
+        title = None
+        if os.path.exists(fresh_path):
+            try:
+                with open(fresh_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    title = 'Latest fresh_timetable_data.json'
+            except Exception as read_err:
+                content = f"Error reading fresh_timetable_data.json: {read_err}"
+                title = 'fresh_timetable_data.json (error)'
+        if content is None and os.path.exists(saved_path):
+            try:
+                with open(saved_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    title = 'Latest timetable_data.json'
+            except Exception as read_err:
+                content = f"Error reading timetable_data.json: {read_err}"
+                title = 'timetable_data.json (error)'
+        if content is None:
+            content = 'No fresh or saved timetable JSON found. Please generate a timetable using the API.'
+            title = 'No timetable JSON found'
+        html = f"""
+        <!doctype html>
+        <html>
+          <head>
+            <meta charset='utf-8'/>
+            <title>Interactive Timetable (Fallback)</title>
+            <style>body{{font-family:Arial,Helvetica,sans-serif;padding:20px}} pre{{white-space:pre-wrap;background:#f6f8fa;padding:12px;border-radius:6px;border:1px solid #e1e4e8}}</style>
+          </head>
+          <body>
+            <h2>Interactive Timetable (Fallback)</h2>
+            <p>The Dash UI may still be initializing. If this page persists, check backend logs.</p>
+            <h3>{title}</h3>
+            <pre>{content}</pre>
+          </body>
+        </html>
+        """
+        return html, 200
+    except Exception as e:
+        return jsonify({'error': f'Fallback page error: {str(e)}'}), 500
 
 if __name__ == '__main__':
     print("Starting Timetable Generator API...")

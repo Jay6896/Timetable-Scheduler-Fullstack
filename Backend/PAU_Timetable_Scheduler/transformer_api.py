@@ -23,6 +23,12 @@ from collections import OrderedDict
 from typing import Tuple, Union, Any, Optional, IO
 import io
 
+# Opt-in to explicit behavior to avoid silent downcasting warnings
+try:
+    pd.set_option('future.no_silent_downcasting', True)
+except Exception:
+    pass
+
 # Types accepted for file_or_path
 FileInput = Union[str, Path, bytes, bytearray, IO]
 
@@ -235,6 +241,11 @@ def transform_excel_to_json(file_or_path: FileInput) -> dict:
     for logical in REQUIRED_SHEETS:
         real_name = sheet_map[logical]
         df = pd.read_excel(xls, sheet_name=real_name, dtype=object).fillna("")
+        # Infer object dtypes explicitly to avoid future warning (no silent downcasting)
+        try:
+            df = df.infer_objects(copy=False)
+        except Exception:
+            pass
         sheets[logical] = df
 
     # Build faculty map from Lecturers sheet
