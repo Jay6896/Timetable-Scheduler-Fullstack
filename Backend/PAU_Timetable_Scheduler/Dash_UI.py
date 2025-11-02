@@ -65,20 +65,28 @@ def _load_saved_timetable():
 
 
 def _extract_room(cell_content):
-    if not cell_content or cell_content in ("FREE", "BREAK"):
+    if not cell_content or str(cell_content).strip().upper() in ("FREE", "BREAK"):
         return None
     parts = str(cell_content).split('\n')
     if len(parts) > 1 and parts[1].strip():
-        return parts[1].strip()
+        room = parts[1].strip()
+        # Normalize like OG (handle optional prefix)
+        room = room.replace('Room:', '').strip()
+        return room or None
     return None
 
 
 def _extract_course_and_faculty(cell_content):
-    if not cell_content or cell_content in ("FREE", "BREAK"):
+    if not cell_content or str(cell_content).strip().upper() in ("FREE", "BREAK"):
         return None, None
     parts = str(cell_content).split('\n')
     course = parts[0].strip() if len(parts) > 0 and parts[0].strip() else None
     faculty = parts[2].strip() if len(parts) > 2 and parts[2].strip() else None
+    # Normalize like OG (strip common prefixes and whitespace)
+    if course:
+        course = course.replace('Course:', '').strip()
+    if faculty:
+        faculty = faculty.replace('Lecturer:', '').strip()
     return course, faculty
 
 
@@ -97,25 +105,31 @@ def _detect_conflicts(all_timetables, current_group_idx):
                 rows = tdata['timetable']
                 if row_idx < len(rows) and col_idx < len(rows[row_idx]):
                     cell = rows[row_idx][col_idx]
-                    if cell and cell not in ("FREE", "BREAK"):
+                    if cell and str(cell).strip().upper() not in ("FREE", "BREAK"):
                         room = _extract_room(cell)
                         course, faculty = _extract_course_and_faculty(cell)
                         if room:
-                            room_usage.setdefault(room, []).append(g_idx)
-                        if faculty and faculty != 'Unknown':
-                            lecturer_usage.setdefault(faculty, []).append(g_idx)
+                            room_key = str(room).strip().upper()
+                            info = room_usage.setdefault(room_key, {"users": [], "display": room})
+                            info["users"].append(g_idx)
+                        if faculty and faculty.strip().upper() != 'UNKNOWN':
+                            lec_key = faculty.strip().upper()
+                            info = lecturer_usage.setdefault(lec_key, {"users": [], "display": faculty})
+                            info["users"].append(g_idx)
             # room conflicts
-            for room, users in room_usage.items():
+            for r_key, info in room_usage.items():
+                users = info.get("users", [])
                 if len(users) > 1 and current_group_idx in users:
-                    conflicts[key] = {'type': 'room', 'resource': room}
+                    conflicts[key] = {'type': 'room', 'resource': info.get("display", r_key)}
             # lecturer conflicts
-            for lec, users in lecturer_usage.items():
+            for l_key, info in lecturer_usage.items():
+                users = info.get("users", [])
                 if len(users) > 1 and current_group_idx in users:
                     if key in conflicts:
                         conflicts[key]['type'] = 'both'
-                        conflicts[key]['lecturer'] = lec
+                        conflicts[key]['lecturer'] = info.get("display", l_key)
                     else:
-                        conflicts[key] = {'type': 'lecturer', 'resource': lec}
+                        conflicts[key] = {'type': 'lecturer', 'resource': info.get("display", l_key)}
     return conflicts
 
 
@@ -323,7 +337,7 @@ def create_app(_ctx: dict | None = None):
 
     app = dash.Dash(__name__)
 
-    # Use the OG index_string CSS closely
+    # Use OG index_string CSS
     app.index_string = '''
 <!DOCTYPE html>
 <html>
@@ -334,23 +348,69 @@ def create_app(_ctx: dict | None = None):
         {%css%}
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <style>
-            * { font-family: 'Poppins', sans-serif; }
-            .cell { padding: 12px 10px; border: 1px solid #e0e0e0; border-radius: 3px; cursor: grab; min-height: 45px; display: flex; align-items: center; justify-content: center; font-weight: 400; font-size: 12px; transition: all 0.2s ease; user-select: none; line-height: 1.2; text-align: center; background-color: white; white-space: pre-line; word-wrap: break-word; overflow-wrap: break-word; }
+            * {
+                font-family: 'Poppins', sans-serif;
+            }
+            .cell {
+                padding: 12px 10px;
+                border: 1px solid #e0e0e0;
+                border-radius: 3px;
+                cursor: grab;
+                min-height: 45px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 400;
+                font-size: 12px;
+                transition: all 0.2s ease;
+                user-select: none;
+                line-height: 1.2;
+                text-align: center;
+                background-color: white;
+                white-space: pre-line;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
             .cell:hover { transform: translateY(-1px); box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-color: #ccc; }
             .cell.dragging { opacity: 0.6; transform: rotate(2deg); cursor: grabbing; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
             .cell.drag-over { background-color: #fff3cd !important; border-color: #ffc107 !important; transform: scale(1.02); box-shadow: 0 2px 8px rgba(255, 193, 7, 0.6); }
             .cell.break-time { background-color: #ff5722 !important; color: white; cursor: not-allowed; font-weight: 500; }
             .cell.break-time:hover { transform: none; box-shadow: none; }
             .cell.room-conflict { background-color: #ffebee !important; color: #d32f2f !important; border-color: #f44336 !important; font-weight: 600 !important; }
+            .cell.room-conflict:hover { background-color: #ffcdd2 !important; box-shadow: 0 2px 8px rgba(244, 67, 54, 0.4); }
             .cell.lecturer-conflict { background-color: #fff0cc !important; color: #d4942f !important; border-color: #d4942f !important; font-weight: 600 !important; }
+            .cell.lecturer-conflict:hover { background-color: #fff8e8 !important; box-shadow: 0 2px 8px rgba(244, 67, 54, 0.4); }
             .cell.both-conflict { background-color: #ffdcec !important; color: #d42fa2 !important; border-color: #d42fa2 !important; font-weight: 600 !important; }
+            .cell.both-conflict:hover { background-color: #ffdcec !important; box-shadow: 0 2px 8px rgba(244, 67, 54, 0.4); }
             .cell.manual-schedule { border: 3px solid #72B7F4 !important; box-shadow: 0 0 8px rgba(33, 150, 243, 0.4) !important; background-color: #e3f2fd !important; position: relative; }
-            .room-selection-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); padding: 25px; z-index: 1000; max-width: 800px; width: 95%; max-height: 80vh; overflow-y: auto; }
+            .cell.manual-schedule:hover { box-shadow: 0 2px 12px rgba(33, 150, 243, 0.7) !important; border-color: #1976d2 !important; transform: translateY(-1px); }
+            .cell.manual-schedule.room-conflict { background-color: #ffebee !important; border: 3px solid #72B7F4 !important; box-shadow: 0 0 8px rgba(33, 150, 243, 0.5) !important; }
+            .cell.manual-schedule.lecturer-conflict { background-color: #fff0cc !important; border: 3px solid #72B7F4 !important; box-shadow: 0 0 8px rgba(33, 150, 243, 0.5) !important; }
+            .cell.manual-schedule.both-conflict { background-color: #ffebee !important; border: 3px solid #72B7F4 !important; box-shadow: 0 0 8px rgba(33, 150, 243, 0.5) !important; }
+            .room-selection-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); padding: 25px; z-index: 1000; max-width: 800px; width: 95%; max-height: 80vh; overflow-y: auto; font-family: 'Poppins', sans-serif; }
             .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; }
             .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #f0f0f0; }
             .modal-title { font-size: 18px; font-weight: 600; color: #11214D; margin: 0; }
+            .modal-close { background: none; border: none; font-size: 24px; color: #666; cursor: pointer; padding: 5px; border-radius: 50%; transition: all 0.2s ease; }
+            .modal-close:hover { background-color: #f5f5f5; color: #333; }
+            .room-search { width: calc(100% - 32px); padding: 12px 16px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; margin-bottom: 15px; transition: border-color 0.2s ease; box-sizing: border-box; }
+            .room-search:focus { outline: none; border-color: #11214D; }
+            .room-options { max-height: 300px; overflow-y: auto; border: 1px solid #e0e0e0; border-radius: 8px; background: white; }
+            .room-option { padding: 12px 16px; border-bottom: 1px solid #f0f0f0; cursor: pointer; transition: background-color 0.2s ease; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+            .room-option:last-child { border-bottom: none; }
+            .room-option:hover { background-color: #f8f9fa; }
+            .room-option.available { color: #2e7d32; font-weight: 500; }
+            .room-option.occupied { color: #d32f2f; font-weight: 500; }
+            .room-option.selected { background-color: #e3f2fd; border-left: 4px solid #11214D; }
+            .room-info { font-size: 11px; color: #666; }
+            .conflict-warning { position: fixed; top: 20px; left: 20px; background: #ffebee; border: 2px solid #f44336; border-radius: 8px; padding: 15px; max-width: 350px; z-index: 1001; box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3); }
+            .conflict-warning-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+            .conflict-warning-title { font-weight: 600; color: #d32f2f; font-size: 14px; }
+            .conflict-warning-close { background: none; border: none; font-size: 18px; color: #d32f2f; cursor: pointer; padding: 2px; }
+            .conflict-warning-content { color: #b71c1c; font-size: 12px; line-height: 1.4; }
+            .student-group-container { margin-bottom: 30px; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); max-width: 1200px; margin: 0 auto 30px auto; }
             .dropdown-container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
-            table { font-size: 12px; border-collapse: separate; border-spacing: 0; width: 100%; background-color: white; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+            table { font-family: 'Poppins', sans-serif; font-size: 12px; border-collapse: separate; border-spacing: 0; width: 100%; background-color: white; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
             th { background-color: #11214D !important; color: white !important; padding: 12px 10px !important; font-size: 13px !important; font-weight: 600 !important; text-align: center !important; border: 1px solid #0d1a3d !important; }
             td { padding: 0 !important; border: 1px solid #e0e0e0 !important; background-color: white; }
             .time-cell { background-color: #11214D !important; color: white !important; padding: 12px 10px !important; font-weight: 600 !important; text-align: center !important; font-size: 12px !important; border: 1px solid #0d1a3d !important; }
@@ -358,15 +418,32 @@ def create_app(_ctx: dict | None = None):
             .timetable-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 10px; }
             .nav-arrows { display: flex; align-items: center; gap: 15px; }
             .nav-arrow { background: #11214D; color: white; border: none; border-radius: 15%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; font-weight: bold; transition: all 0.2s ease; }
-            .errors-button { position: relative; background: #dc3545; color: white; border: none; border-radius: 8px; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3); }
-            .error-notification { position: absolute; top: -8px; right: -8px; background: rgba(255, 255, 255, 0.9); color: #dc3545; border: 2px solid #dc3545; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
-            .help-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); padding: 30px; z-index: 1000; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; }
-            .conflict-warning { position: fixed; top: 20px; left: 20px; background: #ffebee; border: 2px solid #f44336; border-radius: 8px; padding: 15px; max-width: 350px; z-index: 1001; box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3); }
+            .nav-arrow:hover { background: #0d1a3d; transform: scale(1.05); box-shadow: 0 2px 8px rgba(17, 33, 77, 0.3); }
+            .nav-arrow:disabled { background: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
             .save-error { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #ffebee; border: 2px solid #f44336; border-radius: 8px; padding: 15px 20px; max-width: 400px; z-index: 1001; text-align: center; }
+            .save-error-title { font-weight: 600; color: #d32f2f; font-size: 14px; margin-bottom: 8px; }
+            .save-error-content { color: #b71c1c; font-size: 12px; line-height: 1.4; }
             .constraint-dropdown { margin-bottom: 15px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }
             .constraint-header { background-color: #f8f9fa; padding: 12px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 14px; color: #11214D; border-bottom: 1px solid #e0e0e0; gap: 15px; }
             .constraint-details { padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: white; }
             .constraint-details.expanded { max-height: 300px; overflow-y: auto; border-top: 1px solid #e0e0e0; }
+            .errors-button { position: relative; background: #dc3545; color: white; border: none; border-radius: 8px; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3); }
+            .error-notification { position: absolute; top: -8px; right: -8px; background: rgba(255, 255, 255, 0.9); color: #dc3545; border: 2px solid #dc3545; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+            .help-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); padding: 30px; z-index: 1000; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; font-family: 'Poppins', sans-serif; }
+            .help-modal h3 { color: #11214D; font-weight: 600; margin-bottom: 20px; font-size: 20px; text-align: center; }
+            .help-section { margin-bottom: 20px; }
+            .help-section h4 { color: #11214D; font-weight: 600; margin-bottom: 10px; font-size: 16px; }
+            .help-section p { color: #555; line-height: 1.6; margin-bottom: 10px; font-size: 14px; }
+            .help-note { background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 15px; margin-bottom: 20px; color: #856404; font-weight: 500; }
+            .color-legend { display: flex; flex-direction: column; gap: 8px; }
+            .color-item { display: flex; align-items: center; gap: 10px; }
+            .color-box { width: 20px; height: 20px; border-radius: 4px; border: 1px solid #ccc; }
+            .color-box.manual { background-color: #72b7f4; }
+            .color-box.normal { background-color: white; }
+            .color-box.break { background-color: #ff5722; }
+            .color-box.room-conflict { background-color: #ffebee; border-color: #f44336; }
+            .color-box.lecturer-conflict { background-color: #ffd982; border-color: #d4942f; }
+            .color-box.both-conflict { background-color: #ffdcec; border-color: #d42fa2; }
         </style>
     </head>
     <body>
@@ -386,14 +463,20 @@ def create_app(_ctx: dict | None = None):
         for idx, t in enumerate(timetables)
     ]
 
-    # Layout copied from OG structure
+    # Layout: match OG exactly - title and dropdown on same line
     app.layout = html.Div([
+        # Title and dropdown on the same line
         html.Div([
-            html.H1("Interactive Drag & Drop Timetable - DE Optimization Results", style={"color": "#11214D", "fontWeight": "600", "fontSize": "24px", "margin": "0", "flex": "1"}),
+            html.H1("Interactive Drag & Drop Timetable - DE Optimization Results", 
+                    style={"color": "#11214D", "fontWeight": "600", "fontSize": "24px", 
+                          "fontFamily": "Poppins, sans-serif", "margin": "0", "flex": "1"}),
+            
             html.Div([
-                dcc.Dropdown(id='student-group-dropdown', options=options, value=0, searchable=True, clearable=False, style={"width": "280px", "fontSize": "13px"})
+                dcc.Dropdown(id='student-group-dropdown', options=options, value=0, searchable=True, clearable=False, style={"width": "280px", "fontSize": "13px", "fontFamily": "Poppins, sans-serif"})
             ], style={"display": "flex", "alignItems": "center"})
-        ], style={"display": "flex", "alignItems": "center", "justifyContent": "space-between", "marginTop": "30px", "marginBottom": "30px", "maxWidth": "1200px", "margin": "30px auto", "padding": "0 15px"}),
+        ], style={"display": "flex", "alignItems": "center", "justifyContent": "space-between", 
+                 "marginTop": "30px", "marginBottom": "30px", "maxWidth": "1200px", 
+                 "margin": "30px auto", "padding": "0 15px"}),
 
         dcc.Store(id='all-timetables-store', data=timetables),
         dcc.Store(id='rooms-data-store', data=rooms_data),
@@ -475,21 +558,64 @@ def create_app(_ctx: dict | None = None):
         html.Div([
             html.Div(className='modal-overlay', id='help-modal-overlay', style={'display': 'none'}),
             html.Div([
-                html.Div([html.H3('Timetable Help Guide', className='modal-title'), html.Button('×', className='modal-close', id='help-modal-close-btn')], className='modal-header'),
                 html.Div([
-                    html.Div([html.Strong('NOTE: '), 'Ensure all Lecturer names, emails and other details are inputted correctly to prevent errors'], className='help-note', style={"marginBottom": "10px"}),
+                    html.H3('Timetable Help Guide', className='modal-title'),
+                    html.Button('×', className='modal-close', id='help-modal-close-btn')
+                ], className='modal-header'),
+                
+                html.Div([
+                    html.Div([
+                        html.Strong('NOTE: '),
+                        'Ensure all Lecturer names, emails and other details are inputted correctly to prevent errors'
+                    ], className='help-note'),
+                    
                     html.Div([
                         html.H4('How to Use the Timetable:'),
-                        html.Ul([
-                            html.Li('Click and drag any class cell to swap it with another cell'),
-                            html.Li('Double-click any cell to view and change the classroom for that class'),
-                            html.Li('Use the navigation arrows (‹ ›) to switch between different student groups'),
-                            html.Li('Click “View Errors” to see constraint violations and conflicts'),
-                            html.Li('Use the “Download Timetables” button to export SST, TYD, or Lecturer timetables')
-                        ], style={"margin": 0, "paddingLeft": "18px"})
+                        html.P('• Click and drag any class cell to swap it with another cell'),
+                        html.P('• Double-click any cell to view and change the classroom for that class'),
+                        html.P('• Use the navigation arrows (‹ ›) to switch between different student groups'),
+                        html.P("• Click 'View Errors' to see constraint violations and conflicts")
+                    ], className='help-section'),
+                    
+                    html.Div([
+                        html.H4('Cell Color Meanings:'),
+                        html.Div([
+                            html.Div([
+                                html.Div(className='color-box normal'),
+                                html.Span('Normal class - No conflicts')
+                            ], className='color-item'),
+                            html.Div([
+                                html.Div(className='color-box manual'),
+                                html.Span("Manually Scheduled - Class scheduled manually from the 'Missing Classes' list.")
+                            ], className='color-item'),
+                            html.Div([
+                                html.Div(className='color-box break'),
+                                html.Span('Break time - Classes cannot be scheduled')
+                            ], className='color-item'),
+                            html.Div([
+                                html.Div(className='color-box room-conflict'),
+                                html.Span('Room conflict - Same classroom used by multiple groups')
+                            ], className='color-item'),
+                            html.Div([
+                                html.Div(className='color-box lecturer-conflict'),
+                                html.Span('Lecturer conflict - Same lecturer teaching multiple groups')
+                            ], className='color-item'),
+                            html.Div([
+                                html.Div(className='color-box both-conflict'),
+                                html.Span('Multiple conflicts - Both room and lecturer issues')
+                            ], className='color-item')
+                        ], className='color-legend')
                     ], className='help-section')
-                ], style={"fontSize": "14px", "lineHeight": 1.6}),
-                html.Div([html.Button('Close', id='help-close-btn', style={"backgroundColor": "#11214D", "color": "white", "padding": "10px 20px", "border": "none", "borderRadius": "8px", "cursor": "pointer", "fontSize": "14px", "fontWeight": "600"})], style={"textAlign": "center", "marginTop": "25px", "paddingTop": "20px", "borderTop": "2px solid #f0f0f0"})
+                ]),
+                
+                html.Div([
+                    html.Button('Close', id='help-close-btn', style={
+                        "backgroundColor": "#11214D", "color": "white", "padding": "10px 20px",
+                        "border": "none", "borderRadius": "8px", "cursor": "pointer",
+                        "fontFamily": "Poppins, sans-serif", "fontSize": "14px", "fontWeight": "600"
+                    })
+                ], style={"textAlign": "center", "marginTop": "25px", "paddingTop": "20px", 
+                         "borderTop": "2px solid #f0f0f0"})
             ], className='help-modal', id='help-modal', style={'display': 'none'})
         ])
     ])
@@ -516,8 +642,10 @@ def create_app(_ctx: dict | None = None):
         for r in range(len(rows)):
             cells = [html.Td(rows[r][0], className='time-cell')]
             for c in range(1, len(rows[r])):
-                content = rows[r][c] if rows[r][c] else 'FREE'
-                is_break = content == 'BREAK'
+                raw = rows[r][c] if rows[r][c] else 'FREE'
+                text = str(raw).strip()
+                text_upper = text.upper()
+                is_break = text_upper == 'BREAK'
                 key = f"{r}_{c-1}"
                 ctype = conflicts.get(key, {}).get('type', 'none') if key in conflicts else 'none'
                 manual_key = f"{selected_group_idx}_{r}_{c-1}"
@@ -534,17 +662,24 @@ def create_app(_ctx: dict | None = None):
                     cls_map = {'room': 'cell room-conflict', 'lecturer': 'cell lecturer-conflict', 'both': 'cell both-conflict'}
                     cls = cls_map.get(ctype, 'cell'); draggable = 'true'
                 cell_id = {"type": "cell", "group": selected_group_idx, "row": r, "col": c-1}
-                cells.append(html.Td(html.Div(content, id=cell_id, className=cls, draggable=draggable, n_clicks=0), style={"padding": "0", "border": "1px solid #e0e0e0"}))
+                cells.append(html.Td(html.Div(text, id=cell_id, className=cls, draggable=draggable, n_clicks=0), style={"padding": "0", "border": "1px solid #e0e0e0"}))
             body_rows.append(html.Tr(cells))
-        table = html.Table([html.Thead(html.Tr(header_cells)), html.Tbody(body_rows)], style={"width": "100%", "borderCollapse": "separate", "borderSpacing": "0", "backgroundColor": "white", "borderRadius": "6px", "overflow": "hidden", "fontSize": "12px", "boxShadow": "0 2px 6px rgba(0,0,0,0.08)"})
+        table = html.Table([html.Thead(html.Tr(header_cells)), html.Tbody(body_rows)], style={"width": "100%", "borderCollapse": "separate", "borderSpacing": "0", "backgroundColor": "white", "borderRadius": "6px", "overflow": "hidden", "fontSize": "12px", "boxShadow": "0 2px 6px rgba(0,0,0,0.08)", "fontFamily": "Poppins, sans-serif"})
+        # Header with title and navigation arrows
         header = html.Div([
-            html.Div([html.H2(f"Timetable for {name}", className='timetable-title', style={"color": "#11214D", "fontWeight": "600", "fontSize": "20px", "margin": "0"})], className='timetable-title-container'),
-            html.Div([html.Button('‹', className='nav-arrow', id='prev-group-btn', disabled=selected_group_idx == 0), html.Button('›', className='nav-arrow', id='next-group-btn', disabled=selected_group_idx == len(all_timetables_data) - 1)], className='nav-arrows')
+            html.Div([
+                html.H2(f"Timetable for {name}", className='timetable-title', style={"color": "#11214D", "fontWeight": "600", "fontSize": "20px", "fontFamily": "Poppins, sans-serif", "margin": "0"})
+            ], className='timetable-title-container'),
+            html.Div([
+                html.Button('‹', className='nav-arrow', id='prev-group-btn', disabled=selected_group_idx == 0),
+                html.Button('›', className='nav-arrow', id='next-group-btn', disabled=selected_group_idx == len(all_timetables_data) - 1)
+            ], className='nav-arrows')
         ], className='timetable-header')
+        # Buttons row with Help button aligned to the right
         btns = html.Div([
             html.Button(['View Errors', html.Div(id='error-notification-badge', className='error-notification')], id='errors-btn', className='errors-button'),
-            html.Button('Undo All Changes', id='undo-all-btn', style={"backgroundColor": "#6c757d", "color": "white", "padding": "8px 16px", "border": "none", "borderRadius": "5px", "fontSize": "14px", "cursor": "pointer", "fontWeight": "500"}),
-            html.Button('?', id='help-icon-btn', title='Help', style={"backgroundColor": "#11214D", "color": "white", "border": "none", "borderRadius": "50%", "width": "40px", "height": "40px", "cursor": "pointer", "fontSize": "18px", "fontWeight": "700", "display": "flex", "alignItems": "center", "justifyContent": "center"})
+            html.Button('Undo All Changes', id='undo-all-btn', style={"backgroundColor": "#6c757d", "color": "white", "padding": "8px 16px", "border": "none", "borderRadius": "5px", "fontSize": "14px", "cursor": "pointer", "fontWeight": "500", "fontFamily": "Poppins, sans-serif"}),
+            html.Button('?', id='help-icon-btn', title='Help', className='nav-arrow', style={"marginLeft": "auto"})
         ], style={"marginBottom": "15px", "marginRight": "10px", "textAlign": "left", "display": "flex", "gap": "10px", "alignItems": "flex-start"})
         return html.Div([header, btns, table], className='student-group-container'), 'trigger'
 
@@ -837,7 +972,7 @@ def create_app(_ctx: dict | None = None):
             raise dash.exceptions.PreventUpdate
         return create_errors_modal_content(constraint_details, toggle_constraint=clicked)
 
-    # Error badge count
+    # Error badge count (sum of hard-constraint occurrences like OG badge)
     @app.callback(
         Output('error-notification-badge', 'children'),
         [Input('constraint-details-store', 'data'), Input('all-timetables-store', 'data')],
@@ -847,7 +982,7 @@ def create_app(_ctx: dict | None = None):
         if not isinstance(constraint_details, dict):
             return '0'
         hard = ['Same Student Group Overlaps','Different Student Group Overlaps','Lecturer Clashes','Lecturer Schedule Conflicts (Day/Time)','Lecturer Workload Violations','Consecutive Slot Violations','Missing or Extra Classes','Same Course in Multiple Rooms on Same Day','Room Capacity/Type Conflicts','Classes During Break Time']
-        n = sum(1 for k in hard if len(constraint_details.get(k, [])) > 0)
+        n = sum(len(constraint_details.get(k, [])) for k in hard)
         return str(n)
 
     # Missing classes modal open/populate (basic placeholder using constraints store)
@@ -1003,7 +1138,6 @@ def create_app(_ctx: dict | None = None):
 
         except Exception as e:
             return html.Div(f"❌ Error: {str(e)}", style={"color": "red", "fontWeight": "600"}), dash.no_update
-        raise dash.exceptions.PreventUpdate
 
     # Undo all changes
     @app.callback(
@@ -1055,7 +1189,7 @@ def create_app(_ctx: dict | None = None):
         """
         function(n){ if(n){ const m=document.getElementById('room-selection-modal'); const o=document.getElementById('modal-overlay'); if(m&&o){ m.style.display='none'; o.style.display='none'; } const fb=document.getElementById('feedback'); if(fb){ fb.innerHTML='✅ Classroom updated successfully'; fb.style.color='green'; fb.style.backgroundColor='#e8f5e8'; fb.style.padding='10px'; fb.style.borderRadius='5px'; fb.style.border='2px solid #4caf50'; } } return window.dash_clientside.no_update;
         }""",
-               Output('room-confirm-btn', 'style'),
+        Output('room-confirm-btn', 'style'),
         Input('room-confirm-btn', 'n_clicks'),
         prevent_initial_call=True
     )
@@ -1075,6 +1209,16 @@ def create_app(_ctx: dict | None = None):
         """,
         Output('missing-cancel-btn', 'style'),
         Input('missing-cancel-btn', 'n_clicks'),
+        prevent_initial_call=True
+    )
+
+    # Close conflict warning on × click
+    clientside_callback(
+        """
+        function(n){ if(n){ const cw=document.getElementById('conflict-warning'); if(cw){ cw.style.display='none'; } } return window.dash_clientside.no_update; }
+        """,
+        Output('conflict-close-btn', 'style'),
+        Input('conflict-close-btn', 'n_clicks'),
         prevent_initial_call=True
     )
 

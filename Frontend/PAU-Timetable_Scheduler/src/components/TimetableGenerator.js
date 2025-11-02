@@ -235,8 +235,6 @@ const TimetableGenerator = () => {
     <div className="timetable-generator">
       <Header
         onShowInstructions={() => setShowInstructions(true)}
-        onDownload={handleDownload}
-        canDownload={generatedData.length > 0 && uploadId && !isProcessing}
       />
 
       <main className="main-container">

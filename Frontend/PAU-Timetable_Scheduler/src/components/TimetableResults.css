@@ -1,18 +1,119 @@
 /* Results Section */
-/* In TimetableResults.css */
+.results-section {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1), 
+              inset -1px -1px 3px rgba(255,255,255,0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.results-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.results-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.results-icon {
+  width: 24px;
+  height: 24px;
+  background: #10b981;
+  color: white;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.results-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+}
+
+.results-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.open-dash-btn {
+  background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%);
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.open-dash-btn:hover {
+  background: linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%);
+  border-color: #9ca3af;
+}
+
+.open-dash-btn:active {
+  background: linear-gradient(180deg, #e5e7eb 0%, #d1d5db 100%);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
 .iframe-container {
   width: 100%;
-  height: 80vh; /* 80% of the viewport height, adjust as needed */
-  margin-top: 20px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  overflow: hidden; /* Ensures the iframe corners are rounded */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: 80vh;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1);
+  background: white;
 }
 
 .timetable-iframe {
   width: 100%;
   height: 100%;
-  border: none; /* Remove default iframe border */
+  border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .results-section {
+    padding: 2rem 1rem;
+  }
+
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .iframe-container {
+    height: 70vh;
+  }
 }
 

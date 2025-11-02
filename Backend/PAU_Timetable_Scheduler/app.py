@@ -29,6 +29,29 @@ from input_data_api import initialize_input_data_from_json
 from differential_evolution_api import DifferentialEvolution
 from export_service import create_export_service, TimetableExportService
 
+# Prefer the OG DifferentialEvolution implementation if available to match OG behavior
+DifferentialEvolutionClass = DifferentialEvolution
+try:
+    import importlib.util
+    base_dir = os.path.dirname(__file__)
+    # Only consider safe algorithm modules that don't launch Dash or execute top-level runs
+    og_candidates = [
+        os.path.join(base_dir, 'differential_evolution.py'),
+        os.path.join(base_dir, 'differential-evolution.py'),
+    ]
+    for path in og_candidates:
+        if os.path.exists(path):
+            spec = importlib.util.spec_from_file_location('de_og_module', path)
+            if spec and spec.loader:
+                de_og_module = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(de_og_module)
+                if hasattr(de_og_module, 'DifferentialEvolution'):
+                    DifferentialEvolutionClass = getattr(de_og_module, 'DifferentialEvolution')
+                    print(f"Using DifferentialEvolution from: {os.path.basename(path)}")
+                    break
+except Exception as e:
+    print(f"Warning: Could not load alternative DifferentialEvolution. Using API version. Error: {e}")
+
 # --- Config & app setup ---
 FRONTEND_HTML_PATH = Path(__file__).parent / "timetable_generator.html"
 
@@ -297,17 +320,48 @@ class TimetableProcessor:
                 print(f"[{job_id}] Warning: RNG seeding failed: {seed_err}")
 
             # Initialize DE with correct parameters
-            de = DifferentialEvolution(input_data, pop_size, F, CR)
+            try:
+                de = DifferentialEvolutionClass(input_data, pop_size, F, CR)
+            except TypeError:
+                try:
+                    de = DifferentialEvolutionClass(input_data=input_data, pop_size=pop_size, F=F, CR=CR)
+                except TypeError:
+                    de = DifferentialEvolutionClass(input_data, pop_size)
+        except Exception as e:
+            print(f"Warning: DifferentialEvolution initialization failed: {e}")
+            de = None
+
+        best_solution = None
+        fitness_history = []
+        final_generation = 0
+        best_fitness = float("inf")
+
+        try:
+            # Smooth progress ticker so generation isn't instantaneous in UI
+            import time
+            stop_evt = threading.Event()
+            def progress_pulse():
+                try:
+                    start = datetime.now()
+                    # Rough estimate: scale with generations and population
+                    est_seconds = max(4.0, float(max_gen) * max(0.4, min(2.0, 0.15 * (pop_size / 10.0))))
+                    while not stop_evt.is_set():
+                        elapsed = (datetime.now() - start).total_seconds()
+                        ratio = max(0.0, min(1.0, elapsed / est_seconds))
+                        target_pct = 5 + int(ratio * 85)  # 5%..90%
+                        self.update_job_progress(job_id, pct=target_pct)
+                        time.sleep(0.5)
+                except Exception:
+                    # Never break the optimization due to progress thread
+                    pass
+
+            self.update_job_progress(job_id, pct=5)
+            ticker = threading.Thread(target=progress_pulse, daemon=True)
+            ticker.start()
 
             # Prefer using the provided run() method if available
-            best_solution = None
-            fitness_history = []
-            final_generation = 0
-            best_fitness = float("inf")
-
             if hasattr(de, 'run'):
                 try:
-                    self.update_job_progress(job_id, pct=5)
                     best_solution, fitness_history, final_generation, _ = de.run(max_gen)
                     # Safe fitness read
                     try:
@@ -333,126 +387,133 @@ class TimetableProcessor:
                 except Exception as e:
                     print(f"Warning: Fallback evaluation failed: {e}")
                     best_solution = None
-
-            # Post-processing
-            self.update_job_progress(job_id, pct=95)
-
-            # Final repairs if method exists
-            if best_solution is not None:
-                try:
-                    if hasattr(de, 'verify_and_repair_course_allocations'):
-                        best_solution = de.verify_and_repair_course_allocations(best_solution)
-                except Exception as e:
-                    print(f"Warning: Course allocation repair failed: {e}")
-
-            # Generate timetables
-            all_timetables = []
-            if best_solution is not None:
-                try:
-                    if hasattr(de, 'print_all_timetables'):
-                        # Try different signatures
-                        try:
-                            all_timetables = de.print_all_timetables(
-                                best_solution,
-                                de.input_data.days,
-                                de.input_data.hours,
-                                9
-                            )
-                        except TypeError:
-                            try:
-                                all_timetables = de.print_all_timetables(best_solution)
-                            except Exception as e:
-                                print(f"Warning: print_all_timetables failed: {e}")
-                                all_timetables = []
-                except Exception as e:
-                    print(f"Warning: Timetable generation failed: {e}")
-                    all_timetables = []
-
-            # Fallback: if empty, build blank timetables so UI still works
-            if not all_timetables and de is not None:
-                print(f"[{job_id}] No timetables produced; building empty grids as fallback")
-                all_timetables = self.build_empty_timetables(de)
-
-            # Build UI card summaries
-            timetable_cards = self.format_timetable_results_from_raw(all_timetables)
-
-            # Get constraint violations
-            violations = {}
-            if best_solution is not None and hasattr(de, 'constraints'):
-                try:
-                    if hasattr(de.constraints, 'get_constraint_violations'):
-                        violations = de.constraints.get_constraint_violations(best_solution)
-                except Exception as e:
-                    print(f"Warning: Constraint violation check failed: {e}")
-
-            # Build parsed timetables for frontend
-            parsed = []
-            if all_timetables:
-                exporter = TimetableExportService()
-                for item in all_timetables:
-                    try:
-                        student_group = item.get("student_group")
-                        if hasattr(student_group, "name"):
-                            group_name = str(student_group.name)
-                        else:
-                            group_name = str(student_group)
-                        rows = exporter._grid_to_rows(item.get("timetable", []))
-                        serializable_rows = make_json_serializable(rows)
-                        parsed.append({"group": group_name, "rows": serializable_rows})
-                    except Exception as e:
-                        print(f"Warning: Parsing timetable failed: {e}")
-
-            # Convert raw timetables into a safe, lightweight structure
-            self.update_job_progress(job_id, pct=99)
-            safe_all_timetables = self.make_timetables_json_safe(all_timetables)
-
-            # Make all result data JSON serializable
-            result = {
-                "timetables": timetable_cards,
-                "timetables_raw": safe_all_timetables,
-                "parsed_timetables": parsed,
-                "fitness_score": best_fitness if best_fitness != float("inf") else None,
-                "generations_completed": int(final_generation) + 1 if isinstance(final_generation, (int, np.integer)) else 1,
-                "fitness_history": fitness_history[-20:] if isinstance(fitness_history, list) else [],
-                "summary": make_json_serializable(self.generate_summary_safe(de, best_solution, violations)) if best_solution is not None else {},
-                "constraint_violations": make_json_serializable(violations),
-                "performance_metrics": {
-                    "population_size": pop_size,
-                    "total_events": len(getattr(de, "events_list", [])),
-                    "scheduled_events": self.count_scheduled_events(best_solution),
-                    "optimization_time_seconds": (datetime.now() - self.start_time).total_seconds(),
-                },
-            }
-
+        finally:
+            # Stop ticker regardless of outcome
             try:
-                dash_data_dir = os.path.join(os.path.dirname(__file__), 'data')
-                os.makedirs(dash_data_dir, exist_ok=True)
-                dash_save_path = os.path.join(dash_data_dir, 'timetable_data.json')
+                stop_evt.set()
+                ticker.join(timeout=1)
+            except Exception:
+                pass
 
-                if safe_all_timetables:
-                    data_to_save = {
-                        'timetables': safe_all_timetables,
-                        'manual_cells': []
-                    }
-                    with open(dash_save_path, 'w', encoding='utf-8') as f:
-                        import json
-                        json.dump(data_to_save, f, indent=2)
-                    print(f"[{job_id}] Successfully saved data for Dash UI at: {dash_save_path}")
+        # Post-processing
+        self.update_job_progress(job_id, pct=95)
 
-            except Exception as dash_save_error:
-                print(f"[{job_id}] WARNING: Could not save data for Dash UI. Error: {dash_save_error}")
+        # Final repairs if method exists
+        if best_solution is not None:
+            try:
+                if hasattr(de, 'verify_and_repair_course_allocations'):
+                    best_solution = de.verify_and_repair_course_allocations(best_solution)
+            except Exception as e:
+                print(f"Warning: Course allocation repair failed: {e}")
 
-            # Save and mark job completed
-            self.update_job_result(job_id, result)
-            return result
+        # Generate timetables
+        all_timetables = []
+        if best_solution is not None:
+            try:
+                if hasattr(de, 'print_all_timetables'):
+                    # Try different signatures
+                    try:
+                        all_timetables = de.print_all_timetables(
+                            best_solution,
+                            de.input_data.days,
+                            de.input_data.hours,
+                            9
+                        )
+                    except TypeError:
+                        try:
+                            all_timetables = de.print_all_timetables(best_solution)
+                        except Exception as e:
+                            print(f"Warning: print_all_timetables failed: {e}")
+                            all_timetables = []
+            except Exception as e:
+                print(f"Warning: Timetable generation failed: {e}")
+                all_timetables = []
 
-        except Exception as exc:
-            error_msg = f"{type(exc).__name__}: {str(exc)}"
-            print(f"[{self.upload_id}] run_optimization error: {error_msg}")
-            import traceback
-            print(f"Full traceback: {traceback.format_exc()}")
-            self.update_job_error(job_id, error_msg)
-            return None
+        # Fallback: if empty, build blank timetables so UI still works
+        if not all_timetables and de is not None:
+            print(f"[{job_id}] No timetables produced; building empty grids as fallback")
+            all_timetables = self.build_empty_timetables(de)
+
+        # Build UI card summaries
+        timetable_cards = self.format_timetable_results_from_raw(all_timetables)
+
+        # Get constraint violations
+        violations = {}
+        if best_solution is not None and hasattr(de, 'constraints'):
+            try:
+                if hasattr(de.constraints, 'get_constraint_violations'):
+                    violations = de.constraints.get_constraint_violations(best_solution)
+            except Exception as e:
+                print(f"Warning: Constraint violation check failed: {e}")
+
+        # Build parsed timetables for frontend
+        parsed = []
+        if all_timetables:
+            exporter = TimetableExportService()
+            for item in all_timetables:
+                try:
+                    student_group = item.get("student_group")
+                    if hasattr(student_group, "name"):
+                        group_name = str(student_group.name)
+                    else:
+                        group_name = str(student_group)
+                    rows = exporter._grid_to_rows(item.get("timetable", []))
+                    serializable_rows = make_json_serializable(rows)
+                    parsed.append({"group": group_name, "rows": serializable_rows})
+                except Exception as e:
+                    print(f"Warning: Parsing timetable failed: {e}")
+
+        # Convert raw timetables into a safe, lightweight structure
+        self.update_job_progress(job_id, pct=99)
+        safe_all_timetables = self.make_timetables_json_safe(all_timetables)
+
+        # Make all result data JSON serializable
+        result = {
+            "timetables": timetable_cards,
+            "timetables_raw": safe_all_timetables,
+            "parsed_timetables": parsed,
+            "fitness_score": best_fitness if best_fitness != float("inf") else None,
+            "generations_completed": int(final_generation) + 1 if isinstance(final_generation, (int, np.integer)) else 1,
+            "fitness_history": fitness_history[-20:] if isinstance(fitness_history, list) else [],
+            "summary": make_json_serializable(self.generate_summary_safe(de, best_solution, violations)) if best_solution is not None else {},
+            "constraint_violations": make_json_serializable(violations),
+            "performance_metrics": {
+                "population_size": pop_size,
+                "total_events": len(getattr(de, "events_list", [])),
+                "scheduled_events": self.count_scheduled_events(best_solution),
+                "optimization_time_seconds": (datetime.now() - self.start_time).total_seconds(),
+            },
+        }
+
+        try:
+            dash_data_dir = os.path.join(os.path.dirname(__file__), 'data')
+            os.makedirs(dash_data_dir, exist_ok=True)
+            dash_save_path = os.path.join(dash_data_dir, 'timetable_data.json')
+            fresh_save_path = os.path.join(dash_data_dir, 'fresh_timetable_data.json')
+
+            if safe_all_timetables:
+                import json
+                data_to_save = {
+                    'timetables': safe_all_timetables,
+                    'manual_cells': []
+                }
+                # Write session file used by Dash for persistence + manual edits
+                with open(dash_save_path, 'w', encoding='utf-8') as f:
+                    json.dump(data_to_save, f, indent=2)
+                # Write fresh results file preferred by Dash on startup
+                try:
+                    with open(fresh_save_path, 'w', encoding='utf-8') as f2:
+                        json.dump(safe_all_timetables, f2, indent=2)
+                    print(f"[{job_id}] Successfully saved data for Dash UI at: {dash_save_path} and fresh: {fresh_save_path}")
+                except Exception as fresh_err:
+                    print(f"[{job_id}] WARNING: Could not save fresh timetable JSON. Error: {fresh_err}")
+
+        except Exception as dash_save_error:
+            print(f"[{job_id}] WARNING: Could not save data for Dash UI. Error: {dash_save_error}")
+
+        # Save and mark job completed
+        self.update_job_result(job_id, result)
+        return result
 
     def count_scheduled_events(self, solution):
         """Count scheduled events in solution"""
@@ -759,6 +820,16 @@ def generate_timetable():
         
         with lock:
             processing_jobs[upload_id] = job_data
+
+        # Remove stale fresh timetable so UI won't show previous results while new run is in progress
+        try:
+            dash_data_dir = os.path.join(os.path.dirname(__file__), 'data')
+            fresh_path = os.path.join(dash_data_dir, 'fresh_timetable_data.json')
+            if os.path.exists(fresh_path):
+                os.remove(fresh_path)
+                print(f"[GEN] Removed stale fresh file: {fresh_path}")
+        except Exception as rm_err:
+            print(f"[GEN] Warning: Could not remove stale fresh file: {rm_err}")
 
         processor = TimetableProcessor(upload_id, input_data, config)
 
