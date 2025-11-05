@@ -16,6 +16,7 @@ module.exports = function(app) {
       createProxyMiddleware({
         target: 'http://localhost:7860',
         changeOrigin: true,
+        ws: false,
       })
     );
   });
@@ -26,7 +27,7 @@ module.exports = function(app) {
     createProxyMiddleware({
       target: 'http://localhost:7860',
       changeOrigin: true,
-      ws: true,
+      ws: false,
     })
   );
   
@@ -36,7 +37,7 @@ module.exports = function(app) {
     createProxyMiddleware({
       target: 'http://localhost:7860',
       changeOrigin: true,
-      ws: true,
+      ws: false,
     })
   );
   app.use(
@@ -44,7 +45,7 @@ module.exports = function(app) {
     createProxyMiddleware({
       target: 'http://localhost:7860',
       changeOrigin: true,
-      ws: true,
+      ws: false,
     })
   );
   app.use(
@@ -52,7 +53,7 @@ module.exports = function(app) {
     createProxyMiddleware({
       target: 'http://localhost:7860',
       changeOrigin: true,
-      ws: true,
+      ws: false,
     })
   );
   app.use(
@@ -60,7 +61,7 @@ module.exports = function(app) {
     createProxyMiddleware({
       target: 'http://localhost:7860',
       changeOrigin: true,
-      ws: true,
+      ws: false,
     })
   );
   app.use(
@@ -68,7 +69,7 @@ module.exports = function(app) {
     createProxyMiddleware({
       target: 'http://localhost:7860',
       changeOrigin: true,
-      ws: true,
+      ws: false,
     })
   );
 
@@ -78,7 +79,7 @@ module.exports = function(app) {
     createProxyMiddleware({
       target: 'http://localhost:7860',
       changeOrigin: true,
-      ws: true,
+      ws: false,
     })
   );
 };

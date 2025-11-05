@@ -304,17 +304,17 @@ class TimetableProcessor:
     def run_optimization(self, job_id, input_data, pop_size, max_gen, F, CR):
         """
         Runs the differential evolution optimization in the background.
-        Prefer the algorithm's native run(max_generations) method for reliability.
+        This version is modified to be closer to the Sept 13 `differential_evolution.py` script's flow.
         """
         self.start_time = datetime.now()
         de = None
         try:
-            # Ensure randomized runs per job
+            # Ensure randomized runs
             try:
                 import secrets
                 seed = secrets.randbits(64)
                 random.seed(seed)
-                np.random.seed(None)
+                np.random.seed(None) # Use system entropy for numpy
                 print(f"[{job_id}] RNG seeded for this run (seed bits set) with pop={pop_size}, gens={max_gen}")
             except Exception as seed_err:
                 print(f"[{job_id}] Warning: RNG seeding failed: {seed_err}")
@@ -328,8 +328,9 @@ class TimetableProcessor:
                 except TypeError:
                     de = DifferentialEvolutionClass(input_data, pop_size)
         except Exception as e:
-            print(f"Warning: DifferentialEvolution initialization failed: {e}")
-            de = None
+            print(f"FATAL: DifferentialEvolution initialization failed: {e}")
+            self.update_job_error(job_id, f"DE Initialization failed: {e}")
+            return
 
         best_solution = None
         fitness_history = []
@@ -337,63 +338,78 @@ class TimetableProcessor:
         best_fitness = float("inf")
 
         try:
-            # Smooth progress ticker so generation isn't instantaneous in UI
-            import time
-            stop_evt = threading.Event()
-            def progress_pulse():
-                try:
-                    start = datetime.now()
-                    # Rough estimate: scale with generations and population
-                    est_seconds = max(4.0, float(max_gen) * max(0.4, min(2.0, 0.15 * (pop_size / 10.0))))
-                    while not stop_evt.is_set():
-                        elapsed = (datetime.now() - start).total_seconds()
-                        ratio = max(0.0, min(1.0, elapsed / est_seconds))
-                        target_pct = 5 + int(ratio * 85)  # 5%..90%
-                        self.update_job_progress(job_id, pct=target_pct)
-                        time.sleep(0.5)
-                except Exception:
-                    # Never break the optimization due to progress thread
-                    pass
-
             self.update_job_progress(job_id, pct=5)
-            ticker = threading.Thread(target=progress_pulse, daemon=True)
-            ticker.start()
 
-            # Prefer using the provided run() method if available
+            # This block mirrors the Sept 13 differential_evolution.py execution flow
+            # The run method returns: best_solution, fitness_history, final_generation, diversity_history
             if hasattr(de, 'run'):
                 try:
-                    best_solution, fitness_history, final_generation, _ = de.run(max_gen)
-                    # Safe fitness read
-                    try:
-                        if best_solution is not None and hasattr(de, 'evaluate_fitness'):
-                            best_fitness = float(de.evaluate_fitness(best_solution))
-                    except Exception:
+                    print(f"[{job_id}] Starting DE algorithm run for {max_gen} generations...")
+                    run_result = de.run(max_gen)
+                    
+                    # Sept 13 version returns exactly 4 values
+                    if isinstance(run_result, tuple) and len(run_result) >= 2:
+                        best_solution = run_result[0]
+                        fitness_history = run_result[1]
+                        
+                        # Optional: capture generation and diversity if available
+                        if len(run_result) > 2:
+                            final_generation = run_result[2]
+                        else:
+                            final_generation = len(fitness_history) if fitness_history else max_gen
+                            
+                        if len(run_result) > 3:
+                            diversity_history = run_result[3]
+                    else:
+                        # Fallback if return format is unexpected
+                        best_solution = run_result if not isinstance(run_result, tuple) else run_result[0]
+                        fitness_history = []
+                        final_generation = max_gen
+                    
+                    # Get the best fitness score
+                    if fitness_history and len(fitness_history) > 0:
+                        best_fitness = float(fitness_history[-1])
+                        print(f"[{job_id}] DE completed - Final fitness: {best_fitness:.4f}")
+                    else:
                         best_fitness = float("inf")
+                        print(f"[{job_id}] DE completed - No fitness history available")
+
+                    # CRITICAL: The Sept 13 version re-evaluates the best solution with verbose=True
+                    # to get final violations printed to console
+                    if best_solution is not None and hasattr(de, 'evaluate_fitness'):
+                        print(f"[{job_id}] Re-evaluating final best solution for constraint violations...")
+                        try:
+                            # Try with verbose flag if supported, otherwise call without it
+                            de.evaluate_fitness(best_solution, verbose=True)
+                        except TypeError:
+                            # API version doesn't support verbose parameter
+                            de.evaluate_fitness(best_solution)
+                    
+                    self.update_job_progress(job_id, pct=85)
+
                 except Exception as e:
-                    print(f"Warning: de.run() failed, falling back. Error: {e}")
+                    print(f"[{job_id}] ERROR: de.run() failed. Error: {e}")
+                    import traceback
+                    traceback.print_exc()
                     best_solution = None
+                    fitness_history = []
+                    final_generation = 0
             else:
-                # Fallback: trivial single-pass evaluation of initial population
-                try:
-                    if not hasattr(de, 'population') or de.population is None:
-                        de.population = de.initialize_population()
-                    scores = [de.evaluate_fitness(ind) for ind in de.population]
-                    if scores:
-                        idx = int(np.argmin(scores))
-                        best_solution = de.population[idx]
-                        best_fitness = float(scores[idx])
-                        fitness_history = [best_fitness]
-                        final_generation = 0
-                except Exception as e:
-                    print(f"Warning: Fallback evaluation failed: {e}")
-                    best_solution = None
+                # Fallback if `run` method is not present
+                print(f"[{job_id}] ERROR: DE instance lacks a `run` method.")
+                self.update_job_error(job_id, "DE instance is missing the 'run' method.")
+                return
+
+        except Exception as main_error:
+            print(f"[{job_id}] FATAL ERROR in run_optimization: {main_error}")
+            import traceback
+            traceback.print_exc()
+            self.update_job_error(job_id, f"Optimization failed: {str(main_error)}")
+            return
         finally:
-            # Stop ticker regardless of outcome
-            try:
-                stop_evt.set()
-                ticker.join(timeout=1)
-            except Exception:
-                pass
+            # Progress update after optimization finishes
+            self.update_job_progress(job_id, pct=90)
+
 
         # Post-processing
         self.update_job_progress(job_id, pct=95)
@@ -410,23 +426,21 @@ class TimetableProcessor:
         all_timetables = []
         if best_solution is not None:
             try:
+                # The original script uses `print_all_timetables` to get the final grid data.
+                # CRITICAL: print_all_timetables requires 4 parameters matching Sept 13 signature
                 if hasattr(de, 'print_all_timetables'):
-                    # Try different signatures
-                    try:
-                        all_timetables = de.print_all_timetables(
-                            best_solution,
-                            de.input_data.days,
-                            de.input_data.hours,
-                            9
-                        )
-                    except TypeError:
-                        try:
-                            all_timetables = de.print_all_timetables(best_solution)
-                        except Exception as e:
-                            print(f"Warning: print_all_timetables failed: {e}")
-                            all_timetables = []
+                    days = getattr(de.input_data, 'days', 5)
+                    hours = getattr(de.input_data, 'hours', 8)
+                    day_start_time = 9
+                    print(f"[{job_id}] Generating timetables with days={days}, hours={hours}, start_time={day_start_time}")
+                    all_timetables = de.print_all_timetables(best_solution, days, hours, day_start_time)
+                    print(f"[{job_id}] Generated {len(all_timetables) if all_timetables else 0} timetables")
+                else:
+                    print(f"[{job_id}] Warning: DE instance lacks `print_all_timetables` method.")
             except Exception as e:
-                print(f"Warning: Timetable generation failed: {e}")
+                print(f"[{job_id}] ERROR: Timetable generation failed: {e}")
+                import traceback
+                traceback.print_exc()
                 all_timetables = []
 
         # Fallback: if empty, build blank timetables so UI still works
@@ -437,14 +451,28 @@ class TimetableProcessor:
         # Build UI card summaries
         timetable_cards = self.format_timetable_results_from_raw(all_timetables)
 
-        # Get constraint violations
+        # Get constraint violations - BOTH summary and detailed for UI
         violations = {}
+        detailed_violations = {}
         if best_solution is not None and hasattr(de, 'constraints'):
             try:
+                # Get summary violations (numerical counts)
                 if hasattr(de.constraints, 'get_constraint_violations'):
-                    violations = de.constraints.get_constraint_violations(best_solution)
+                    violations = de.constraints.get_constraint_violations(best_solution, debug=True)
+                    print(f"[{job_id}] Got constraint violations summary: {violations.get('total', 0)} total violations")
+                
+                # Get detailed violations (with locations and descriptions) for UI
+                if hasattr(de.constraints, 'get_detailed_constraint_violations'):
+                    detailed_violations = de.constraints.get_detailed_constraint_violations(best_solution)
+                    print(f"[{job_id}] Got detailed constraint violations with {len(detailed_violations)} constraint types")
+                    # Print summary of detailed violations
+                    for constraint_type, violation_list in detailed_violations.items():
+                        if violation_list:
+                            print(f"  - {constraint_type}: {len(violation_list)} violations")
             except Exception as e:
                 print(f"Warning: Constraint violation check failed: {e}")
+                import traceback
+                traceback.print_exc()
 
         # Build parsed timetables for frontend
         parsed = []
@@ -489,27 +517,35 @@ class TimetableProcessor:
         try:
             dash_data_dir = os.path.join(os.path.dirname(__file__), 'data')
             os.makedirs(dash_data_dir, exist_ok=True)
+            
+            # Save DETAILED violations for Dash UI (with locations and descriptions)
             violations_path = os.path.join(dash_data_dir, 'constraint_violations.json')
             with open(violations_path, 'w', encoding='utf-8') as vf:
                 import json as _json
-                _json.dump(result.get('constraint_violations', {}), vf, indent=2, ensure_ascii=False)
+                # Save the detailed violations, not the summary
+                detailed_to_save = make_json_serializable(detailed_violations) if detailed_violations else {}
+                _json.dump(detailed_to_save, vf, indent=2, ensure_ascii=False)
+                print(f"[{job_id}] Saved {len(detailed_to_save)} detailed constraint types to {violations_path}")
+            
             # Print a compact summary
             try:
-                v = result.get('constraint_violations') or {}
-                if isinstance(v, dict):
-                    print("[VIOLATIONS] Summary:")
-                    for k, val in v.items():
+                if isinstance(detailed_violations, dict):
+                    print("[DETAILED VIOLATIONS] Summary:")
+                    for k, val in detailed_violations.items():
                         try:
                             count = len(val) if isinstance(val, list) else (int(val) if isinstance(val, (int, float)) else 1)
                         except Exception:
                             count = 0
-                        print(f"  - {k}: {count}")
+                        if count > 0:
+                            print(f"  - {k}: {count}")
                 else:
-                    print("[VIOLATIONS] No violations dict available")
+                    print("[DETAILED VIOLATIONS] No detailed violations dict available")
             except Exception as _log_err:
-                print(f"[VIOLATIONS] Warning: could not print summary: {_log_err}")
+                print(f"[DETAILED VIOLATIONS] Warning: could not print summary: {_log_err}")
         except Exception as dash_save_error:
             print(f"[{job_id}] WARNING: Could not save constraint violations for Dash UI. Error: {dash_save_error}")
+            import traceback
+            traceback.print_exc()
 
         try:
             dash_data_dir = os.path.join(os.path.dirname(__file__), 'data')
