@@ -7,64 +7,64 @@
     "timetable": [
       [
         "9:00",
-        "Course: MTH 101, Lecturer: Dr. Akudo Ijezie, Room: Classroom 2",
+        "PAU-EEE 191\nJalingo\nFr. Elobuike Asogwa",
+        "CHM 101\nUnknown\neofor@pau.edu.ng",
         "",
-        "",
-        "",
-        "Course: EEE 102, Lecturer: Prof. Norbert Edomah, Room: Electrical Power and Machines Lab"
-      ],
-      [
-        "10:00",
-        "Course: MTH 101, Lecturer: Dr. Akudo Ijezie, Room: Classroom 2",
-        "",
-        "GET 101\nUnknown\naagholor@pau.edu.ng",
-        "",
-        "Course: EEE 102, Lecturer: Prof. Norbert Edomah, Room: Electrical Power and Machines Lab"
-      ],
-      [
-        "11:00",
-        "Course: PHY 102, Lecturer: Dr. Gabriel Dosumu, Room: SST New Classroom (Year 4)",
-        "",
-        "PHY 101\nUnknown\nDr. Oludayo Akintunde",
         "",
         ""
       ],
       [
+        "10:00",
+        "",
+        "PHY 101\nUnknown\nDr. Oludayo Akintunde",
+        "",
+        "",
+        ""
+      ],
+      [
+        "11:00",
+        "",
+        "",
+        "Course: EEE 102, Lecturer: Prof. Norbert Edomah, Room: Jalingo",
+        "Course: PHY 102, Lecturer: Dr. Gabriel Dosumu, Room: Strength of Materials",
+        ""
+      ],
+      [
         "12:00",
-        "Course: PHY 102, Lecturer: Dr. Gabriel Dosumu, Room: SST New Classroom (Year 4)",
+        "PAU-EEE 191\nJalingo\nFr. Elobuike Asogwa",
         "",
-        "",
-        "",
+        "Course: EEE 102, Lecturer: Prof. Norbert Edomah, Room: Jalingo",
+        "Course: PHY 102, Lecturer: Dr. Gabriel Dosumu, Room: Strength of Materials",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "",
+        "Course: PHY 101, Lecturer: Dr. Oludayo Akintunde, Room: Classroom 3",
         "BREAK",
         "",
         "BREAK"
       ],
       [
         "14:00",
+        "Course: MTH 101, Lecturer: Dr. Akudo Ijezie, Room: Classroom 5",
+        "Course: PHY 101, Lecturer: Dr. Oludayo Akintunde, Room: Classroom 3",
         "",
         "",
-        "Course: GST 111 - ENG, Lecturer: Dr. Ogechi Ekechi, Room: Classroom 2",
-        "Course: PHY 101, Lecturer: Dr. Oludayo Akintunde, Room: Bauchi",
-        ""
+        "Course: GST 111 - ENG, Lecturer: Dr. Ogechi Ekechi, Room: SST New Classroom (Year 4)"
       ],
       [
         "15:00",
+        "Course: MTH 101, Lecturer: Dr. Akudo Ijezie, Room: Classroom 5",
         "",
-        "Course: PAU-EEE 191, Lecturer: Fr. Elobuike Asogwa, Room: Abakaliki",
-        "Course: GST 111 - ENG, Lecturer: Dr. Ogechi Ekechi, Room: Classroom 2",
-        "Course: PHY 101, Lecturer: Dr. Oludayo Akintunde, Room: Bauchi",
-        ""
+        "",
+        "",
+        "Course: GST 111 - ENG, Lecturer: Dr. Ogechi Ekechi, Room: SST New Classroom (Year 4)"
       ],
       [
         "16:00",
         "",
-        "Course: PAU-EEE 191, Lecturer: Fr. Elobuike Asogwa, Room: Abakaliki",
+        "",
         "",
         "",
         ""
@@ -79,67 +79,67 @@
     "timetable": [
       [
         "9:00",
+        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: Classroom 4",
         "",
-        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Lokoja",
-        "Course: PAU-EEE 292, Lecturer: Dr. Adaora Onaga, Room: Classroom 2",
+        "",
         "",
         ""
       ],
       [
         "10:00",
-        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: Electrical Power and Machines Lab",
-        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Lokoja",
-        "Course: PAU-EEE 292, Lecturer: Dr. Adaora Onaga, Room: Classroom 2",
+        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: Classroom 4",
         "",
-        ""
+        "",
+        "",
+        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Classroom 5"
       ],
       [
         "11:00",
-        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Classroom 2",
-        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Lokoja",
-        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Classroom 1",
+        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: Classroom 4",
         "",
-        ""
+        "",
+        "Course: ENT 211 - EEE, Lecturer: Miss Halima Rabiu, Room: Bauchi",
+        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Classroom 5"
       ],
       [
         "12:00",
-        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Classroom 2",
         "",
-        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Classroom 1",
-        "Course: GET 203, Lecturer: Engr. Patrick Onwordi, Room: Strength of Materials",
-        ""
+        "Course: PAU-EEE 292, Lecturer: Dr. Adaora Onaga, Room: Asaba",
+        "",
+        "Course: ENT 211 - EEE, Lecturer: Miss Halima Rabiu, Room: Bauchi",
+        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Classroom 5"
       ],
       [
         "13:00",
         "BREAK",
-        "",
+        "Course: PAU-EEE 292, Lecturer: Dr. Adaora Onaga, Room: Asaba",
         "BREAK",
-        "Course: GET 203, Lecturer: Engr. Patrick Onwordi, Room: Strength of Materials",
+        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Classroom 3",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Classroom 2",
+        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Electrical Power and Machines Lab",
         "",
-        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Classroom 1",
-        "Course: ENT 211 - EEE, Lecturer: Miss Halima Rabiu, Room: Lokoja",
-        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Classroom 3"
+        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Strength of Materials",
+        "",
+        ""
       ],
       [
         "15:00",
-        "",
-        "",
-        "",
-        "",
-        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Classroom 3"
+        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Electrical Power and Machines Lab",
+        "Course: GET 203, Lecturer: Engr. Patrick Onwordi, Room: Classroom 3",
+        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Strength of Materials",
+        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Classroom 3",
+        ""
       ],
       [
         "16:00",
-        "",
-        "",
-        "",
-        "",
-        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Classroom 3"
+        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Electrical Power and Machines Lab",
+        "Course: GET 203, Lecturer: Engr. Patrick Onwordi, Room: Classroom 3",
+        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Strength of Materials",
+        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Classroom 3",
+        ""
       ]
     ]
   },
@@ -151,7 +151,7 @@
     "timetable": [
       [
         "9:00",
-        "Course: GST 312 -EEE, Lecturer: Mr. Obinna Ikejimba, Room: Classroom 4",
+        "Course: GET 305 - EEE, Lecturer: Dr. Avbenake Onoriode, Room: Electronics, Control and Telecomms Lab",
         "",
         "",
         "",
@@ -159,59 +159,59 @@
       ],
       [
         "10:00",
-        "Course: GST 312 -EEE, Lecturer: Mr. Obinna Ikejimba, Room: Classroom 4",
+        "Course: GET 305 - EEE, Lecturer: Dr. Avbenake Onoriode, Room: Electronics, Control and Telecomms Lab",
         "",
         "",
         "",
-        "Course: EEE 321, Lecturer: Dr. Jeremiah Bandele, Room: Strength of Materials"
+        ""
       ],
       [
         "11:00",
+        "Course: GET 305 - EEE, Lecturer: Dr. Avbenake Onoriode, Room: Electronics, Control and Telecomms Lab",
         "",
-        "Course: GET 306 - EEE, Lecturer: Dr. Emmanuel Usen, Room: Enugu",
+        "Course: GET 301 - EEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 2",
         "",
-        "",
-        "Course: EEE 321, Lecturer: Dr. Jeremiah Bandele, Room: Strength of Materials"
+        "Course: GET 306 - EEE, Lecturer: Dr. Emmanuel Usen, Room: Classroom 4"
       ],
       [
         "12:00",
         "",
-        "Course: GET 306 - EEE, Lecturer: Dr. Emmanuel Usen, Room: Enugu",
-        "",
-        "",
+        "Course: EEE 321, Lecturer: Dr. Jeremiah Bandele, Room: Electronics, Control and Telecomms Lab",
+        "Course: GET 301 - EEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 2",
+        "Course: ENT 312 - EEE, Lecturer: Miss Halima Rabiu, Room: Zaria",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: GET 306 - EEE, Lecturer: Dr. Emmanuel Usen, Room: Enugu",
+        "Course: GST 312 -EEE, Lecturer: Mr. Obinna Ikejimba, Room: Strength of Materials",
         "BREAK",
-        "",
+        "Course: ENT 312 - EEE, Lecturer: Miss Halima Rabiu, Room: Zaria",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: PAU-EEE 311, Lecturer: Prof. Norbert Edomah, Room: Strength of Materials",
-        "Course: GET 305 - EEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 2",
-        "Course: GET 305 - EEE, Lecturer: Dr. Avbenake Onoriode, Room: Ibadan",
-        "Course: GET 301 - EEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 3",
+        "",
+        "Course: GST 312 -EEE, Lecturer: Mr. Obinna Ikejimba, Room: Strength of Materials",
+        "",
+        "",
         ""
       ],
       [
         "15:00",
-        "Course: PAU-EEE 311, Lecturer: Prof. Norbert Edomah, Room: Strength of Materials",
         "",
-        "Course: ENT 312 - EEE, Lecturer: Miss Halima Rabiu, Room: Classroom 1",
-        "Course: GET 301 - EEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 3",
-        ""
+        "",
+        "",
+        "",
+        "Course: GET 306 - EEE, Lecturer: Dr. Emmanuel Usen, Room: Classroom 4"
       ],
       [
         "16:00",
         "",
         "",
-        "Course: ENT 312 - EEE, Lecturer: Miss Halima Rabiu, Room: Classroom 1",
-        "Course: GET 301 - EEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 3",
-        ""
+        "Course: GET 301 - EEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 2",
+        "",
+        "Course: GET 306 - EEE, Lecturer: Dr. Emmanuel Usen, Room: Classroom 4"
       ]
     ]
   },
@@ -223,24 +223,24 @@
     "timetable": [
       [
         "9:00",
+        "Course: PAU-EEE 409, Lecturer: Dr. Daniel Okojie, Room: Port-Harcourt",
         "",
         "",
         "",
-        "",
-        "Course: PAU-EEE 405, Lecturer: Dr. Iniobong Afahakan, Room: Classroom 2"
+        ""
       ],
       [
         "10:00",
+        "Course: PAU-EEE 409, Lecturer: Dr. Daniel Okojie, Room: Port-Harcourt",
         "",
-        "Course: PAU-EEE 403, Lecturer: Dr. Michael Adelabu, Room: Electronics, Control and Telecomms Lab",
         "",
         "",
-        "Course: PAU-EEE 405, Lecturer: Dr. Iniobong Afahakan, Room: Classroom 2"
+        ""
       ],
       [
         "11:00",
         "",
-        "Course: PAU-EEE 403, Lecturer: Dr. Michael Adelabu, Room: Electronics, Control and Telecomms Lab",
+        "",
         "",
         "",
         ""
@@ -265,23 +265,23 @@
         "14:00",
         "",
         "",
-        "",
-        "",
+        "Course: PAU-EEE 403, Lecturer: Dr. Michael Adelabu, Room: Classroom 1",
+        "Course: PAU-EEE 401, Lecturer: Dr. Adaora Onaga, Room: SST New Classroom (Year 4)",
         ""
       ],
       [
         "15:00",
-        "Course: PAU-EEE 409, Lecturer: Dr. Daniel Okojie, Room: Classroom 4",
         "",
-        "Course: PAU-EEE 401, Lecturer: Dr. Adaora Onaga, Room: Strength of Materials",
-        "",
+        "Course: PAU-EEE 405, Lecturer: Dr. Iniobong Afahakan, Room: Enugu",
+        "Course: PAU-EEE 403, Lecturer: Dr. Michael Adelabu, Room: Classroom 1",
+        "Course: PAU-EEE 401, Lecturer: Dr. Adaora Onaga, Room: SST New Classroom (Year 4)",
         ""
       ],
       [
         "16:00",
-        "Course: PAU-EEE 409, Lecturer: Dr. Daniel Okojie, Room: Classroom 4",
         "",
-        "Course: PAU-EEE 401, Lecturer: Dr. Adaora Onaga, Room: Strength of Materials",
+        "Course: PAU-EEE 405, Lecturer: Dr. Iniobong Afahakan, Room: Enugu",
+        "",
         "",
         ""
       ]
@@ -295,7 +295,7 @@
     "timetable": [
       [
         "9:00",
-        "Course: EEE 593, Lecturer: Prof. Norbert Edomah, Room: Oshogbo",
+        "",
         "",
         "",
         "",
@@ -303,7 +303,7 @@
       ],
       [
         "10:00",
-        "Course: EEE 593, Lecturer: Prof. Norbert Edomah, Room: Oshogbo",
+        "",
         "",
         "",
         "",
@@ -311,8 +311,8 @@
       ],
       [
         "11:00",
-        "Course: EEE 593, Lecturer: Prof. Norbert Edomah, Room: Oshogbo",
         "",
+        "Course: GET 501 - EEE, Lecturer: Dr. Benjamin Anyaegbuna, Room: Classroom 1",
         "",
         "",
         ""
@@ -320,7 +320,7 @@
       [
         "12:00",
         "",
-        "",
+        "Course: GET 501 - EEE, Lecturer: Dr. Benjamin Anyaegbuna, Room: Classroom 1",
         "",
         "",
         ""
@@ -328,30 +328,30 @@
       [
         "13:00",
         "BREAK",
-        "Course: GET 501 - EEE, Lecturer: Dr. Benjamin Anyaegbuna, Room: Zaria",
+        "",
         "BREAK",
         "",
         "BREAK"
       ],
       [
         "14:00",
-        "",
-        "Course: GET 501 - EEE, Lecturer: Dr. Benjamin Anyaegbuna, Room: Zaria",
+        "Course: EEE 593, Lecturer: Prof. Norbert Edomah, Room: SST New Classroom (Year 4)",
+        "Course: GET 501 - EEE, Lecturer: Dr. Benjamin Anyaegbuna, Room: Classroom 1",
         "",
         "",
         ""
       ],
       [
         "15:00",
+        "Course: EEE 593, Lecturer: Prof. Norbert Edomah, Room: SST New Classroom (Year 4)",
         "",
-        "Course: GET 501 - EEE, Lecturer: Dr. Benjamin Anyaegbuna, Room: Zaria",
         "",
         "",
         ""
       ],
       [
         "16:00",
-        "",
+        "Course: EEE 593, Lecturer: Prof. Norbert Edomah, Room: SST New Classroom (Year 4)",
         "",
         "",
         "",
@@ -367,35 +367,35 @@
     "timetable": [
       [
         "9:00",
+        "Course: MTH 101, Lecturer: Dr. Akudo Ijezie, Room: Umuahia",
         "",
-        "",
-        "",
+        "Course: PHY 101, Lecturer: Dr. Oludayo Akintunde, Room: Classroom 1",
         "",
         ""
       ],
       [
         "10:00",
+        "Course: MTH 101, Lecturer: Dr. Akudo Ijezie, Room: Umuahia",
         "",
+        "Course: PHY 101, Lecturer: Dr. Oludayo Akintunde, Room: Classroom 1",
         "",
-        "",
-        "Course: PAU-EEE 191, Lecturer: Fr. Elobuike Asogwa, Room: Electronics, Control and Telecomms Lab",
-        ""
+        "Course: GST 111 - ENG, Lecturer: Dr. Ogechi Ekechi, Room: SST New Classroom (Year 4)"
       ],
       [
         "11:00",
         "",
-        "Course: PHY 101, Lecturer: Dr. Oludayo Akintunde, Room: Maiduguri",
+        "Course: PAU-EEE 191, Lecturer: Fr. Elobuike Asogwa, Room: Classroom 4",
         "",
-        "Course: PAU-EEE 191, Lecturer: Fr. Elobuike Asogwa, Room: Electronics, Control and Telecomms Lab",
-        "Course: MTH 101, Lecturer: Dr. Akudo Ijezie, Room: Classroom 3"
+        "",
+        "Course: GST 111 - ENG, Lecturer: Dr. Ogechi Ekechi, Room: SST New Classroom (Year 4)"
       ],
       [
         "12:00",
         "",
-        "Course: PHY 101, Lecturer: Dr. Oludayo Akintunde, Room: Maiduguri",
+        "Course: PAU-EEE 191, Lecturer: Fr. Elobuike Asogwa, Room: Classroom 4",
         "",
         "",
-        "Course: MTH 101, Lecturer: Dr. Akudo Ijezie, Room: Classroom 3"
+        ""
       ],
       [
         "13:00",
@@ -410,22 +410,22 @@
         "",
         "",
         "",
-        "",
+        "Course: PHY 102, Lecturer: Dr. Gabriel Dosumu, Room: Asaba",
         ""
       ],
       [
         "15:00",
-        "Course: GST 111 - ENG, Lecturer: Dr. Ogechi Ekechi, Room: Abakaliki",
         "",
-        "Course: PHY 102, Lecturer: Dr. Gabriel Dosumu, Room: Electrical Power and Machines Lab",
         "",
+        "",
+        "Course: PHY 102, Lecturer: Dr. Gabriel Dosumu, Room: Asaba",
         ""
       ],
       [
         "16:00",
-        "Course: GST 111 - ENG, Lecturer: Dr. Ogechi Ekechi, Room: Abakaliki",
         "",
-        "Course: PHY 102, Lecturer: Dr. Gabriel Dosumu, Room: Electrical Power and Machines Lab",
+        "",
+        "",
         "",
         ""
       ]
@@ -439,67 +439,67 @@
     "timetable": [
       [
         "9:00",
+        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Classroom 5",
         "",
-        "Course: PAU-EEE 292, Lecturer: Dr. Adaora Onaga, Room: Classroom 2",
-        "Course: ENT 211 - EEE, Lecturer: Miss Halima Rabiu, Room: Lokoja",
-        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: Classroom 1",
-        ""
+        "Course: ENT 211 - EEE, Lecturer: Miss Halima Rabiu, Room: Port-Harcourt",
+        "",
+        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Electronics, Control and Telecomms Lab"
       ],
       [
         "10:00",
+        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Classroom 5",
+        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Electrical Power and Machines Lab",
+        "Course: ENT 211 - EEE, Lecturer: Miss Halima Rabiu, Room: Port-Harcourt",
         "",
-        "Course: PAU-EEE 292, Lecturer: Dr. Adaora Onaga, Room: Classroom 2",
-        "Course: ENT 211 - EEE, Lecturer: Miss Halima Rabiu, Room: Lokoja",
-        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: Classroom 1",
-        ""
+        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Electronics, Control and Telecomms Lab"
       ],
       [
         "11:00",
-        "Course: GET 203, Lecturer: Engr. Patrick Onwordi, Room: Classroom 4",
-        "",
-        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Ado-Ekiti",
-        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: Classroom 1",
-        ""
+        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Classroom 5",
+        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Electrical Power and Machines Lab",
+        "Course: PAU-EEE 292, Lecturer: Dr. Adaora Onaga, Room: Electronics, Control and Telecomms Lab",
+        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: Classroom 4",
+        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Electronics, Control and Telecomms Lab"
       ],
       [
         "12:00",
-        "Course: GET 203, Lecturer: Engr. Patrick Onwordi, Room: Classroom 4",
         "",
-        "",
+        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Electrical Power and Machines Lab",
+        "Course: PAU-EEE 292, Lecturer: Dr. Adaora Onaga, Room: Electronics, Control and Telecomms Lab",
         "",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Classroom 5",
-        "BREAK",
         "",
+        "BREAK",
+        "Course: GET 203, Lecturer: Engr. Patrick Onwordi, Room: Classroom 1",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Classroom 5",
-        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Classroom 5",
         "",
         "",
-        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Classroom 1"
+        "",
+        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: Classroom 4",
+        ""
       ],
       [
         "15:00",
-        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Classroom 5",
-        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Classroom 5",
         "",
         "",
-        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Classroom 1"
+        "",
+        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: Classroom 4",
+        ""
       ],
       [
         "16:00",
-        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Classroom 5",
         "",
         "",
         "",
-        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Classroom 1"
+        "",
+        ""
       ]
     ]
   },
@@ -511,67 +511,67 @@
     "timetable": [
       [
         "9:00",
+        "Course: GET 305 - MEE, Lecturer: Dr. Avbenake Onoriode, Room: Strength of Materials",
+        "Course: GST 312 - MEE, Lecturer: Mr. Obinna Ikejimba, Room: Classroom 5",
         "",
-        "",
-        "Course: PAU-MEE 331, Lecturer: Dr. Benjamin Anyaegbuna, Room: TYD New classroom",
-        "",
+        "Course: PAU-MEE 315, Lecturer: Dr. Adekunle Oyelami, Room: Jalingo",
         ""
       ],
       [
         "10:00",
-        "Course: GET 301 - MEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 3",
+        "Course: GET 305 - MEE, Lecturer: Dr. Avbenake Onoriode, Room: Strength of Materials",
+        "Course: GST 312 - MEE, Lecturer: Mr. Obinna Ikejimba, Room: Classroom 5",
         "",
-        "Course: PAU-MEE 331, Lecturer: Dr. Benjamin Anyaegbuna, Room: TYD New classroom",
         "",
-        "Course: GET 306 - MEE, Lecturer: Dr. Emmanuel Usen, Room: Jalingo"
+        ""
       ],
       [
         "11:00",
-        "Course: GET 301 - MEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 3",
+        "Course: GET 305 - MEE, Lecturer: Dr. Avbenake Onoriode, Room: Strength of Materials",
         "",
-        "Course: PAU-MCT 302, Lecturer: Dr. Peter Onu, Room: Classroom 4",
-        "Course: GET 305 - MEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 2",
-        "Course: GET 306 - MEE, Lecturer: Dr. Emmanuel Usen, Room: Jalingo"
+        "Course: ENT 312 - MEE, Lecturer: Miss Halima Rabiu, Room: Classroom 1",
+        "",
+        ""
       ],
       [
         "12:00",
-        "Course: GET 301 - MEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 3",
         "",
         "",
-        "Course: GET 305 - MEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 2",
-        "Course: GET 306 - MEE, Lecturer: Dr. Emmanuel Usen, Room: Jalingo"
+        "Course: ENT 312 - MEE, Lecturer: Miss Halima Rabiu, Room: Classroom 1",
+        "",
+        ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: PAU-MEE 315, Lecturer: Dr. Adekunle Oyelami, Room: Electronics, Control and Telecomms Lab",
+        "",
         "BREAK",
-        "Course: GET 305 - MEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 2",
+        "",
         "BREAK"
       ],
       [
         "14:00",
         "",
-        "Course: PAU-MEE 315, Lecturer: Dr. Adekunle Oyelami, Room: Electronics, Control and Telecomms Lab",
-        "",
-        "Course: PAU-MEE 307, Lecturer: Dr. Anthony Onokwai, Room: Strength of Materials",
-        ""
+        "Course: GET 306 - MEE, Lecturer: Dr. Emmanuel Usen, Room: Classroom 2",
+        "Course: GET 301 - MEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 4",
+        "Course: PAU-MCT 302, Lecturer: Dr. Peter Onu, Room: Abakaliki",
+        "Course: PAU-MEE 331, Lecturer: Dr. Benjamin Anyaegbuna, Room: Classroom 2"
       ],
       [
         "15:00",
-        "Course: GST 312 - MEE, Lecturer: Mr. Obinna Ikejimba, Room: Classroom 2",
-        "Course: PAU-MEE 315, Lecturer: Dr. Adekunle Oyelami, Room: Electronics, Control and Telecomms Lab",
         "",
-        "Course: PAU-MEE 307, Lecturer: Dr. Anthony Onokwai, Room: Strength of Materials",
-        "Course: PAU-MEE 313, Lecturer: Capt. Stan Igwe, Room: SST New Classroom (Year 4)"
+        "Course: GET 306 - MEE, Lecturer: Dr. Emmanuel Usen, Room: Classroom 2",
+        "Course: GET 301 - MEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 4",
+        "Course: PAU-MCT 302, Lecturer: Dr. Peter Onu, Room: Abakaliki",
+        "Course: PAU-MEE 307, Lecturer: Dr. Anthony Onokwai, Room: Classroom 3"
       ],
       [
         "16:00",
-        "Course: GST 312 - MEE, Lecturer: Mr. Obinna Ikejimba, Room: Classroom 2",
         "",
-        "",
-        "",
-        "Course: PAU-MEE 313, Lecturer: Capt. Stan Igwe, Room: SST New Classroom (Year 4)"
+        "Course: GET 306 - MEE, Lecturer: Dr. Emmanuel Usen, Room: Classroom 2",
+        "Course: GET 301 - MEE, Lecturer: Dr. Avbenake Onoriode, Room: Classroom 4",
+        "Course: PAU-MEE 315, Lecturer: Dr. Adekunle Oyelami, Room: Jalingo",
+        "Course: PAU-MEE 307, Lecturer: Dr. Anthony Onokwai, Room: Classroom 3"
       ]
     ]
   },
@@ -585,38 +585,38 @@
         "9:00",
         "",
         "",
-        "Course: PAU-MEE 409, Lecturer: Prof. Roland Loto, Room: Strength of Materials",
-        "Course: MEE 405, Lecturer: Dr. Cynthia Abima, Room: Classroom 2",
-        ""
+        "",
+        "Course: MEE 405, Lecturer: Dr. Cynthia Abima, Room: Abakaliki",
+        "Course: MEE 403, Lecturer: Dr. Anthony Onokwai, Room: Electrical Power and Machines Lab"
       ],
       [
         "10:00",
-        "Course: MEE 403, Lecturer: Dr. Anthony Onokwai, Room: Classroom 5",
+        "Course: MEE 401, Lecturer: Dr. George Ihenacho, Room: Asaba",
         "",
-        "Course: PAU-MEE 409, Lecturer: Prof. Roland Loto, Room: Strength of Materials",
         "",
-        ""
+        "Course: MEE 405, Lecturer: Dr. Cynthia Abima, Room: Abakaliki",
+        "Course: MEE 403, Lecturer: Dr. Anthony Onokwai, Room: Electrical Power and Machines Lab"
       ],
       [
         "11:00",
-        "Course: MEE 403, Lecturer: Dr. Anthony Onokwai, Room: Classroom 5",
+        "Course: MEE 401, Lecturer: Dr. George Ihenacho, Room: Asaba",
         "",
-        "",
-        "",
+        "Course: PAU-MEE 409, Lecturer: Prof. Roland Loto, Room: Strength of Materials",
+        "Course: MEE 405, Lecturer: Dr. Cynthia Abima, Room: Abakaliki",
         ""
       ],
       [
         "12:00",
         "",
-        "",
-        "",
+        "Course: PAU-MEE 401, Lecturer: Dr. Adaora Onaga, Room: Classroom 5",
+        "Course: PAU-MEE 409, Lecturer: Prof. Roland Loto, Room: Strength of Materials",
         "",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "",
+        "Course: PAU-MEE 401, Lecturer: Dr. Adaora Onaga, Room: Classroom 5",
         "BREAK",
         "",
         "BREAK"
@@ -624,25 +624,25 @@
       [
         "14:00",
         "",
-        "Course: MEE 401, Lecturer: Dr. George Ihenacho, Room: Classroom 4",
         "",
         "",
-        "Course: PAU-MEE 401, Lecturer: Dr. Adaora Onaga, Room: Maiduguri"
+        "",
+        ""
       ],
       [
         "15:00",
         "",
-        "Course: MEE 401, Lecturer: Dr. George Ihenacho, Room: Classroom 4",
         "",
-        "Course: MEE 405, Lecturer: Dr. Cynthia Abima, Room: Classroom 2",
-        "Course: PAU-MEE 401, Lecturer: Dr. Adaora Onaga, Room: Maiduguri"
+        "",
+        "",
+        ""
       ],
       [
         "16:00",
         "",
         "",
         "",
-        "Course: MEE 405, Lecturer: Dr. Cynthia Abima, Room: Classroom 2",
+        "",
         ""
       ]
     ]
@@ -656,25 +656,25 @@
       [
         "9:00",
         "",
-        "Course: GET 501 - MEE, Lecturer: Dr. Benjamin Anyaegbuna, Room: Bauchi",
-        "Course: PAU-MEE 521, Lecturer: Dr. Peter Onu, Room: SST New Classroom (Year 4)",
-        "Course: MEE 590, Lecturer: Dr. George Ihenacho, Room: Zaria",
+        "",
+        "",
+        "",
         ""
       ],
       [
         "10:00",
         "",
-        "Course: GET 501 - MEE, Lecturer: Dr. Benjamin Anyaegbuna, Room: Bauchi",
-        "Course: PAU-MEE 521, Lecturer: Dr. Peter Onu, Room: SST New Classroom (Year 4)",
-        "Course: MEE 590, Lecturer: Dr. George Ihenacho, Room: Zaria",
+        "Course: MEE 501, Lecturer: Engr. Patrick Onwordi, Room: Classroom 3",
+        "",
+        "Course: GET 501 - MEE, Lecturer: Dr. Benjamin Anyaegbuna, Room: Electronics, Control and Telecomms Lab",
         ""
       ],
       [
         "11:00",
         "",
+        "Course: MEE 501, Lecturer: Engr. Patrick Onwordi, Room: Classroom 3",
         "",
-        "",
-        "Course: MEE 590, Lecturer: Dr. George Ihenacho, Room: Zaria",
+        "Course: GET 501 - MEE, Lecturer: Dr. Benjamin Anyaegbuna, Room: Electronics, Control and Telecomms Lab",
         ""
       ],
       [
@@ -682,20 +682,20 @@
         "",
         "",
         "",
-        "",
+        "Course: GET 501 - MEE, Lecturer: Dr. Benjamin Anyaegbuna, Room: Electronics, Control and Telecomms Lab",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: GET 501 - MEE, Lecturer: Dr. Benjamin Anyaegbuna, Room: Bauchi",
+        "",
         "BREAK",
         "",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: MEE 501, Lecturer: Engr. Patrick Onwordi, Room: Classroom 1",
+        "Course: MEE 590, Lecturer: Dr. George Ihenacho, Room: Classroom 4",
         "",
         "",
         "",
@@ -703,17 +703,17 @@
       ],
       [
         "15:00",
-        "Course: MEE 501, Lecturer: Engr. Patrick Onwordi, Room: Classroom 1",
+        "Course: MEE 590, Lecturer: Dr. George Ihenacho, Room: Classroom 4",
         "",
-        "",
+        "Course: PAU-MEE 521, Lecturer: Dr. Peter Onu, Room: Asaba",
         "",
         ""
       ],
       [
         "16:00",
+        "Course: MEE 590, Lecturer: Dr. George Ihenacho, Room: Classroom 4",
         "",
-        "",
-        "",
+        "Course: PAU-MEE 521, Lecturer: Dr. Peter Onu, Room: Asaba",
         "",
         ""
       ]
@@ -727,7 +727,7 @@
     "timetable": [
       [
         "9:00",
-        "Course: PHY 101, Lecturer: Dr. Oludayo Akintunde, Room: Strength of Materials",
+        "Course: MTH 101, Lecturer: Dr. Akudo Ijezie, Room: Oshogbo",
         "",
         "",
         "",
@@ -735,57 +735,57 @@
       ],
       [
         "10:00",
-        "Course: PHY 101, Lecturer: Dr. Oludayo Akintunde, Room: Strength of Materials",
+        "Course: MTH 101, Lecturer: Dr. Akudo Ijezie, Room: Oshogbo",
         "",
-        "Course: MTH 101, Lecturer: Dr. Akudo Ijezie, Room: Classroom 5",
         "",
-        ""
+        "",
+        "Course: GST 111 - ENG, Lecturer: Dr. Ogechi Ekechi, Room: Strength of Materials"
       ],
       [
         "11:00",
-        "Course: MCT 102, Lecturer: Dr. Peter Onu, Room: Classroom 1",
         "",
-        "Course: MTH 101, Lecturer: Dr. Akudo Ijezie, Room: Classroom 5",
         "",
-        "Course: PHY 102, Lecturer: Dr. Gabriel Dosumu, Room: Electrical Power and Machines Lab"
+        "",
+        "",
+        "Course: GST 111 - ENG, Lecturer: Dr. Ogechi Ekechi, Room: Strength of Materials"
       ],
       [
         "12:00",
         "",
         "",
         "",
-        "Course: GST 111 - ENG, Lecturer: Dr. Ogechi Ekechi, Room: Ibadan",
-        "Course: PHY 102, Lecturer: Dr. Gabriel Dosumu, Room: Electrical Power and Machines Lab"
+        "",
+        ""
       ],
       [
         "13:00",
         "BREAK",
-        "",
+        "Course: PHY 101, Lecturer: Dr. Oludayo Akintunde, Room: Enugu",
         "BREAK",
-        "Course: GST 111 - ENG, Lecturer: Dr. Ogechi Ekechi, Room: Ibadan",
+        "",
         "BREAK"
       ],
       [
         "14:00",
+        "Course: MCT 102, Lecturer: Dr. Peter Onu, Room: Classroom 1",
+        "Course: PHY 101, Lecturer: Dr. Oludayo Akintunde, Room: Enugu",
         "",
-        "Course: PAU-EEE 191, Lecturer: Fr. Elobuike Asogwa, Room: Enugu",
-        "",
-        "",
+        "Course: PHY 102, Lecturer: Dr. Gabriel Dosumu, Room: Classroom 2",
         ""
       ],
       [
         "15:00",
+        "Course: MCT 102, Lecturer: Dr. Peter Onu, Room: Classroom 1",
         "",
-        "Course: PAU-EEE 191, Lecturer: Fr. Elobuike Asogwa, Room: Enugu",
-        "",
-        "",
+        "Course: PAU-EEE 191, Lecturer: Fr. Elobuike Asogwa, Room: Classroom 5",
+        "Course: PHY 102, Lecturer: Dr. Gabriel Dosumu, Room: Classroom 2",
         ""
       ],
       [
         "16:00",
+        "Course: MCT 102, Lecturer: Dr. Peter Onu, Room: Classroom 1",
         "",
-        "",
-        "",
+        "Course: PAU-EEE 191, Lecturer: Fr. Elobuike Asogwa, Room: Classroom 5",
         "",
         ""
       ]
@@ -799,67 +799,67 @@
     "timetable": [
       [
         "9:00",
-        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Maiduguri",
         "",
         "",
-        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: SST New Classroom (Year 4)",
+        "Course: ENT 211 - EEE, Lecturer: Miss Halima Rabiu, Room: SST New Classroom (Year 4)",
+        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: Classroom 4",
         ""
       ],
       [
         "10:00",
-        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Maiduguri",
         "",
-        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Classroom 3",
-        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: SST New Classroom (Year 4)",
-        ""
+        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Abeokuta",
+        "Course: ENT 211 - EEE, Lecturer: Miss Halima Rabiu, Room: SST New Classroom (Year 4)",
+        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: Classroom 4",
+        "Course: GET 203, Lecturer: Engr. Patrick Onwordi, Room: Classroom 3"
       ],
       [
         "11:00",
-        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Maiduguri",
-        "Course: PAU-EEE 292, Lecturer: Dr. Adaora Onaga, Room: Classroom 2",
-        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Classroom 3",
-        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: SST New Classroom (Year 4)",
-        ""
+        "",
+        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Abeokuta",
+        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Classroom 5",
+        "",
+        "Course: GET 203, Lecturer: Engr. Patrick Onwordi, Room: Classroom 3"
       ],
       [
         "12:00",
         "",
-        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Strength of Materials",
-        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Classroom 3",
-        "Course: GET 203, Lecturer: Engr. Patrick Onwordi, Room: Electrical Power and Machines Lab",
+        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Abeokuta",
+        "Course: GET 201, Lecturer: Prof. Norbert Edomah, Room: Classroom 5",
+        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Electrical Power and Machines Lab",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Strength of Materials",
+        "",
         "BREAK",
-        "Course: GET 203, Lecturer: Engr. Patrick Onwordi, Room: Electrical Power and Machines Lab",
+        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Electrical Power and Machines Lab",
         "BREAK"
       ],
       [
         "14:00",
+        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Oshogbo",
         "",
-        "Course: GET 205, Lecturer: Dr. Anthony Onokwai, Room: Strength of Materials",
         "",
-        "",
-        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Strength of Materials"
+        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Electrical Power and Machines Lab",
+        ""
       ],
       [
         "15:00",
+        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Oshogbo",
         "",
         "",
         "",
-        "",
-        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Strength of Materials"
+        "Course: PAU-EEE 292, Lecturer: Dr. Adaora Onaga, Room: Electrical Power and Machines Lab"
       ],
       [
         "16:00",
+        "Course: GET 207, Lecturer: Prof. Roland Loto, Room: Oshogbo",
         "",
         "",
-        "",
-        "",
-        "Course: GET 211, Lecturer: Dr. Jeremiah Bandele, Room: Strength of Materials"
+        "Course: GET 209, Lecturer: Dr. Adekunle Oyelami, Room: Classroom 4",
+        "Course: PAU-EEE 292, Lecturer: Dr. Adaora Onaga, Room: Electrical Power and Machines Lab"
       ]
     ]
   },
@@ -880,7 +880,7 @@
       [
         "10:00",
         "",
-        "Course: MTH101, Lecturer: Dr. Clinton Ifegwu, Room: Electrical Power and Machines Lab",
+        "",
         "",
         "",
         ""
@@ -888,10 +888,10 @@
       [
         "11:00",
         "",
-        "Course: MTH101, Lecturer: Dr. Clinton Ifegwu, Room: Electrical Power and Machines Lab",
         "",
         "",
-        "Course: PHY101, Lecturer: Dr. Rilwan Balogun, Room: Uyo"
+        "",
+        "Course: PHY101, Lecturer: Dr. Rilwan Balogun, Room: Enugu"
       ],
       [
         "12:00",
@@ -899,35 +899,35 @@
         "",
         "",
         "",
-        "Course: PHY101, Lecturer: Dr. Rilwan Balogun, Room: Uyo"
+        "Course: PHY101, Lecturer: Dr. Rilwan Balogun, Room: Enugu"
       ],
       [
         "13:00",
         "BREAK",
-        "",
+        "Course: MTH101, Lecturer: Dr. Clinton Ifegwu, Room: Electrical Power and Machines Lab",
         "BREAK",
         "",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: SST New Classroom (Year 4)",
-        "",
-        "Course: PAU-CSC 192, Lecturer: Fr. Ifeanyi Ogboh, Room: Asaba",
+        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: Electronics, Control and Telecomms Lab",
+        "Course: MTH101, Lecturer: Dr. Clinton Ifegwu, Room: Electrical Power and Machines Lab",
+        "Course: PAU-CSC 192, Lecturer: Fr. Ifeanyi Ogboh, Room: Maiduguri",
         "",
         ""
       ],
       [
         "15:00",
-        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: SST New Classroom (Year 4)",
+        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: Electronics, Control and Telecomms Lab",
         "",
-        "Course: PAU-CSC 192, Lecturer: Fr. Ifeanyi Ogboh, Room: Asaba",
+        "Course: PAU-CSC 192, Lecturer: Fr. Ifeanyi Ogboh, Room: Maiduguri",
         "",
         ""
       ],
       [
         "16:00",
-        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: SST New Classroom (Year 4)",
+        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: Electronics, Control and Telecomms Lab",
         "",
         "",
         "",
@@ -943,7 +943,7 @@
     "timetable": [
       [
         "9:00",
-        "Course: CSC 203, Lecturer: Dr. Akudo Ijezie, Room: SST New Classroom (Year 4)",
+        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Ibadan",
         "",
         "",
         "",
@@ -951,57 +951,57 @@
       ],
       [
         "10:00",
-        "Course: CSC 203, Lecturer: Dr. Akudo Ijezie, Room: SST New Classroom (Year 4)",
+        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Ibadan",
         "",
         "",
-        "",
+        "Course: MTH 201, Lecturer: Dr. Julius Ehigie, Room: Classroom 1",
         ""
       ],
       [
         "11:00",
+        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Ibadan",
         "",
         "",
-        "Course: ENT 211 - CSC, Lecturer: Miss Halima Rabiu, Room: Electrical Power and Machines Lab",
-        "",
-        "Course: PAU-CSC 292, Lecturer: Prof. Juan Elegido, Room: Classroom 5"
+        "Course: COS 201, Lecturer: Dr. Dada Ibidapo, Room: Computer Lab 02",
+        ""
       ],
       [
         "12:00",
         "",
-        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Classroom 1",
-        "Course: ENT 211 - CSC, Lecturer: Miss Halima Rabiu, Room: Electrical Power and Machines Lab",
         "",
-        "Course: PAU-CSC 292, Lecturer: Prof. Juan Elegido, Room: Classroom 5"
+        "",
+        "Course: COS 201, Lecturer: Dr. Dada Ibidapo, Room: Computer Lab 02",
+        ""
       ],
       [
         "13:00",
         "BREAK",
         "",
         "BREAK",
-        "Course: MTH 201, Lecturer: Dr. Julius Ehigie, Room: TYD New classroom",
+        "Course: COS 201, Lecturer: Dr. Dada Ibidapo, Room: Computer Lab 02",
         "BREAK"
       ],
       [
         "14:00",
         "",
-        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Classroom 1",
+        "Course: PAU-CSC 292, Lecturer: Prof. Juan Elegido, Room: Lokoja",
+        "Course: ENT 211 - CSC, Lecturer: Miss Halima Rabiu, Room: SST New Classroom (Year 4)",
         "",
-        "Course: MTH 201, Lecturer: Dr. Julius Ehigie, Room: TYD New classroom",
-        ""
+        "Course: SEN 201, Lecturer: Dr. Akinboro, Room: Classroom 1"
       ],
       [
         "15:00",
-        "Course: IFT 211, Lecturer: Dr. Michael Adelabu, Room: Umuahia",
-        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Classroom 1",
-        "Course: SEN 201, Lecturer: Dr. Akinboro, Room: Classroom 5",
-        "Course: COS 201, Lecturer: Dr. Dada Ibidapo, Room: Computer Lab 02",
-        ""
+        "",
+        "Course: IFT 211, Lecturer: Dr. Michael Adelabu, Room: Strength of Materials",
+        "Course: ENT 211 - CSC, Lecturer: Miss Halima Rabiu, Room: SST New Classroom (Year 4)",
+        "",
+        "Course: SEN 201, Lecturer: Dr. Akinboro, Room: Classroom 1"
       ],
       [
         "16:00",
-        "Course: IFT 211, Lecturer: Dr. Michael Adelabu, Room: Umuahia",
         "",
-        "Course: SEN 201, Lecturer: Dr. Akinboro, Room: Classroom 5",
+        "Course: IFT 211, Lecturer: Dr. Michael Adelabu, Room: Strength of Materials",
+        "",
         "",
         ""
       ]
@@ -1023,58 +1023,58 @@
       ],
       [
         "10:00",
-        "Course: GST 312 - CSC, Lecturer: Prof. Juan Elegido, Room: Electronics, Control and Telecomms Lab",
         "",
         "",
         "",
-        "Course: CYB 201, Lecturer: Mr. Samuel Egunjobi, Room: Electronics, Control and Telecomms Lab"
+        "",
+        "Course: CYB 201, Lecturer: Mr. Samuel Egunjobi, Room: Ado-Ekiti"
       ],
       [
         "11:00",
-        "Course: GST 312 - CSC, Lecturer: Prof. Juan Elegido, Room: Electronics, Control and Telecomms Lab",
         "",
         "",
-        "Course: PAU-CSC 312, Lecturer: Mr. Taiwo Amoo, Room: Bauchi",
-        "Course: CYB 201, Lecturer: Mr. Samuel Egunjobi, Room: Electronics, Control and Telecomms Lab"
+        "",
+        "",
+        "Course: CYB 201, Lecturer: Mr. Samuel Egunjobi, Room: Ado-Ekiti"
       ],
       [
         "12:00",
         "",
+        "Course: GST 312 - CSC, Lecturer: Prof. Juan Elegido, Room: Classroom 2",
         "",
         "",
-        "Course: PAU-CSC 312, Lecturer: Mr. Taiwo Amoo, Room: Bauchi",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: CSC 301, Lecturer: Dr. Stephen Adubi, Room: Computer Lab 2",
+        "Course: GST 312 - CSC, Lecturer: Prof. Juan Elegido, Room: Classroom 2",
         "BREAK",
-        "Course: PAU-CSC 312, Lecturer: Mr. Taiwo Amoo, Room: Bauchi",
+        "",
         "BREAK"
       ],
       [
         "14:00",
+        "Course: PAU-CSC 312, Lecturer: Mr. Taiwo Amoo, Room: Classroom 2",
         "",
-        "Course: CSC 301, Lecturer: Dr. Stephen Adubi, Room: Computer Lab 2",
-        "Course: PAU-CSC 317, Lecturer: Prof. Kingesely Muka, Room: Maiduguri",
         "",
+        "Course: CSC 301, Lecturer: Dr. Stephen Adubi, Room: Computer Lab 02",
         ""
       ],
       [
         "15:00",
+        "Course: PAU-CSC 312, Lecturer: Mr. Taiwo Amoo, Room: Classroom 2",
         "",
-        "Course: CSC 301, Lecturer: Dr. Stephen Adubi, Room: Computer Lab 2",
-        "Course: PAU-CSC 317, Lecturer: Prof. Kingesely Muka, Room: Maiduguri",
-        "",
+        "Course: PAU-CSC 317, Lecturer: Prof. Kingesely Muka, Room: Electrical Power and Machines Lab",
+        "Course: CSC 301, Lecturer: Dr. Stephen Adubi, Room: Computer Lab 02",
         ""
       ],
       [
         "16:00",
+        "Course: PAU-CSC 312, Lecturer: Mr. Taiwo Amoo, Room: Classroom 2",
         "",
-        "",
-        "",
-        "",
+        "Course: PAU-CSC 317, Lecturer: Prof. Kingesely Muka, Room: Electrical Power and Machines Lab",
+        "Course: CSC 301, Lecturer: Dr. Stephen Adubi, Room: Computer Lab 02",
         ""
       ]
     ]
@@ -1087,33 +1087,33 @@
     "timetable": [
       [
         "9:00",
-        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: Bauchi",
         "",
-        "",
-        "",
-        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: SST New Classroom (Year 4)"
-      ],
-      [
-        "10:00",
-        "",
-        "",
-        "",
-        "",
-        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: SST New Classroom (Year 4)"
-      ],
-      [
-        "11:00",
-        "Course: MTH101, Lecturer: Dr. Clinton Ifegwu, Room: Ibadan",
-        "",
+        "Course: MTH101, Lecturer: Dr. Clinton Ifegwu, Room: Classroom 1",
         "Course: PAU-CSC 192, Lecturer: Fr. Ifeanyi Ogboh, Room: Abakaliki",
         "",
         ""
       ],
       [
-        "12:00",
-        "Course: MTH101, Lecturer: Dr. Clinton Ifegwu, Room: Ibadan",
+        "10:00",
         "",
+        "Course: MTH101, Lecturer: Dr. Clinton Ifegwu, Room: Classroom 1",
         "Course: PAU-CSC 192, Lecturer: Fr. Ifeanyi Ogboh, Room: Abakaliki",
+        "",
+        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: Asaba"
+      ],
+      [
+        "11:00",
+        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: Electrical Power and Machines Lab",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "12:00",
+        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: Electrical Power and Machines Lab",
+        "",
+        "",
         "",
         ""
       ],
@@ -1131,7 +1131,7 @@
         "",
         "",
         "",
-        "Course: PHY101, Lecturer: Dr. Rilwan Balogun, Room: Classroom 5"
+        "Course: PHY101, Lecturer: Dr. Rilwan Balogun, Room: Ado-Ekiti"
       ],
       [
         "15:00",
@@ -1139,7 +1139,7 @@
         "",
         "",
         "",
-        "Course: PHY101, Lecturer: Dr. Rilwan Balogun, Room: Classroom 5"
+        "Course: PHY101, Lecturer: Dr. Rilwan Balogun, Room: Ado-Ekiti"
       ],
       [
         "16:00",
@@ -1159,34 +1159,34 @@
     "timetable": [
       [
         "9:00",
+        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: SST New Classroom (Year 4)",
+        "Course: PAU-CSC 292, Lecturer: Prof. Juan Elegido, Room: Classroom 4",
+        "Course: SEN 201, Lecturer: Dr. Akinboro, Room: Electronics, Control and Telecomms Lab",
         "",
-        "",
-        "Course: ENT 211 - CSC, Lecturer: Miss Halima Rabiu, Room: Classroom 1",
-        "",
-        ""
+        "Course: MTH 201, Lecturer: Dr. Julius Ehigie, Room: Ibadan"
       ],
       [
         "10:00",
+        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: SST New Classroom (Year 4)",
+        "Course: PAU-CSC 292, Lecturer: Prof. Juan Elegido, Room: Classroom 4",
+        "Course: ENT 211 - CSC, Lecturer: Miss Halima Rabiu, Room: Classroom 3",
         "",
-        "",
-        "Course: ENT 211 - CSC, Lecturer: Miss Halima Rabiu, Room: Classroom 1",
-        "Course: MTH 201, Lecturer: Dr. Julius Ehigie, Room: Classroom 5",
-        ""
+        "Course: MTH 201, Lecturer: Dr. Julius Ehigie, Room: Ibadan"
       ],
       [
         "11:00",
-        "Course: PAU-CSC 292, Lecturer: Prof. Juan Elegido, Room: Strength of Materials",
         "",
         "",
-        "Course: MTH 201, Lecturer: Dr. Julius Ehigie, Room: Classroom 5",
-        "Course: COS 201, Lecturer: Dr. Dada Ibidapo, Room: Computer Lab 1"
+        "Course: ENT 211 - CSC, Lecturer: Miss Halima Rabiu, Room: Classroom 3",
+        "",
+        ""
       ],
       [
         "12:00",
-        "Course: PAU-CSC 292, Lecturer: Prof. Juan Elegido, Room: Strength of Materials",
+        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: SST New Classroom (Year 4)",
         "",
         "",
-        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Classroom 4",
+        "",
         ""
       ],
       [
@@ -1194,7 +1194,7 @@
         "BREAK",
         "",
         "BREAK",
-        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Classroom 4",
+        "",
         "BREAK"
       ],
       [
@@ -1202,24 +1202,24 @@
         "",
         "",
         "",
-        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Classroom 4",
-        "Course: COS 201, Lecturer: Dr. Dada Ibidapo, Room: Computer Lab 1"
+        "Course: COS 201, Lecturer: Dr. Dada Ibidapo, Room: Computer lab 01",
+        ""
       ],
       [
         "15:00",
         "",
-        "Course: IFT 211, Lecturer: Dr. Michael Adelabu, Room: Jalingo",
+        "Course: IFT 211, Lecturer: Dr. Michael Adelabu, Room: Classroom 4",
         "",
-        "",
-        "Course: SEN 201, Lecturer: Dr. Akinboro, Room: Electrical Power and Machines Lab"
+        "Course: COS 201, Lecturer: Dr. Dada Ibidapo, Room: Computer lab 01",
+        ""
       ],
       [
         "16:00",
         "",
-        "Course: IFT 211, Lecturer: Dr. Michael Adelabu, Room: Jalingo",
+        "Course: IFT 211, Lecturer: Dr. Michael Adelabu, Room: Classroom 4",
         "",
-        "",
-        "Course: SEN 201, Lecturer: Dr. Akinboro, Room: Electrical Power and Machines Lab"
+        "Course: COS 201, Lecturer: Dr. Dada Ibidapo, Room: Computer lab 01",
+        ""
       ]
     ]
   },
@@ -1233,64 +1233,64 @@
         "9:00",
         "",
         "",
+        "Course: CSC 203, Lecturer: Dr. Akudo Ijezie, Room: Strength of Materials",
         "",
-        "Course: CSC 203, Lecturer: Dr. Akudo Ijezie, Room: Electrical Power and Machines Lab",
-        "Course: MTH 201, Lecturer: Dr. Julius Ehigie, Room: Classroom 5"
+        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Classroom 2"
       ],
       [
         "10:00",
         "",
         "",
-        "Course: ENT 211 - CSC, Lecturer: Miss Halima Rabiu, Room: Port-Harcourt",
-        "Course: CSC 203, Lecturer: Dr. Akudo Ijezie, Room: Electrical Power and Machines Lab",
-        "Course: MTH 201, Lecturer: Dr. Julius Ehigie, Room: Classroom 5"
+        "Course: CSC 203, Lecturer: Dr. Akudo Ijezie, Room: Strength of Materials",
+        "",
+        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Classroom 2"
       ],
       [
         "11:00",
         "",
         "",
-        "Course: ENT 211 - CSC, Lecturer: Miss Halima Rabiu, Room: Port-Harcourt",
-        "",
-        ""
+        "Course: SEN 201, Lecturer: Dr. Akinboro, Room: SST New Classroom (Year 4)",
+        "Course: MTH 201, Lecturer: Dr. Julius Ehigie, Room: Classroom 5",
+        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Classroom 2"
       ],
       [
         "12:00",
         "",
-        "Course: IFT 211, Lecturer: Dr. Michael Adelabu, Room: Classroom 4",
         "",
-        "",
+        "Course: SEN 201, Lecturer: Dr. Akinboro, Room: SST New Classroom (Year 4)",
+        "Course: MTH 201, Lecturer: Dr. Julius Ehigie, Room: Classroom 5",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: IFT 211, Lecturer: Dr. Michael Adelabu, Room: Classroom 4",
+        "",
         "BREAK",
         "",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Uyo",
+        "Course: IFT 211, Lecturer: Dr. Michael Adelabu, Room: Maiduguri",
         "",
-        "Course: SEN 201, Lecturer: Dr. Akinboro, Room: Classroom 4",
         "",
-        "Course: PAU-CSC 292, Lecturer: Prof. Juan Elegido, Room: Classroom 2"
+        "Course: COS 201, Lecturer: Dr. Dada Ibidapo, Room: Computer Lab 1",
+        ""
       ],
       [
         "15:00",
-        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Uyo",
+        "Course: IFT 211, Lecturer: Dr. Michael Adelabu, Room: Maiduguri",
+        "Course: PAU-CSC 292, Lecturer: Prof. Juan Elegido, Room: Jos",
         "",
-        "Course: SEN 201, Lecturer: Dr. Akinboro, Room: Classroom 4",
-        "",
-        "Course: PAU-CSC 292, Lecturer: Prof. Juan Elegido, Room: Classroom 2"
+        "Course: COS 201, Lecturer: Dr. Dada Ibidapo, Room: Computer Lab 1",
+        ""
       ],
       [
         "16:00",
-        "Course: PAU-CSC 211, Lecturer: Mr. Solomon Alile, Room: Uyo",
         "",
+        "Course: PAU-CSC 292, Lecturer: Prof. Juan Elegido, Room: Jos",
         "",
-        "Course: COS 201, Lecturer: Dr. Dada Ibidapo, Room: Computer Lab 2",
+        "Course: COS 201, Lecturer: Dr. Dada Ibidapo, Room: Computer Lab 1",
         ""
       ]
     ]
@@ -1303,42 +1303,42 @@
     "timetable": [
       [
         "9:00",
-        "Course: PAU-CSC 312, Lecturer: Mr. Taiwo Amoo, Room: TYD New classroom",
+        "Course: PAU-CSC 317, Lecturer: Prof. Kingesely Muka, Room: Electrical Power and Machines Lab",
         "",
         "",
         "",
-        "Course: CYB 201, Lecturer: Mr. Samuel Egunjobi, Room: Classroom 1"
+        ""
       ],
       [
         "10:00",
-        "Course: PAU-CSC 312, Lecturer: Mr. Taiwo Amoo, Room: TYD New classroom",
+        "Course: PAU-CSC 317, Lecturer: Prof. Kingesely Muka, Room: Electrical Power and Machines Lab",
+        "Course: PAU-CSC 312, Lecturer: Mr. Taiwo Amoo, Room: Ado-Ekiti",
+        "Course: GST 312 - CSC, Lecturer: Prof. Juan Elegido, Room: Classroom 4",
         "",
-        "",
-        "",
-        "Course: CYB 201, Lecturer: Mr. Samuel Egunjobi, Room: Classroom 1"
+        ""
       ],
       [
         "11:00",
-        "Course: PAU-CSC 312, Lecturer: Mr. Taiwo Amoo, Room: TYD New classroom",
-        "Course: CSC 301, Lecturer: Dr. Stephen Adubi, Room: Computer Lab 1",
-        "Course: GST 312 - CSC, Lecturer: Prof. Juan Elegido, Room: SST New Classroom (Year 4)",
         "",
+        "Course: PAU-CSC 312, Lecturer: Mr. Taiwo Amoo, Room: Ado-Ekiti",
+        "Course: GST 312 - CSC, Lecturer: Prof. Juan Elegido, Room: Classroom 4",
+        "Course: CSC 301, Lecturer: Dr. Stephen Adubi, Room: Computer lab 01",
         ""
       ],
       [
         "12:00",
         "",
-        "Course: CSC 301, Lecturer: Dr. Stephen Adubi, Room: Computer Lab 1",
-        "Course: GST 312 - CSC, Lecturer: Prof. Juan Elegido, Room: SST New Classroom (Year 4)",
+        "Course: PAU-CSC 312, Lecturer: Mr. Taiwo Amoo, Room: Ado-Ekiti",
         "",
+        "Course: CSC 301, Lecturer: Dr. Stephen Adubi, Room: Computer lab 01",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: CSC 301, Lecturer: Dr. Stephen Adubi, Room: Computer Lab 1",
-        "BREAK",
         "",
+        "BREAK",
+        "Course: CSC 301, Lecturer: Dr. Stephen Adubi, Room: Computer lab 01",
         "BREAK"
       ],
       [
@@ -1347,7 +1347,7 @@
         "",
         "",
         "",
-        ""
+        "Course: CYB 201, Lecturer: Mr. Samuel Egunjobi, Room: Zaria"
       ],
       [
         "15:00",
@@ -1355,7 +1355,7 @@
         "",
         "",
         "",
-        ""
+        "Course: CYB 201, Lecturer: Mr. Samuel Egunjobi, Room: Zaria"
       ],
       [
         "16:00",
@@ -1375,8 +1375,8 @@
     "timetable": [
       [
         "9:00",
-        "Course: CSC 409 -COM, Lecturer: Dr. Olamma Iheanetu, Room: Port-Harcourt",
         "",
+        "Course: CSC 413, Lecturer: Dr. Festus Oliha, Room: Classroom 2",
         "",
         "",
         ""
@@ -1384,58 +1384,58 @@
       [
         "10:00",
         "",
-        "Course: CSC 402, Lecturer: Dr. Omowunmi Ogunyemi, Room: Abakaliki",
+        "Course: CSC 413, Lecturer: Dr. Festus Oliha, Room: Classroom 2",
         "",
-        "",
+        "Course: CSC 409 - ELE, Lecturer: Dr. Dada Ibidapo, Room: Lokoja",
         ""
       ],
       [
         "11:00",
         "",
-        "Course: CSC 402, Lecturer: Dr. Omowunmi Ogunyemi, Room: Abakaliki",
-        "",
-        "",
-        "Course: CSC 421, Lecturer: Dr. Stephen Adubi, Room: SST New Classroom (Year 4)"
+        "Course: CSC 413, Lecturer: Dr. Festus Oliha, Room: Classroom 2",
+        "Course: CSC 497, Lecturer: Jennifer Iloekwe, Room: Electrical Power and Machines Lab",
+        "Course: CSC 409 - ELE, Lecturer: Dr. Dada Ibidapo, Room: Lokoja",
+        "Course: CSC 409 -COM, Lecturer: Dr. Olamma Iheanetu, Room: Classroom 1"
       ],
       [
         "12:00",
         "",
         "",
+        "Course: CSC 497, Lecturer: Jennifer Iloekwe, Room: Electrical Power and Machines Lab",
         "",
-        "Course: CSC 409 - ELE, Lecturer: Dr. Dada Ibidapo, Room: Classroom 5",
-        "Course: CSC 421, Lecturer: Dr. Stephen Adubi, Room: SST New Classroom (Year 4)"
+        "Course: CSC 409 -COM, Lecturer: Dr. Olamma Iheanetu, Room: Classroom 1"
       ],
       [
         "13:00",
         "BREAK",
         "",
         "BREAK",
-        "Course: CSC 409 - ELE, Lecturer: Dr. Dada Ibidapo, Room: Classroom 5",
+        "",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: CSC 413, Lecturer: Dr. Festus Oliha, Room: Electronics, Control and Telecomms Lab",
+        "Course: CSC 419, Lecturer: Mr. Somachukwu Nwokoye, Room: Ado-Ekiti",
         "",
-        "Course: CSC 419, Lecturer: Mr. Somachukwu Nwokoye, Room: Electronics, Control and Telecomms Lab",
+        "Course: CSC 497, Lecturer: Jennifer Iloekwe, Room: Electrical Power and Machines Lab",
         "",
-        "Course: CSC 497, Lecturer: Jennifer Iloekwe, Room: Electronics, Control and Telecomms Lab"
+        ""
       ],
       [
         "15:00",
-        "Course: CSC 413, Lecturer: Dr. Festus Oliha, Room: Electronics, Control and Telecomms Lab",
+        "Course: CSC 419, Lecturer: Mr. Somachukwu Nwokoye, Room: Ado-Ekiti",
+        "Course: CSC 402, Lecturer: Dr. Omowunmi Ogunyemi, Room: SST New Classroom (Year 4)",
+        "Course: CSC 421, Lecturer: Dr. Stephen Adubi, Room: Classroom 3",
         "",
-        "Course: CSC 419, Lecturer: Mr. Somachukwu Nwokoye, Room: Electronics, Control and Telecomms Lab",
-        "",
-        "Course: CSC 497, Lecturer: Jennifer Iloekwe, Room: Electronics, Control and Telecomms Lab"
+        ""
       ],
       [
         "16:00",
-        "Course: CSC 413, Lecturer: Dr. Festus Oliha, Room: Electronics, Control and Telecomms Lab",
+        "Course: CSC 419, Lecturer: Mr. Somachukwu Nwokoye, Room: Ado-Ekiti",
+        "Course: CSC 402, Lecturer: Dr. Omowunmi Ogunyemi, Room: SST New Classroom (Year 4)",
+        "Course: CSC 421, Lecturer: Dr. Stephen Adubi, Room: Classroom 3",
         "",
-        "Course: CSC 419, Lecturer: Mr. Somachukwu Nwokoye, Room: Electronics, Control and Telecomms Lab",
-        "",
-        "Course: CSC 497, Lecturer: Jennifer Iloekwe, Room: Electronics, Control and Telecomms Lab"
+        "Course: CSC 409 -COM, Lecturer: Dr. Olamma Iheanetu, Room: Classroom 1"
       ]
     ]
   },
@@ -1447,67 +1447,67 @@
     "timetable": [
       [
         "9:00",
+        "Course: CSC 497, Lecturer: Jennifer Iloekwe, Room: Classroom 2",
         "",
-        "Course: CSC 409 -COM, Lecturer: Dr. Olamma Iheanetu, Room: Classroom 4",
+        "Course: CSC 409 -COM, Lecturer: Dr. Olamma Iheanetu, Room: Classroom 2",
+        "Course: CSC 409 -COM, Lecturer: Dr. Olamma Iheanetu, Room: Classroom 3",
+        ""
+      ],
+      [
+        "10:00",
+        "Course: CSC 497, Lecturer: Jennifer Iloekwe, Room: Classroom 2",
+        "Course: CSC 419, Lecturer: Mr. Somachukwu Nwokoye, Room: SST New Classroom (Year 4)",
+        "Course: CSC 409 -COM, Lecturer: Dr. Olamma Iheanetu, Room: Classroom 2",
+        "",
+        ""
+      ],
+      [
+        "11:00",
+        "Course: CSC 413, Lecturer: Dr. Festus Oliha, Room: Classroom 3",
+        "Course: CSC 419, Lecturer: Mr. Somachukwu Nwokoye, Room: SST New Classroom (Year 4)",
         "",
         "",
         ""
       ],
       [
-        "10:00",
-        "",
-        "Course: CSC 409 -COM, Lecturer: Dr. Olamma Iheanetu, Room: Classroom 4",
-        "",
-        "",
-        "Course: CSC 419, Lecturer: Mr. Somachukwu Nwokoye, Room: Classroom 4"
-      ],
-      [
-        "11:00",
-        "",
-        "Course: CSC 402, Lecturer: Dr. Omowunmi Ogunyemi, Room: Bauchi",
-        "",
-        "",
-        "Course: CSC 419, Lecturer: Mr. Somachukwu Nwokoye, Room: Classroom 4"
-      ],
-      [
         "12:00",
+        "Course: CSC 413, Lecturer: Dr. Festus Oliha, Room: Classroom 3",
+        "Course: CSC 419, Lecturer: Mr. Somachukwu Nwokoye, Room: SST New Classroom (Year 4)",
         "",
-        "Course: CSC 402, Lecturer: Dr. Omowunmi Ogunyemi, Room: Bauchi",
         "",
-        "",
-        "Course: CSC 419, Lecturer: Mr. Somachukwu Nwokoye, Room: Classroom 4"
+        ""
       ],
       [
         "13:00",
         "BREAK",
         "",
         "BREAK",
-        "",
+        "Course: CSC 402, Lecturer: Dr. Omowunmi Ogunyemi, Room: Electronics, Control and Telecomms Lab",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: CSC 421, Lecturer: Dr. Stephen Adubi, Room: Classroom 3",
         "",
-        "Course: CSC 497, Lecturer: Jennifer Iloekwe, Room: Uyo",
         "",
+        "",
+        "Course: CSC 402, Lecturer: Dr. Omowunmi Ogunyemi, Room: Electronics, Control and Telecomms Lab",
         ""
       ],
       [
         "15:00",
-        "Course: CSC 421, Lecturer: Dr. Stephen Adubi, Room: Classroom 3",
+        "Course: CSC 413, Lecturer: Dr. Festus Oliha, Room: Classroom 3",
         "",
-        "Course: CSC 497, Lecturer: Jennifer Iloekwe, Room: Uyo",
-        "Course: CSC 409 - ELE, Lecturer: Dr. Dada Ibidapo, Room: Electronics, Control and Telecomms Lab",
-        ""
+        "",
+        "Course: CSC 409 - ELE, Lecturer: Dr. Dada Ibidapo, Room: Strength of Materials",
+        "Course: CSC 421, Lecturer: Dr. Stephen Adubi, Room: Strength of Materials"
       ],
       [
         "16:00",
-        "Course: CSC 413, Lecturer: Dr. Festus Oliha, Room: Electrical Power and Machines Lab",
-        "Course: CSC 409 -COM, Lecturer: Dr. Olamma Iheanetu, Room: Classroom 4",
-        "Course: CSC 497, Lecturer: Jennifer Iloekwe, Room: Uyo",
-        "Course: CSC 409 - ELE, Lecturer: Dr. Dada Ibidapo, Room: Electronics, Control and Telecomms Lab",
-        ""
+        "",
+        "",
+        "",
+        "Course: CSC 409 - ELE, Lecturer: Dr. Dada Ibidapo, Room: Strength of Materials",
+        "Course: CSC 421, Lecturer: Dr. Stephen Adubi, Room: Strength of Materials"
       ]
     ]
   },
@@ -1519,24 +1519,24 @@
     "timetable": [
       [
         "9:00",
-        "Course: ECO 101, Lecturer: Dr. Agbonrofo Hope, Room: Zaria",
         "",
-        "",
-        "",
+        "Course: PAU-ECO 105, Lecturer: Prof. Oloyombo, Room: Ibadan",
+        "Course: PAU-ECO 109, Lecturer: Dr. Fredrick Ikpesu, Room: Asaba",
+        "Course: ECO 101, Lecturer: Dr. Agbonrofo Hope, Room: Jos",
         ""
       ],
       [
         "10:00",
-        "Course: ECO 101, Lecturer: Dr. Agbonrofo Hope, Room: Zaria",
         "",
-        "",
-        "",
+        "Course: PAU-ECO 105, Lecturer: Prof. Oloyombo, Room: Ibadan",
+        "Course: PAU-ECO 109, Lecturer: Dr. Fredrick Ikpesu, Room: Asaba",
+        "Course: ECO 101, Lecturer: Dr. Agbonrofo Hope, Room: Jos",
         ""
       ],
       [
         "11:00",
         "",
-        "",
+        "Course: PAU-ECO 105, Lecturer: Prof. Oloyombo, Room: Ibadan",
         "",
         "",
         ""
@@ -1560,25 +1560,25 @@
       [
         "14:00",
         "",
-        "Course: PAU-ECO 105, Lecturer: Prof. Oloyombo, Room: Lokoja",
         "",
         "",
-        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: TYD New classroom"
+        "",
+        "Course: ECO 103, Lecturer: Dr. Nwani, Room: Abeokuta"
       ],
       [
         "15:00",
+        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: Jos",
         "",
-        "Course: PAU-ECO 105, Lecturer: Prof. Oloyombo, Room: Lokoja",
         "",
-        "Course: PAU-ECO 109, Lecturer: Dr. Fredrick Ikpesu, Room: Ado-Ekiti",
-        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: TYD New classroom"
+        "",
+        "Course: ECO 103, Lecturer: Dr. Nwani, Room: Abeokuta"
       ],
       [
         "16:00",
+        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: Jos",
         "",
-        "Course: PAU-ECO 105, Lecturer: Prof. Oloyombo, Room: Lokoja",
         "",
-        "Course: PAU-ECO 109, Lecturer: Dr. Fredrick Ikpesu, Room: Ado-Ekiti",
+        "",
         ""
       ]
     ]
@@ -1592,39 +1592,39 @@
       [
         "9:00",
         "",
-        "Course: PAU-ECO 209, Lecturer: Dr. Nwani, Room: Uyo",
+        "Course: PAU-ECO 209, Lecturer: Dr. Nwani, Room: Zaria",
         "",
-        "Course: ECO 205, Lecturer: Dr. Ozegbe, Room: Jos",
+        "Course: ECO 207, Lecturer: Dr. Anetor, Room: Asaba",
         ""
       ],
       [
         "10:00",
         "",
-        "Course: PAU-ECO 209, Lecturer: Dr. Nwani, Room: Uyo",
+        "Course: PAU-ECO 209, Lecturer: Dr. Nwani, Room: Zaria",
         "",
-        "Course: ECO 205, Lecturer: Dr. Ozegbe, Room: Jos",
-        "Course: GST 212 - ECO, Lecturer: Mr. Amaobi Osuala, Room: Maiduguri"
+        "Course: ECO 207, Lecturer: Dr. Anetor, Room: Asaba",
+        ""
       ],
       [
         "11:00",
+        "Course: ECO 205, Lecturer: Dr. Ozegbe, Room: Uyo",
         "",
-        "Course: PAU-ECO 209, Lecturer: Dr. Nwani, Room: Uyo",
-        "Course: ECO 201, Lecturer: Dr. Agbonrofo Hope, Room: Maiduguri",
         "",
-        "Course: GST 212 - ECO, Lecturer: Mr. Amaobi Osuala, Room: Maiduguri"
+        "Course: PAU-ECO 292, Lecturer: Unknown, Room: Abeokuta",
+        ""
       ],
       [
         "12:00",
+        "Course: ECO 205, Lecturer: Dr. Ozegbe, Room: Uyo",
+        "Course: ECO 203, Lecturer: Dr. Solomon Nathaniel, Room: Maiduguri",
         "",
-        "",
-        "Course: ECO 201, Lecturer: Dr. Agbonrofo Hope, Room: Maiduguri",
         "",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "",
+        "Course: ECO 203, Lecturer: Dr. Solomon Nathaniel, Room: Maiduguri",
         "BREAK",
         "",
         "BREAK"
@@ -1633,23 +1633,23 @@
         "14:00",
         "",
         "",
-        "Course: ENT 211 - ECO, Lecturer: Miss Halima Rabiu, Room: TYD New classroom",
-        "Course: ECO 207, Lecturer: Dr. Anetor, Room: Abakaliki",
-        ""
+        "",
+        "Course: PAU-ECO 209, Lecturer: Dr. Nwani, Room: Umuahia",
+        "Course: GST 212 - ECO, Lecturer: Mr. Amaobi Osuala, Room: Umuahia"
       ],
       [
         "15:00",
-        "Course: ECO 203, Lecturer: Dr. Solomon Nathaniel, Room: TYD New classroom",
         "",
-        "Course: ENT 211 - ECO, Lecturer: Miss Halima Rabiu, Room: TYD New classroom",
-        "Course: ECO 207, Lecturer: Dr. Anetor, Room: Abakaliki",
-        ""
+        "",
+        "Course: ENT 211 - ECO, Lecturer: Miss Halima Rabiu, Room: Jos",
+        "",
+        "Course: GST 212 - ECO, Lecturer: Mr. Amaobi Osuala, Room: Umuahia"
       ],
       [
         "16:00",
-        "Course: ECO 203, Lecturer: Dr. Solomon Nathaniel, Room: TYD New classroom",
         "",
         "",
+        "Course: ENT 211 - ECO, Lecturer: Miss Halima Rabiu, Room: Jos",
         "",
         ""
       ]
@@ -1672,25 +1672,25 @@
       [
         "10:00",
         "",
-        "Course: ECO 301, Lecturer: Dr. Nwani, Room: Asaba",
+        "Course: PAU-ECO 311, Lecturer: Dr. Anetor, Room: TYD New classroom",
+        "Course: ECO 306, Lecturer: Dr. David Oke, Room: TYD New classroom",
         "",
-        "Course: SSC 301, Lecturer: Dr. Ozegbe, Room: Port-Harcourt",
-        "Course: PAU-ECO 313, Lecturer: Prof. Osuji, Room: TYD New classroom"
+        "Course: ECO 301, Lecturer: Dr. Nwani, Room: Umuahia"
       ],
       [
         "11:00",
+        "Course: ECO 303, Lecturer: Dr. Evans, Room: Oshogbo",
+        "Course: PAU-ECO 311, Lecturer: Dr. Anetor, Room: TYD New classroom",
+        "Course: ECO 306, Lecturer: Dr. David Oke, Room: TYD New classroom",
         "",
-        "Course: ECO 301, Lecturer: Dr. Nwani, Room: Asaba",
-        "Course: ENT 312 - ECO, Lecturer: Miss Halima Rabiu, Room: Jos",
-        "Course: SSC 301, Lecturer: Dr. Ozegbe, Room: Port-Harcourt",
-        "Course: PAU-ECO 313, Lecturer: Prof. Osuji, Room: TYD New classroom"
+        "Course: ECO 301, Lecturer: Dr. Nwani, Room: Umuahia"
       ],
       [
         "12:00",
-        "Course: ECO 307, Lecturer: Dr. Ozegbe, Room: Maiduguri",
-        "",
-        "Course: ENT 312 - ECO, Lecturer: Miss Halima Rabiu, Room: Jos",
-        "",
+        "Course: ECO 303, Lecturer: Dr. Evans, Room: Oshogbo",
+        "Course: PAU-ECO 312, Lecturer: Mr. Philip Okposo, Room: Port-Harcourt",
+        "Course: ECO 306, Lecturer: Dr. David Oke, Room: TYD New classroom",
+        "Course: PAU-ECO 315, Lecturer: Mr. Philip Okposo, Room: Umuahia",
         ""
       ],
       [
@@ -1698,30 +1698,30 @@
         "BREAK",
         "",
         "BREAK",
-        "Course: PAU-ECO 312, Lecturer: Mr. Philip Okposo, Room: Ado-Ekiti",
+        "Course: PAU-ECO 315, Lecturer: Mr. Philip Okposo, Room: Umuahia",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: PAU-ECO 311, Lecturer: Dr. Anetor, Room: Jalingo",
+        "Course: PAU-ECO 313, Lecturer: Prof. Osuji, Room: Ibadan",
+        "Course: ECO 307, Lecturer: Dr. Ozegbe, Room: Bauchi",
         "",
-        "Course: ECO 306, Lecturer: Dr. David Oke, Room: Abakaliki",
-        "Course: PAU-ECO 312, Lecturer: Mr. Philip Okposo, Room: Ado-Ekiti",
-        "Course: ECO 303, Lecturer: Dr. Evans, Room: Bauchi"
+        "",
+        ""
       ],
       [
         "15:00",
-        "Course: PAU-ECO 311, Lecturer: Dr. Anetor, Room: Jalingo",
-        "Course: PAU-ECO 315, Lecturer: Mr. Philip Okposo, Room: TYD New classroom",
-        "Course: ECO 306, Lecturer: Dr. David Oke, Room: Abakaliki",
+        "Course: PAU-ECO 313, Lecturer: Prof. Osuji, Room: Ibadan",
+        "Course: ECO 307, Lecturer: Dr. Ozegbe, Room: Bauchi",
         "",
-        "Course: ECO 303, Lecturer: Dr. Evans, Room: Bauchi"
+        "",
+        ""
       ],
       [
         "16:00",
         "",
-        "Course: PAU-ECO 315, Lecturer: Mr. Philip Okposo, Room: TYD New classroom",
-        "Course: ECO 306, Lecturer: Dr. David Oke, Room: Abakaliki",
+        "Course: ECO 307, Lecturer: Dr. Ozegbe, Room: Bauchi",
+        "",
         "",
         ""
       ]
@@ -1745,57 +1745,57 @@
         "10:00",
         "",
         "",
+        "Course: ECO 412, Lecturer: Dr. Evans, Room: Oshogbo",
         "",
-        "",
-        ""
+        "Course: ECO 416, Lecturer: Dr. Agbonrofo Hope, Room: Oshogbo"
       ],
       [
         "11:00",
         "",
         "",
-        "Course: ECO 415, Lecturer: Dr. Evans, Room: Zaria",
+        "Course: ECO 412, Lecturer: Dr. Evans, Room: Oshogbo",
         "",
-        ""
+        "Course: ECO 416, Lecturer: Dr. Agbonrofo Hope, Room: Oshogbo"
       ],
       [
         "12:00",
         "",
         "",
-        "Course: ECO 415, Lecturer: Dr. Evans, Room: Zaria",
+        "",
         "",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: ECO 411, Lecturer: Dr. Mesagan, Room: Port-Harcourt",
+        "Course: ECO 415, Lecturer: Dr. Evans, Room: Port-Harcourt",
         "BREAK",
-        "Course: FIN 401 - ECO, Lecturer: Mrs. Olaniyi Ibironke, Room: Uyo",
+        "",
         "BREAK"
       ],
       [
         "14:00",
+        "Course: BUS 304, Lecturer: Prof. Osuji, Room: Abakaliki",
+        "Course: ECO 415, Lecturer: Dr. Evans, Room: Port-Harcourt",
         "",
-        "Course: ECO 411, Lecturer: Dr. Mesagan, Room: Port-Harcourt",
         "Course: ECO 413, Lecturer: Prof. Tella, Room: Oshogbo",
-        "Course: BUS 304, Lecturer: Prof. Osuji, Room: Port-Harcourt",
-        "Course: ECO 412, Lecturer: Dr. Evans, Room: Enugu"
+        "Course: ECO 411, Lecturer: Dr. Mesagan, Room: Bauchi"
       ],
       [
         "15:00",
-        "Course: ECO 416, Lecturer: Dr. Agbonrofo Hope, Room: Oshogbo",
-        "Course: ECO 411, Lecturer: Dr. Mesagan, Room: Port-Harcourt",
-        "Course: ECO 413, Lecturer: Prof. Tella, Room: Oshogbo",
-        "Course: BUS 304, Lecturer: Prof. Osuji, Room: Port-Harcourt",
-        "Course: ECO 412, Lecturer: Dr. Evans, Room: Enugu"
+        "Course: BUS 304, Lecturer: Prof. Osuji, Room: Abakaliki",
+        "",
+        "",
+        "Course: FIN 401 - ECO, Lecturer: Mrs. Olaniyi Ibironke, Room: Umuahia",
+        "Course: ECO 411, Lecturer: Dr. Mesagan, Room: Bauchi"
       ],
       [
         "16:00",
-        "Course: ECO 416, Lecturer: Dr. Agbonrofo Hope, Room: Oshogbo",
+        "Course: BUS 304, Lecturer: Prof. Osuji, Room: Abakaliki",
         "",
-        "Course: ECO 413, Lecturer: Prof. Tella, Room: Oshogbo",
-        "Course: BUS 304, Lecturer: Prof. Osuji, Room: Port-Harcourt",
-        "Course: ECO 412, Lecturer: Dr. Evans, Room: Enugu"
+        "Course: ECO 412, Lecturer: Dr. Evans, Room: Oshogbo",
+        "Course: FIN 401 - ECO, Lecturer: Mrs. Olaniyi Ibironke, Room: Umuahia",
+        "Course: ECO 411, Lecturer: Dr. Mesagan, Room: Bauchi"
       ]
     ]
   },
@@ -1809,33 +1809,33 @@
         "9:00",
         "",
         "",
-        "Course: AMS 104 - BUA, Lecturer: Dr. Ebegbetale, Room: Oshogbo",
+        "",
         "",
         ""
       ],
       [
         "10:00",
-        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: Abeokuta",
-        "Course: PAU-BUA 105, Lecturer: Prof. Oni, Room: Jalingo",
-        "Course: AMS 104 - BUA, Lecturer: Dr. Ebegbetale, Room: Oshogbo",
-        "Course: PAU-BUA 103, Lecturer: Mr. Julius Ujah, Room: Ado-Ekiti",
+        "",
+        "",
+        "",
+        "",
         ""
       ],
       [
         "11:00",
-        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: Abeokuta",
-        "Course: PAU-BUA 105, Lecturer: Prof. Oni, Room: Jalingo",
-        "Course: AMS 102 - BUA, Lecturer: Dr. Nwani, Room: Oshogbo",
-        "Course: PAU-BUA 103, Lecturer: Mr. Julius Ujah, Room: Ado-Ekiti",
-        ""
+        "Course: PAU-BUA 103, Lecturer: Mr. Julius Ujah, Room: Lokoja",
+        "",
+        "Course: AMS 104 - BUA, Lecturer: Dr. Ebegbetale, Room: Port-Harcourt",
+        "",
+        "Course: AMS 101, Lecturer: Dr. Dakare, Room: Port-Harcourt"
       ],
       [
         "12:00",
+        "Course: PAU-BUA 103, Lecturer: Mr. Julius Ujah, Room: Lokoja",
         "",
+        "Course: AMS 104 - BUA, Lecturer: Dr. Ebegbetale, Room: Port-Harcourt",
         "",
-        "Course: AMS 102 - BUA, Lecturer: Dr. Nwani, Room: Oshogbo",
-        "",
-        ""
+        "Course: AMS 101, Lecturer: Dr. Dakare, Room: Port-Harcourt"
       ],
       [
         "13:00",
@@ -1848,7 +1848,7 @@
       [
         "14:00",
         "",
-        "",
+        "Course: PAU-BUA 105, Lecturer: Prof. Oni, Room: Abakaliki",
         "",
         "",
         ""
@@ -1856,18 +1856,18 @@
       [
         "15:00",
         "",
+        "Course: PAU-BUA 105, Lecturer: Prof. Oni, Room: Abakaliki",
         "",
-        "",
-        "",
-        "Course: AMS 101, Lecturer: Dr. Dakare, Room: Abakaliki"
+        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: Uyo",
+        ""
       ],
       [
         "16:00",
         "",
+        "Course: AMS 102 - BUA, Lecturer: Dr. Nwani, Room: Oshogbo",
         "",
-        "",
-        "",
-        "Course: AMS 101, Lecturer: Dr. Dakare, Room: Abakaliki"
+        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: Uyo",
+        ""
       ]
     ]
   },
@@ -1880,62 +1880,62 @@
       [
         "9:00",
         "",
-        "Course: PAU-BUA 292, Lecturer: Unknown, Room: Ado-Ekiti",
         "",
         "",
-        "Course: BUA 201, Lecturer: Dr. Bankole, Room: Port-Harcourt"
+        "Course: ENT 211 - BUA, Lecturer: Miss Halima Rabiu, Room: Maiduguri",
+        ""
       ],
       [
         "10:00",
         "",
-        "Course: PAU-BUA 292, Lecturer: Unknown, Room: Ado-Ekiti",
         "",
-        "",
-        "Course: BUA 201, Lecturer: Dr. Bankole, Room: Port-Harcourt"
+        "Course: PAU-BUA 292, Lecturer: Unknown, Room: Uyo",
+        "Course: BUA 204, Lecturer: Dr. Lawal, Room: TYD New classroom",
+        "Course: PAU-BUA 207, Lecturer: Dr. Bankole, Room: Zaria"
       ],
       [
         "11:00",
+        "Course: BUA 201, Lecturer: Dr. Bankole, Room: Zaria",
         "",
-        "",
-        "",
-        "",
-        "Course: BUA 201, Lecturer: Dr. Bankole, Room: Port-Harcourt"
+        "Course: PAU-BUA 292, Lecturer: Unknown, Room: Uyo",
+        "Course: BUA 204, Lecturer: Dr. Lawal, Room: TYD New classroom",
+        "Course: PAU-BUA 207, Lecturer: Dr. Bankole, Room: Zaria"
       ],
       [
         "12:00",
+        "Course: BUA 201, Lecturer: Dr. Bankole, Room: Zaria",
         "",
         "",
-        "Course: PAU-BUA 207, Lecturer: Dr. Bankole, Room: Bauchi",
-        "Course: BUA 204, Lecturer: Dr. Lawal, Room: Jos",
-        ""
+        "Course: BUA 204, Lecturer: Dr. Lawal, Room: TYD New classroom",
+        "Course: PAU-BUA 207, Lecturer: Dr. Bankole, Room: Zaria"
       ],
       [
         "13:00",
         "BREAK",
         "",
         "BREAK",
-        "Course: BUA 204, Lecturer: Dr. Lawal, Room: Jos",
+        "",
         "BREAK"
       ],
       [
         "14:00",
+        "Course: BUA 201, Lecturer: Dr. Bankole, Room: Zaria",
+        "Course: PAU-BUA 215, Lecturer: Dr. Enyinnaya, Room: Umuahia",
         "",
         "",
-        "Course: ENT 211 - BUA, Lecturer: Miss Halima Rabiu, Room: Zaria",
-        "Course: BUA 204, Lecturer: Dr. Lawal, Room: Jos",
         ""
       ],
       [
         "15:00",
-        "Course: PAU-BUA 215, Lecturer: Dr. Enyinnaya, Room: Enugu",
         "",
-        "Course: ENT 211 - BUA, Lecturer: Miss Halima Rabiu, Room: Zaria",
+        "Course: PAU-BUA 215, Lecturer: Dr. Enyinnaya, Room: Umuahia",
+        "",
         "",
         ""
       ],
       [
         "16:00",
-        "Course: PAU-BUA 215, Lecturer: Dr. Enyinnaya, Room: Enugu",
+        "",
         "",
         "",
         "",
@@ -1951,67 +1951,67 @@
     "timetable": [
       [
         "9:00",
+        "Course: BUA 310, Lecturer: Dr. Okon, Room: Jos",
         "",
-        "Course: BUA 313, Lecturer: Dr. Enyinnaya, Room: Jos",
-        "Course: BUA 312, Lecturer: Dr. Dakare, Room: Jalingo",
+        "",
         "",
         ""
       ],
       [
         "10:00",
+        "Course: BUA 310, Lecturer: Dr. Okon, Room: Jos",
         "",
-        "Course: BUA 310, Lecturer: Dr. Okon, Room: Port-Harcourt",
-        "Course: BUA 312, Lecturer: Dr. Dakare, Room: Jalingo",
-        "Course: BUA 305, Lecturer: Prof. Oni, Room: Lokoja",
+        "",
+        "",
         ""
       ],
       [
         "11:00",
+        "Course: BUA 310, Lecturer: Dr. Okon, Room: Jos",
         "",
-        "Course: BUA 310, Lecturer: Dr. Okon, Room: Port-Harcourt",
-        "Course: ENT 312 - BUA, Lecturer: Miss Halima Rabiu, Room: Enugu",
-        "Course: BUA 305, Lecturer: Prof. Oni, Room: Lokoja",
+        "",
+        "",
         ""
       ],
       [
         "12:00",
         "",
-        "Course: BUA 310, Lecturer: Dr. Okon, Room: Port-Harcourt",
-        "Course: ENT 312 - BUA, Lecturer: Miss Halima Rabiu, Room: Enugu",
-        "Course: BUA 305, Lecturer: Prof. Oni, Room: Lokoja",
+        "",
+        "",
+        "Course: BUA 305, Lecturer: Prof. Oni, Room: Enugu",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "",
+        "Course: BUA 319, Lecturer: Dr. Enyinnaya, Room: Ado-Ekiti",
         "BREAK",
-        "",
+        "Course: BUA 305, Lecturer: Prof. Oni, Room: Enugu",
         "BREAK"
       ],
       [
         "14:00",
         "",
+        "Course: BUA 319, Lecturer: Dr. Enyinnaya, Room: Ado-Ekiti",
         "",
-        "",
-        "",
-        "Course: BUA 302, Lecturer: Prof. Epie, Room: Oshogbo"
+        "Course: BUA 305, Lecturer: Prof. Oni, Room: Enugu",
+        "Course: BUA 302, Lecturer: Prof. Epie, Room: TYD New classroom"
       ],
       [
         "15:00",
-        "Course: BUA 319, Lecturer: Dr. Enyinnaya, Room: Zaria",
         "",
+        "Course: BUA 312, Lecturer: Dr. Dakare, Room: Uyo",
+        "Course: ENT 312 - BUA, Lecturer: Miss Halima Rabiu, Room: Abeokuta",
         "",
-        "",
-        "Course: BUA 302, Lecturer: Prof. Epie, Room: Oshogbo"
+        "Course: BUA 302, Lecturer: Prof. Epie, Room: TYD New classroom"
       ],
       [
         "16:00",
-        "Course: BUA 319, Lecturer: Dr. Enyinnaya, Room: Zaria",
         "",
+        "Course: BUA 312, Lecturer: Dr. Dakare, Room: Uyo",
+        "Course: ENT 312 - BUA, Lecturer: Miss Halima Rabiu, Room: Abeokuta",
         "",
-        "",
-        "Course: BUA 302, Lecturer: Prof. Epie, Room: Oshogbo"
+        "Course: BUA 302, Lecturer: Prof. Epie, Room: TYD New classroom"
       ]
     ]
   },
@@ -2024,64 +2024,64 @@
       [
         "9:00",
         "",
-        "Course: BUS 401 - BUA, Lecturer: Dr. Okon, Room: Ibadan",
-        "Course: ECO 401, Lecturer: Prof. Osuji, Room: Abakaliki",
         "",
-        "Course: BUS 405, Lecturer: Dr. Okon, Room: Abakaliki"
+        "",
+        "",
+        "Course: BUS 403 - BUA, Lecturer: Dr. Lawal, Room: TYD New classroom"
       ],
       [
         "10:00",
         "",
+        "Course: BUS 402 - BUA, Lecturer: Dr. Dakare, Room: Oshogbo",
         "",
-        "Course: ECO 401, Lecturer: Prof. Osuji, Room: Abakaliki",
-        "",
-        "Course: BUS 405, Lecturer: Dr. Okon, Room: Abakaliki"
+        "Course: BUS 401 - BUA, Lecturer: Dr. Okon, Room: Jalingo",
+        "Course: BUS 403 - BUA, Lecturer: Dr. Lawal, Room: TYD New classroom"
       ],
       [
         "11:00",
         "",
-        "Course: BUS 402 - BUA, Lecturer: Dr. Dakare, Room: Abeokuta",
+        "Course: BUS 402 - BUA, Lecturer: Dr. Dakare, Room: Oshogbo",
         "",
-        "",
-        "Course: BUS 405, Lecturer: Dr. Okon, Room: Abakaliki"
+        "Course: BUS 401 - BUA, Lecturer: Dr. Okon, Room: Jalingo",
+        "Course: ECO 401, Lecturer: Prof. Osuji, Room: Jos"
       ],
       [
         "12:00",
         "",
-        "Course: BUS 402 - BUA, Lecturer: Dr. Dakare, Room: Abeokuta",
+        "Course: BUS 402 - BUA, Lecturer: Dr. Dakare, Room: Oshogbo",
         "",
-        "Course: BUS 403 - BUA, Lecturer: Dr. Lawal, Room: Asaba",
-        ""
+        "Course: BUS 401 - BUA, Lecturer: Dr. Okon, Room: Jalingo",
+        "Course: ECO 401, Lecturer: Prof. Osuji, Room: Jos"
       ],
       [
         "13:00",
         "BREAK",
-        "Course: BUS 402 - BUA, Lecturer: Dr. Dakare, Room: Abeokuta",
+        "",
         "BREAK",
-        "Course: BUS 403 - BUA, Lecturer: Dr. Lawal, Room: Asaba",
+        "",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: MIS 401 - BUA, Lecturer: Prof. Oni, Room: Lokoja",
+        "Course: BUS 405, Lecturer: Dr. Okon, Room: Asaba",
         "",
+        "Course: MIS 401 - BUA, Lecturer: Prof. Oni, Room: Port-Harcourt",
         "",
-        "Course: BUS 403 - BUA, Lecturer: Dr. Lawal, Room: Asaba",
         ""
       ],
       [
         "15:00",
-        "Course: MIS 401 - BUA, Lecturer: Prof. Oni, Room: Lokoja",
-        "Course: BUS 401 - BUA, Lecturer: Dr. Okon, Room: Ibadan",
+        "Course: BUS 405, Lecturer: Dr. Okon, Room: Asaba",
         "",
-        "",
+        "Course: MIS 401 - BUA, Lecturer: Prof. Oni, Room: Port-Harcourt",
+        "Course: BUS 403 - BUA, Lecturer: Dr. Lawal, Room: Classroom 5",
         ""
       ],
       [
         "16:00",
-        "Course: MIS 401 - BUA, Lecturer: Prof. Oni, Room: Lokoja",
-        "Course: BUS 401 - BUA, Lecturer: Dr. Okon, Room: Ibadan",
-        "Course: ECO 401, Lecturer: Prof. Osuji, Room: SST New Classroom (Year 4)",
+        "Course: BUS 405, Lecturer: Dr. Okon, Room: Asaba",
+        "",
+        "Course: MIS 401 - BUA, Lecturer: Prof. Oni, Room: Port-Harcourt",
         "",
         ""
       ]
@@ -2097,65 +2097,65 @@
         "9:00",
         "",
         "",
-        "",
+        "Course: AMS 104 - ACC, Lecturer: Dr. Ebegbetale, Room: Lokoja",
         "",
         ""
       ],
       [
         "10:00",
+        "Course: PAU-ACC 106, Lecturer: Dr. Fredrick Ikpesu, Room: Ado-Ekiti",
         "",
         "",
         "",
-        "",
-        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: Oshogbo"
+        ""
       ],
       [
         "11:00",
+        "Course: PAU-ACC 106, Lecturer: Dr. Fredrick Ikpesu, Room: Ado-Ekiti",
         "",
-        "Course: PAU-ACC 106, Lecturer: Dr. Fredrick Ikpesu, Room: Jos",
         "",
         "",
-        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: Oshogbo"
+        ""
       ],
       [
         "12:00",
-        "",
-        "Course: PAU-ACC 106, Lecturer: Dr. Fredrick Ikpesu, Room: Jos",
-        "",
+        "Course: PAU-ACC 106, Lecturer: Dr. Fredrick Ikpesu, Room: Ado-Ekiti",
+        "Course: AMS 102 -ACC, Lecturer: Dr. Evans, Room: Jos",
+        "Course: AMS 104 - ACC, Lecturer: Dr. Ebegbetale, Room: Oshogbo",
         "",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: PAU-ACC 106, Lecturer: Dr. Fredrick Ikpesu, Room: Jos",
+        "Course: AMS 102 -ACC, Lecturer: Dr. Evans, Room: Jos",
         "BREAK",
-        "",
+        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: Jalingo",
         "BREAK"
       ],
       [
         "14:00",
         "",
         "",
-        "",
-        "Course: ACC 101, Lecturer: Dr. Japhet Imhanzenobe, Room: Umuahia",
-        "Course: PAU-ACC-103, Lecturer: Dr. Agbonrofo Hope, Room: Ibadan"
+        "Course: ACC 101, Lecturer: Dr. Japhet Imhanzenobe, Room: Uyo",
+        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: Jalingo",
+        "Course: PAU-ACC-103, Lecturer: Dr. Agbonrofo Hope, Room: Asaba"
       ],
       [
         "15:00",
         "",
         "",
-        "Course: AMS 104 - ACC, Lecturer: Dr. Ebegbetale, Room: Lokoja",
-        "Course: AMS 102 -ACC, Lecturer: Dr. Evans, Room: Ibadan",
-        "Course: PAU-ACC-103, Lecturer: Dr. Agbonrofo Hope, Room: Ibadan"
+        "Course: ACC 101, Lecturer: Dr. Japhet Imhanzenobe, Room: Uyo",
+        "",
+        "Course: PAU-ACC-103, Lecturer: Dr. Agbonrofo Hope, Room: Asaba"
       ],
       [
         "16:00",
         "",
         "",
-        "Course: AMS 104 - ACC, Lecturer: Dr. Ebegbetale, Room: Lokoja",
-        "Course: AMS 102 -ACC, Lecturer: Dr. Evans, Room: Ibadan",
-        "Course: PAU-ACC-103, Lecturer: Dr. Agbonrofo Hope, Room: Ibadan"
+        "Course: ACC 101, Lecturer: Dr. Japhet Imhanzenobe, Room: Uyo",
+        "",
+        "Course: PAU-ACC-103, Lecturer: Dr. Agbonrofo Hope, Room: Asaba"
       ]
     ]
   },
@@ -2168,30 +2168,30 @@
       [
         "9:00",
         "",
-        "Course: PAU-ACC-209, Lecturer: Dr. Ajibo Kenneth, Room: Electronics, Control and Telecomms Lab",
+        "Course: ACC 204, Lecturer: Mr. Raheed Lateef, Room: TYD New classroom",
         "",
-        "Course: ACC 201, Lecturer: Dr. Ini Udofia, Room: Asaba",
+        "",
         ""
       ],
       [
         "10:00",
         "",
         "",
+        "Course: ENT 211 - ACC, Lecturer: Miss Halima Rabiu, Room: Ado-Ekiti",
         "",
-        "Course: ACC 201, Lecturer: Dr. Ini Udofia, Room: Asaba",
         ""
       ],
       [
         "11:00",
-        "Course: ACC 204, Lecturer: Mr. Raheed Lateef, Room: Jalingo",
+        "Course: PAU-ACC-292, Lecturer: Unknown, Room: Port-Harcourt",
         "",
+        "Course: ENT 211 - ACC, Lecturer: Miss Halima Rabiu, Room: Ado-Ekiti",
         "",
-        "Course: ACC 201, Lecturer: Dr. Ini Udofia, Room: Asaba",
         ""
       ],
       [
         "12:00",
-        "Course: ACC 204, Lecturer: Mr. Raheed Lateef, Room: Jalingo",
+        "Course: PAU-ACC-292, Lecturer: Unknown, Room: Port-Harcourt",
         "",
         "",
         "",
@@ -2202,31 +2202,31 @@
         "BREAK",
         "",
         "BREAK",
-        "Course: ENT 211 - ACC, Lecturer: Miss Halima Rabiu, Room: Maiduguri",
+        "Course: ACC 201, Lecturer: Dr. Ini Udofia, Room: Bauchi",
         "BREAK"
       ],
       [
         "14:00",
         "",
-        "Course: PAU-ACC-209, Lecturer: Dr. Ajibo Kenneth, Room: Electrical Power and Machines Lab",
+        "Course: PAU-ACC-209, Lecturer: Dr. Ajibo Kenneth, Room: Asaba",
         "",
-        "Course: ENT 211 - ACC, Lecturer: Miss Halima Rabiu, Room: Maiduguri",
+        "Course: ACC 201, Lecturer: Dr. Ini Udofia, Room: Bauchi",
         ""
       ],
       [
         "15:00",
         "",
-        "Course: PAU-ACC-292, Lecturer: Unknown, Room: Asaba",
+        "Course: ACC 204, Lecturer: Mr. Raheed Lateef, Room: TYD New classroom",
         "",
-        "",
+        "Course: ACC 201, Lecturer: Dr. Ini Udofia, Room: Bauchi",
         ""
       ],
       [
         "16:00",
-        "Course: ACC 204, Lecturer: Mr. Raheed Lateef, Room: Jalingo",
-        "Course: PAU-ACC-292, Lecturer: Unknown, Room: Asaba",
         "",
-        "Course: PAU-ACC-209, Lecturer: Dr. Ajibo Kenneth, Room: Abakaliki",
+        "Course: ACC 204, Lecturer: Mr. Raheed Lateef, Room: TYD New classroom",
+        "",
+        "",
         ""
       ]
     ]
@@ -2239,7 +2239,7 @@
     "timetable": [
       [
         "9:00",
-        "Course: ACC 301, Lecturer: Dr. Japhet Imhanzenobe, Room: Abakaliki",
+        "",
         "",
         "",
         "",
@@ -2247,58 +2247,58 @@
       ],
       [
         "10:00",
-        "Course: ACC 301, Lecturer: Dr. Japhet Imhanzenobe, Room: Abakaliki",
         "",
+        "Course: ACC 305, Lecturer: Mr. Raheed Lateef, Room: Uyo",
         "",
         "",
         ""
       ],
       [
         "11:00",
-        "Course: ACC 301, Lecturer: Dr. Japhet Imhanzenobe, Room: Abakaliki",
         "",
-        "Course: ENT 312 - ACC, Lecturer: Miss Halima Rabiu, Room: Lokoja",
+        "Course: ACC 305, Lecturer: Mr. Raheed Lateef, Room: Uyo",
+        "Course: ACC 301, Lecturer: Dr. Japhet Imhanzenobe, Room: Zaria",
         "",
         ""
       ],
       [
         "12:00",
         "",
-        "Course: ACC 307, Lecturer: Prof. Vincent, Room: Ibadan",
-        "Course: ENT 312 - ACC, Lecturer: Miss Halima Rabiu, Room: Lokoja",
+        "Course: ACC 305, Lecturer: Mr. Raheed Lateef, Room: Uyo",
+        "Course: ACC 301, Lecturer: Dr. Japhet Imhanzenobe, Room: Zaria",
         "",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: ACC 307, Lecturer: Prof. Vincent, Room: Ibadan",
+        "",
         "BREAK",
         "",
         "BREAK"
       ],
       [
         "14:00",
+        "Course: ACC 307, Lecturer: Prof. Vincent, Room: Bauchi",
         "",
-        "Course: ACC 307, Lecturer: Prof. Vincent, Room: Ibadan",
-        "Course: ACC 305, Lecturer: Mr. Raheed Lateef, Room: Electrical Power and Machines Lab",
         "",
-        "Course: ACC 305, Lecturer: Mr. Raheed Lateef, Room: Classroom 4"
+        "Course: ENT 312 - ACC, Lecturer: Miss Halima Rabiu, Room: Zaria",
+        ""
       ],
       [
         "15:00",
+        "Course: ACC 307, Lecturer: Prof. Vincent, Room: Bauchi",
         "",
         "",
-        "",
-        "",
+        "Course: ENT 312 - ACC, Lecturer: Miss Halima Rabiu, Room: Zaria",
         ""
       ],
       [
         "16:00",
+        "Course: ACC 307, Lecturer: Prof. Vincent, Room: Bauchi",
         "",
+        "Course: ACC 301, Lecturer: Dr. Japhet Imhanzenobe, Room: Zaria",
         "",
-        "",
-        "Course: ACC 305, Lecturer: Mr. Raheed Lateef, Room: Bauchi",
         ""
       ]
     ]
@@ -2311,67 +2311,67 @@
     "timetable": [
       [
         "9:00",
-        "Course: ACC 401, Lecturer: Dr. Okwuosa, Room: Asaba",
-        "Course: MIS 401  - ACC, Lecturer: Prof. Oni, Room: Jalingo",
+        "Course: ACC 401, Lecturer: Dr. Okwuosa, Room: Bauchi",
         "",
-        "Course: BUS 402 - ACC, Lecturer: Dr. Dakare, Room: Enugu",
-        "Course: FIN 401 - ACC, Lecturer: Dr. Unah, Room: Ado-Ekiti"
+        "",
+        "Course: BUS 403 - ACC, Lecturer: Dr. Lawal, Room: Zaria",
+        ""
       ],
       [
         "10:00",
-        "Course: ACC 401, Lecturer: Dr. Okwuosa, Room: Asaba",
-        "",
-        "",
-        "Course: BUS 402 - ACC, Lecturer: Dr. Dakare, Room: Enugu",
-        ""
+        "Course: ACC 401, Lecturer: Dr. Okwuosa, Room: Bauchi",
+        "Course: ACC 407, Lecturer: Prof. Vincent, Room: Enugu",
+        "Course: FIN 401 - ACC, Lecturer: Dr. Unah, Room: Bauchi",
+        "Course: BUS 403 - ACC, Lecturer: Dr. Lawal, Room: Zaria",
+        "Course: BUS 402 - ACC, Lecturer: Dr. Dakare, Room: Abeokuta"
       ],
       [
         "11:00",
-        "",
-        "Course: ACC 404, Lecturer: Mr. Raheed Lateef, Room: Ado-Ekiti",
-        "",
-        "Course: BUS 403 - ACC, Lecturer: Dr. Lawal, Room: Abakaliki",
-        ""
+        "Course: ACC 401, Lecturer: Dr. Okwuosa, Room: Bauchi",
+        "Course: ACC 407, Lecturer: Prof. Vincent, Room: Enugu",
+        "Course: FIN 401 - ACC, Lecturer: Dr. Unah, Room: Bauchi",
+        "Course: BUS 403 - ACC, Lecturer: Dr. Lawal, Room: Zaria",
+        "Course: BUS 402 - ACC, Lecturer: Dr. Dakare, Room: Abeokuta"
       ],
       [
         "12:00",
         "",
-        "Course: ACC 404, Lecturer: Mr. Raheed Lateef, Room: Ado-Ekiti",
+        "Course: ACC 407, Lecturer: Prof. Vincent, Room: Enugu",
+        "Course: FIN 401 - ACC, Lecturer: Dr. Unah, Room: Bauchi",
         "",
-        "Course: BUS 403 - ACC, Lecturer: Dr. Lawal, Room: Abakaliki",
-        ""
+        "Course: BUS 402 - ACC, Lecturer: Dr. Dakare, Room: Abeokuta"
       ],
       [
         "13:00",
         "BREAK",
-        "Course: ACC 404, Lecturer: Mr. Raheed Lateef, Room: Ado-Ekiti",
+        "",
         "BREAK",
-        "Course: BUS 403 - ACC, Lecturer: Dr. Lawal, Room: Abakaliki",
+        "",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: ACC 401, Lecturer: Dr. Okwuosa, Room: Asaba",
-        "Course: MIS 401  - ACC, Lecturer: Prof. Oni, Room: Maiduguri",
-        "Course: ACC 402, Lecturer: Dr. Okpala, Room: Jalingo",
         "",
-        "Course: ACC 407, Lecturer: Prof. Vincent, Room: Asaba"
+        "",
+        "Course: ACC 402, Lecturer: Dr. Okpala, Room: Enugu",
+        "Course: MIS 401  - ACC, Lecturer: Prof. Oni, Room: Ibadan",
+        ""
       ],
       [
         "15:00",
-        "Course: FIN 401 - ACC, Lecturer: Dr. Unah, Room: Asaba",
         "",
-        "Course: ACC 402, Lecturer: Dr. Okpala, Room: Jalingo",
         "",
-        "Course: ACC 407, Lecturer: Prof. Vincent, Room: Asaba"
+        "Course: ACC 402, Lecturer: Dr. Okpala, Room: Enugu",
+        "Course: MIS 401  - ACC, Lecturer: Prof. Oni, Room: Ibadan",
+        ""
       ],
       [
         "16:00",
-        "Course: FIN 401 - ACC, Lecturer: Dr. Unah, Room: Asaba",
         "",
-        "Course: ACC 402, Lecturer: Dr. Okpala, Room: Jalingo",
-        "Course: BUS 402 - ACC, Lecturer: Dr. Dakare, Room: Enugu",
-        "Course: ACC 407, Lecturer: Prof. Vincent, Room: Asaba"
+        "",
+        "Course: ACC 402, Lecturer: Dr. Okpala, Room: Enugu",
+        "Course: MIS 401  - ACC, Lecturer: Prof. Oni, Room: Ibadan",
+        ""
       ]
     ]
   },
@@ -2384,17 +2384,17 @@
       [
         "9:00",
         "",
-        "Course: PAU-ISM 109, Lecturer: Mr. Julius Ujah, Room: Classroom 1",
-        "Course: GST 112 - SMC, Lecturer: Dr. Albert Onobhayedo, Room: Jos",
         "",
+        "Course: PAU-ISM 110, Lecturer: Mr. Lawrence Akande, Room: Zaria",
+        "Course: PAU-ISM 109, Lecturer: Mr. Julius Ujah, Room: Enugu",
         ""
       ],
       [
         "10:00",
         "",
         "",
-        "Course: GST 112 - SMC, Lecturer: Dr. Albert Onobhayedo, Room: Jos",
-        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Oshogbo",
+        "Course: PAU-ISM 110, Lecturer: Mr. Lawrence Akande, Room: Zaria",
+        "",
         ""
       ],
       [
@@ -2402,48 +2402,48 @@
         "",
         "",
         "",
-        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Oshogbo",
-        ""
+        "",
+        "Course: PAU-ISM 109, Lecturer: Mr. Julius Ujah, Room: Bauchi"
       ],
       [
         "12:00",
         "",
-        "Course: PAU-ISM 110, Lecturer: Mr. Lawrence Akande, Room: Asaba",
         "",
-        "Course: PAU-ISM 109, Lecturer: Mr. Julius Ujah, Room: Ado-Ekiti",
-        ""
+        "",
+        "Course: PAU-ISM 110, Lecturer: Mr. Lawrence Akande, Room: Ibadan",
+        "Course: PAU-ISM 109, Lecturer: Mr. Julius Ujah, Room: Bauchi"
       ],
       [
         "13:00",
         "BREAK",
-        "Course: PAU-ISM 110, Lecturer: Mr. Lawrence Akande, Room: Asaba",
+        "Course: GST 112 - SMC, Lecturer: Dr. Albert Onobhayedo, Room: Uyo",
         "BREAK",
         "",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: CMS 101 - ISM, Lecturer: Dr. Aifuwa Edosomwan, Room: Maiduguri",
-        "Course: PAU-ISM 110, Lecturer: Mr. Lawrence Akande, Room: Asaba",
+        "Course: ISM 112, Lecturer: Mr. Afam Okonkwo, Room: Lokoja",
+        "Course: GST 112 - SMC, Lecturer: Dr. Albert Onobhayedo, Room: Uyo",
         "",
         "",
-        "Course: ISM 112, Lecturer: Mr. Afam Okonkwo, Room: Port-Harcourt"
+        ""
       ],
       [
         "15:00",
-        "Course: CMS 101 - ISM, Lecturer: Dr. Aifuwa Edosomwan, Room: Maiduguri",
+        "Course: ISM 112, Lecturer: Mr. Afam Okonkwo, Room: Lokoja",
         "",
         "",
-        "Course: PAU-ISM 109, Lecturer: Mr. Julius Ujah, Room: Classroom 1",
-        "Course: ISM 112, Lecturer: Mr. Afam Okonkwo, Room: Port-Harcourt"
+        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Ado-Ekiti",
+        ""
       ],
       [
         "16:00",
+        "Course: ISM 112, Lecturer: Mr. Afam Okonkwo, Room: Lokoja",
         "",
         "",
-        "",
-        "",
-        "Course: ISM 112, Lecturer: Mr. Afam Okonkwo, Room: Port-Harcourt"
+        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Ado-Ekiti",
+        ""
       ]
     ]
   },
@@ -2455,40 +2455,40 @@
     "timetable": [
       [
         "9:00",
+        "Course: GST 212 - ISM, Lecturer: Mr. Obinna Ikejimba, Room: Enugu",
         "",
-        "Course: PAU-ISM 292, Lecturer: Dr. Omowunmi Ogunyemi, Room: Abeokuta",
-        "",
-        "Course: ENT 211 -ISM, Lecturer: Miss Halima Rabiu, Room: Abakaliki",
+        "Course: PAU-ISM 292, Lecturer: Dr. Omowunmi Ogunyemi, Room: Jos",
+        "Course: PAU-ISM 211, Lecturer: Dr. Joshua Osah, Room: Uyo",
         ""
       ],
       [
         "10:00",
-        "Course: ISM 214, Lecturer: Mr. Uchenna Ogbonna, Room: Umuahia",
-        "Course: PAU-ISM 292, Lecturer: Dr. Omowunmi Ogunyemi, Room: Abeokuta",
-        "Course: PAU-ISM 211, Lecturer: Dr. Joshua Osah, Room: Abeokuta",
-        "Course: ENT 211 -ISM, Lecturer: Miss Halima Rabiu, Room: Abakaliki",
+        "Course: GST 212 - ISM, Lecturer: Mr. Obinna Ikejimba, Room: Enugu",
+        "",
+        "Course: PAU-ISM 292, Lecturer: Dr. Omowunmi Ogunyemi, Room: Jos",
+        "Course: CMS 211, Lecturer: Dr. Aifuwa Edosomwan, Room: Umuahia",
         ""
       ],
       [
         "11:00",
-        "Course: ISM 214, Lecturer: Mr. Uchenna Ogbonna, Room: Umuahia",
         "",
-        "Course: PAU-ISM 211, Lecturer: Dr. Joshua Osah, Room: Abeokuta",
-        "Course: CMS 211, Lecturer: Dr. Aifuwa Edosomwan, Room: Maiduguri",
-        "Course: ISM 221, Lecturer: Mr. Ehis Ojesebholo, Room: Jos"
+        "",
+        "",
+        "Course: CMS 211, Lecturer: Dr. Aifuwa Edosomwan, Room: Umuahia",
+        ""
       ],
       [
         "12:00",
         "",
         "",
-        "Course: PAU-ISM 211, Lecturer: Dr. Joshua Osah, Room: Abeokuta",
-        "Course: CMS 211, Lecturer: Dr. Aifuwa Edosomwan, Room: Maiduguri",
-        "Course: ISM 221, Lecturer: Mr. Ehis Ojesebholo, Room: Jos"
+        "",
+        "",
+        ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: GST 212 - ISM, Lecturer: Mr. Obinna Ikejimba, Room: Jalingo",
+        "Course: ISM 214, Lecturer: Mr. Uchenna Ogbonna, Room: TYD New classroom",
         "BREAK",
         "",
         "BREAK"
@@ -2496,7 +2496,7 @@
       [
         "14:00",
         "",
-        "Course: GST 212 - ISM, Lecturer: Mr. Obinna Ikejimba, Room: Jalingo",
+        "Course: ISM 214, Lecturer: Mr. Uchenna Ogbonna, Room: TYD New classroom",
         "",
         "",
         ""
@@ -2506,16 +2506,16 @@
         "",
         "",
         "",
-        "",
-        ""
+        "Course: ENT 211 -ISM, Lecturer: Miss Halima Rabiu, Room: TYD New classroom",
+        "Course: ISM 221, Lecturer: Mr. Ehis Ojesebholo, Room: Port-Harcourt"
       ],
       [
         "16:00",
         "",
         "",
         "",
-        "",
-        ""
+        "Course: ENT 211 -ISM, Lecturer: Miss Halima Rabiu, Room: TYD New classroom",
+        "Course: ISM 221, Lecturer: Mr. Ehis Ojesebholo, Room: Port-Harcourt"
       ]
     ]
   },
@@ -2527,6 +2527,46 @@
     "timetable": [
       [
         "9:00",
+        "Course: PAU-ISM 311, Lecturer: Dr. Joshua Osah, Room: TYD New classroom",
+        "",
+        "Course: ISM 312, Lecturer: Mr. Adebayo Ajibade, Room: Umuahia",
+        "",
+        ""
+      ],
+      [
+        "10:00",
+        "Course: PAU-ISM 311, Lecturer: Dr. Joshua Osah, Room: TYD New classroom",
+        "Course: PAU-ISM 303, Lecturer: Ms. Nkem Agam, Room: Lokoja",
+        "Course: ISM 312, Lecturer: Mr. Adebayo Ajibade, Room: Umuahia",
+        "",
+        "Course: ISM 311, Lecturer: Mr. Kayode Makinde, Room: Abakaliki"
+      ],
+      [
+        "11:00",
+        "Course: PAU-ISM 311, Lecturer: Dr. Joshua Osah, Room: TYD New classroom",
+        "Course: PAU-ISM 303, Lecturer: Ms. Nkem Agam, Room: Lokoja",
+        "Course: ENT 312 - ISM, Lecturer: Miss Halima Rabiu, Room: Abeokuta",
+        "",
+        "Course: ISM 311, Lecturer: Mr. Kayode Makinde, Room: Abakaliki"
+      ],
+      [
+        "12:00",
+        "",
+        "",
+        "Course: ENT 312 - ISM, Lecturer: Miss Halima Rabiu, Room: Abeokuta",
+        "Course: ISM 313, Lecturer: Dr. Anne Odoh, Room: Ado-Ekiti",
+        "Course: ISM 311, Lecturer: Mr. Kayode Makinde, Room: Abakaliki"
+      ],
+      [
+        "13:00",
+        "BREAK",
+        "",
+        "BREAK",
+        "Course: ISM 313, Lecturer: Dr. Anne Odoh, Room: Ado-Ekiti",
+        "BREAK"
+      ],
+      [
+        "14:00",
         "",
         "",
         "",
@@ -2534,60 +2574,20 @@
         ""
       ],
       [
-        "10:00",
-        "",
-        "",
-        "",
-        "",
-        "Course: ISM 311, Lecturer: Mr. Kayode Makinde, Room: Ado-Ekiti"
-      ],
-      [
-        "11:00",
-        "Course: ISM 322, Lecturer: Dr. Nwachukwu Egbunike, Room: Uyo",
-        "Course: ISM 313, Lecturer: Dr. Anne Odoh, Room: Zaria",
-        "",
-        "",
-        "Course: ISM 311, Lecturer: Mr. Kayode Makinde, Room: Ado-Ekiti"
-      ],
-      [
-        "12:00",
-        "Course: ISM 322, Lecturer: Dr. Nwachukwu Egbunike, Room: Uyo",
-        "Course: ISM 313, Lecturer: Dr. Anne Odoh, Room: Zaria",
-        "",
-        "Course: ISM 302, Lecturer: Mr. Philip Okposo, Room: Jalingo",
-        "Course: ISM 311, Lecturer: Mr. Kayode Makinde, Room: Ado-Ekiti"
-      ],
-      [
-        "13:00",
-        "BREAK",
-        "",
-        "BREAK",
-        "Course: PAU-ISM 392, Lecturer: Ms. Flora Gabtony, Room: Oshogbo",
-        "BREAK"
-      ],
-      [
-        "14:00",
-        "",
-        "Course: ISM 312, Lecturer: Mr. Adebayo Ajibade, Room: Jos",
-        "Course: ENT 312 - ISM, Lecturer: Miss Halima Rabiu, Room: Port-Harcourt",
-        "Course: PAU-ISM 392, Lecturer: Ms. Flora Gabtony, Room: Oshogbo",
-        "Course: PAU-ISM 311, Lecturer: Dr. Joshua Osah, Room: Jos"
-      ],
-      [
         "15:00",
         "",
-        "Course: ISM 312, Lecturer: Mr. Adebayo Ajibade, Room: Jos",
-        "Course: ENT 312 - ISM, Lecturer: Miss Halima Rabiu, Room: Port-Harcourt",
+        "Course: ISM 302, Lecturer: Mr. Philip Okposo, Room: Zaria",
         "",
-        "Course: PAU-ISM 311, Lecturer: Dr. Joshua Osah, Room: Jos"
+        "Course: PAU-ISM 392, Lecturer: Ms. Flora Gabtony, Room: Enugu",
+        "Course: ISM 322, Lecturer: Dr. Nwachukwu Egbunike, Room: Maiduguri"
       ],
       [
         "16:00",
         "",
-        "Course: ISM 312, Lecturer: Mr. Adebayo Ajibade, Room: Jos",
-        "Course: PAU-ISM 303, Lecturer: Ms. Nkem Agam, Room: Ado-Ekiti",
-        "",
-        "Course: PAU-ISM 311, Lecturer: Dr. Joshua Osah, Room: Jos"
+        "Course: ISM 302, Lecturer: Mr. Philip Okposo, Room: Zaria",
+        "Course: ISM 312, Lecturer: Mr. Adebayo Ajibade, Room: Umuahia",
+        "Course: PAU-ISM 392, Lecturer: Ms. Flora Gabtony, Room: Enugu",
+        "Course: ISM 322, Lecturer: Dr. Nwachukwu Egbunike, Room: Maiduguri"
       ]
     ]
   },
@@ -2599,67 +2599,67 @@
     "timetable": [
       [
         "9:00",
+        "Course: ISM 412, Lecturer: Mr. Afam Okonkwo, Room: Uyo",
+        "Course: ISM 401, Lecturer: Mr Peter Ogidi, Room: Jos",
         "",
-        "Course: ISM 401, Lecturer: Mr Peter Ogidi, Room: Oshogbo",
-        "Course: ISM 412, Lecturer: Mr. Afam Okonkwo, Room: Enugu",
         "",
         ""
       ],
       [
         "10:00",
+        "Course: ISM 412, Lecturer: Mr. Afam Okonkwo, Room: Uyo",
+        "Course: ISM 401, Lecturer: Mr Peter Ogidi, Room: Jos",
         "",
-        "Course: ISM 401, Lecturer: Mr Peter Ogidi, Room: Oshogbo",
-        "Course: ISM 412, Lecturer: Mr. Afam Okonkwo, Room: Enugu",
         "",
         ""
       ],
       [
         "11:00",
-        "Course: ISM 403, Lecturer: Dr. Margaret Agada-Mba, Room: Asaba",
-        "Course: ISM 401, Lecturer: Mr Peter Ogidi, Room: Oshogbo",
-        "Course: ISM 410, Lecturer: Ms. Dooshima Anger, Room: Jalingo",
         "",
+        "Course: ISM 401, Lecturer: Mr Peter Ogidi, Room: Jos",
+        "Course: ISM 407, Lecturer: Dr. Anne Odoh, Room: Abakaliki",
+        "Course: ISM 405, Lecturer: Barr. Tomi Vincent, Room: Jos",
         ""
       ],
       [
         "12:00",
-        "Course: ISM 403, Lecturer: Dr. Margaret Agada-Mba, Room: Asaba",
         "",
-        "Course: ISM 410, Lecturer: Ms. Dooshima Anger, Room: Jalingo",
-        "",
+        "Course: ISM 403, Lecturer: Dr. Margaret Agada-Mba, Room: Lokoja",
+        "Course: ISM 407, Lecturer: Dr. Anne Odoh, Room: Abakaliki",
+        "Course: ISM 405, Lecturer: Barr. Tomi Vincent, Room: Jos",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "",
+        "Course: ISM 403, Lecturer: Dr. Margaret Agada-Mba, Room: Lokoja",
         "BREAK",
-        "Course: ISM 405, Lecturer: Barr. Tomi Vincent, Room: Enugu",
+        "Course: ISM 405, Lecturer: Barr. Tomi Vincent, Room: Jos",
         "BREAK"
       ],
       [
         "14:00",
         "",
+        "Course: ISM 407, Lecturer: Dr. Anne Odoh, Room: Maiduguri",
         "",
         "",
-        "Course: ISM 405, Lecturer: Barr. Tomi Vincent, Room: Enugu",
-        "Course: ISM 415, Lecturer: Mr. Christian Sada, Room: Lokoja"
+        ""
       ],
       [
         "15:00",
         "",
         "",
+        "Course: ISM 410, Lecturer: Ms. Dooshima Anger, Room: Bauchi",
         "",
-        "Course: ISM 405, Lecturer: Barr. Tomi Vincent, Room: Enugu",
-        "Course: ISM 415, Lecturer: Mr. Christian Sada, Room: Lokoja"
+        "Course: ISM 415, Lecturer: Mr. Christian Sada, Room: Enugu"
       ],
       [
         "16:00",
         "",
         "",
+        "Course: ISM 410, Lecturer: Ms. Dooshima Anger, Room: Bauchi",
         "",
-        "",
-        "Course: ISM 407, Lecturer: Dr. Anne Odoh, Room: Uyo"
+        "Course: ISM 415, Lecturer: Mr. Christian Sada, Room: Enugu"
       ]
     ]
   },
@@ -2673,7 +2673,7 @@
         "9:00",
         "",
         "",
-        "Course: MCM 101, Lecturer: Dr. Margaret Agada-Mba, Room: Bauchi",
+        "",
         "",
         ""
       ],
@@ -2681,16 +2681,16 @@
         "10:00",
         "",
         "",
-        "Course: MCM 101, Lecturer: Dr. Margaret Agada-Mba, Room: Bauchi",
-        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Uyo",
+        "",
+        "",
         ""
       ],
       [
         "11:00",
         "",
         "",
-        "Course: MCM 101, Lecturer: Dr. Margaret Agada-Mba, Room: Bauchi",
-        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Uyo",
+        "",
+        "Course: MCM 101, Lecturer: Dr. Margaret Agada-Mba, Room: Maiduguri",
         ""
       ],
       [
@@ -2698,40 +2698,40 @@
         "",
         "",
         "",
-        "",
+        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Abakaliki",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: MCM 107, Lecturer: Mr. Valentine Ohu, Room: Abakaliki",
-        "BREAK",
         "",
+        "BREAK",
+        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Abakaliki",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: CMS 101 - ISM, Lecturer: Dr. Aifuwa Edosomwan, Room: Ibadan",
-        "Course: MCM 107, Lecturer: Mr. Valentine Ohu, Room: Abakaliki",
+        "Course: MCM 103, Lecturer: Mrs. Sarah Unekwu, Room: Enugu",
         "",
+        "Course: PAU-MCM 191 -MCM, Lecturer: Fr. Ifeanyi Ogboh, Room: Lokoja",
         "",
-        "Course: PAU-MCM 191 -MCM, Lecturer: Fr. Ifeanyi Ogboh, Room: Ado-Ekiti"
+        ""
       ],
       [
         "15:00",
-        "Course: CMS 101 - ISM, Lecturer: Dr. Aifuwa Edosomwan, Room: Ibadan",
+        "Course: MCM 103, Lecturer: Mrs. Sarah Unekwu, Room: Enugu",
+        "Course: CMS 101 - ISM, Lecturer: Dr. Aifuwa Edosomwan, Room: Maiduguri",
+        "Course: PAU-MCM 191 -MCM, Lecturer: Fr. Ifeanyi Ogboh, Room: Lokoja",
         "",
-        "",
-        "",
-        "Course: MCM 103, Lecturer: Mrs. Sarah Unekwu, Room: Umuahia"
+        "Course: MCM 107, Lecturer: Mr. Valentine Ohu, Room: Oshogbo"
       ],
       [
         "16:00",
         "",
+        "Course: CMS 101 - ISM, Lecturer: Dr. Aifuwa Edosomwan, Room: Maiduguri",
         "",
         "",
-        "",
-        "Course: MCM 103, Lecturer: Mrs. Sarah Unekwu, Room: Umuahia"
+        "Course: MCM 107, Lecturer: Mr. Valentine Ohu, Room: Oshogbo"
       ]
     ]
   },
@@ -2743,66 +2743,66 @@
     "timetable": [
       [
         "9:00",
-        "Course: PAU-MCM 291, Lecturer: Dr. Emmanuel Nzeaka, Room: Uyo",
-        "Course: CMS 201 - MCM, Lecturer: Dr. Aifuwa Edosomwan, Room: Enugu",
-        "Course: MCM 203, Lecturer: Dr. Sunday John, Room: Maiduguri",
-        "Course: PAU-MCM 219, Lecturer: Dr. Chioma Njoku, Room: Jalingo",
-        "Course: MCM 211, Lecturer: Mr. Ehis Ojesebholo, Room: Enugu"
+        "Course: MCM 211, Lecturer: Mr. Ehis Ojesebholo, Room: Lokoja",
+        "",
+        "Course: MCM 215, Lecturer: Dr. Anthony Okoeguale, Room: Jalingo",
+        "",
+        "Course: PAU-MCM 217, Lecturer: Dr. Nwachukwu Egbunike, Room: Jalingo"
       ],
       [
         "10:00",
-        "Course: PAU-MCM 291, Lecturer: Dr. Emmanuel Nzeaka, Room: Uyo",
-        "Course: CMS 201 - MCM, Lecturer: Dr. Aifuwa Edosomwan, Room: Enugu",
-        "Course: MCM 207, Lecturer: Funmi Unuajefe, Room: Uyo",
-        "Course: PAU-MCM 219, Lecturer: Dr. Chioma Njoku, Room: Jalingo",
-        "Course: MCM 215, Lecturer: Dr. Anthony Okoeguale, Room: Asaba"
+        "Course: MCM 211, Lecturer: Mr. Ehis Ojesebholo, Room: Lokoja",
+        "",
+        "Course: MCM 215, Lecturer: Dr. Anthony Okoeguale, Room: Jalingo",
+        "Course: MCM 207, Lecturer: Funmi Unuajefe, Room: Enugu",
+        "Course: PAU-MCM 217, Lecturer: Dr. Nwachukwu Egbunike, Room: Jalingo"
       ],
       [
         "11:00",
-        "Course: MCM 213, Lecturer: Mr. Jerry Sawyer, Room: Ado-Ekiti",
         "",
-        "Course: MCM 207, Lecturer: Funmi Unuajefe, Room: Uyo",
-        "Course: PAU-MCM 219, Lecturer: Dr. Chioma Njoku, Room: Jalingo",
-        "Course: MCM 215, Lecturer: Dr. Anthony Okoeguale, Room: Asaba"
+        "",
+        "Course: MCM 209, Lecturer: Mr. Timi Crown, Room: Umuahia",
+        "Course: MCM 207, Lecturer: Funmi Unuajefe, Room: Enugu",
+        "Course: PAU-MCM 217, Lecturer: Dr. Nwachukwu Egbunike, Room: Jalingo"
       ],
       [
         "12:00",
-        "Course: MCM 213, Lecturer: Mr. Jerry Sawyer, Room: Ado-Ekiti",
         "",
         "",
-        "",
+        "Course: MCM 209, Lecturer: Mr. Timi Crown, Room: Umuahia",
+        "Course: MCM 203, Lecturer: Dr. Sunday John, Room: Abeokuta",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "",
+        "Course: PAU-MCM 219, Lecturer: Dr. Chioma Njoku, Room: Ibadan",
         "BREAK",
-        "",
+        "Course: MCM 205, Lecturer: Dr. Nwachukwu Egbunike, Room: TYD New classroom",
         "BREAK"
       ],
       [
         "14:00",
         "",
-        "Course: PAU-MCM 217, Lecturer: Dr. Nwachukwu Egbunike, Room: Bauchi",
-        "",
-        "",
-        ""
+        "Course: PAU-MCM 219, Lecturer: Dr. Chioma Njoku, Room: Ibadan",
+        "Course: ENT 211 -MCM, Lecturer: Miss Halima Rabiu, Room: Abakaliki",
+        "Course: MCM 205, Lecturer: Dr. Nwachukwu Egbunike, Room: TYD New classroom",
+        "Course: MCM 213, Lecturer: Mr. Jerry Sawyer, Room: Jos"
       ],
       [
         "15:00",
         "",
-        "Course: PAU-MCM 217, Lecturer: Dr. Nwachukwu Egbunike, Room: Bauchi",
-        "Course: MCM 209, Lecturer: Mr. Timi Crown, Room: Bauchi",
-        "Course: MCM 205, Lecturer: Dr. Nwachukwu Egbunike, Room: Abeokuta",
-        ""
+        "Course: PAU-MCM 219, Lecturer: Dr. Chioma Njoku, Room: Ibadan",
+        "Course: ENT 211 -MCM, Lecturer: Miss Halima Rabiu, Room: Abakaliki",
+        "",
+        "Course: MCM 213, Lecturer: Mr. Jerry Sawyer, Room: Jos"
       ],
       [
         "16:00",
-        "Course: MCM 203, Lecturer: Dr. Sunday John, Room: Classroom 3",
-        "Course: PAU-MCM 217, Lecturer: Dr. Nwachukwu Egbunike, Room: Bauchi",
-        "Course: MCM 209, Lecturer: Mr. Timi Crown, Room: Bauchi",
-        "Course: MCM 205, Lecturer: Dr. Nwachukwu Egbunike, Room: Abeokuta",
+        "",
+        "Course: PAU-MCM 291, Lecturer: Dr. Emmanuel Nzeaka, Room: Abeokuta",
+        "",
+        "",
         ""
       ]
     ]
@@ -2817,65 +2817,65 @@
         "9:00",
         "",
         "",
+        "Course: MCM 303, Lecturer: Dr. Anuli Agina, Room: Ibadan",
         "",
-        "Course: PAU-MCM 317, Lecturer: Dr. Mgbeadichie, Room: Ibadan",
-        ""
+        "Course: PAU-MCM 317, Lecturer: Dr. Mgbeadichie, Room: Uyo"
       ],
       [
         "10:00",
         "",
+        "Course: CMS 302, Lecturer: Prof. Okorie, Room: Jalingo",
+        "Course: MCM 303, Lecturer: Dr. Anuli Agina, Room: Ibadan",
         "",
-        "",
-        "Course: PAU-MCM 317, Lecturer: Dr. Mgbeadichie, Room: Ibadan",
-        ""
+        "Course: PAU-MCM 317, Lecturer: Dr. Mgbeadichie, Room: Uyo"
       ],
       [
         "11:00",
+        "Course: CMS 301 - MCM, Lecturer: Dr. Kizito Alakwe, Room: Abakaliki",
+        "Course: CMS 302, Lecturer: Prof. Okorie, Room: Jalingo",
         "",
         "",
-        "",
-        "Course: PAU-MCM 317, Lecturer: Dr. Mgbeadichie, Room: Ibadan",
-        ""
+        "Course: PAU-MCM 317, Lecturer: Dr. Mgbeadichie, Room: Uyo"
       ],
       [
         "12:00",
+        "Course: CMS 301 - MCM, Lecturer: Dr. Kizito Alakwe, Room: Abakaliki",
         "",
-        "Course: CMS 302, Lecturer: Prof. Okorie, Room: Lokoja",
         "",
-        "",
-        ""
+        "Course: MCM 301, Lecturer: Dr. Akin Olaniyan, Room: Oshogbo",
+        "Course: PAU-MCM 305, Lecturer: Mr. Akeem Lasisi, Room: Umuahia"
       ],
       [
         "13:00",
         "BREAK",
-        "Course: CMS 302, Lecturer: Prof. Okorie, Room: Lokoja",
-        "BREAK",
         "",
+        "BREAK",
+        "Course: MCM 301, Lecturer: Dr. Akin Olaniyan, Room: Oshogbo",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: PAU-MCM 391, Lecturer: Dr. Emmanuel Nzeaka, Room: Bauchi",
-        "Course: CMS 301 - MCM, Lecturer: Dr. Kizito Alakwe, Room: Ado-Ekiti",
-        "Course: MCM 301, Lecturer: Dr. Akin Olaniyan, Room: Enugu",
         "",
-        "Course: PAU-MCM 305, Lecturer: Mr. Akeem Lasisi, Room: Jalingo"
+        "",
+        "Course: PAU-MCM 305, Lecturer: Mr. Akeem Lasisi, Room: Oshogbo",
+        "",
+        ""
       ],
       [
         "15:00",
-        "Course: PAU-MCM 391, Lecturer: Dr. Emmanuel Nzeaka, Room: Bauchi",
-        "Course: CMS 301 - MCM, Lecturer: Dr. Kizito Alakwe, Room: Ado-Ekiti",
-        "Course: MCM 301, Lecturer: Dr. Akin Olaniyan, Room: Enugu",
-        "Course: MCM 303, Lecturer: Dr. Anuli Agina, Room: Uyo",
-        "Course: PAU-MCM 305, Lecturer: Mr. Akeem Lasisi, Room: Jalingo"
+        "Course: PAU-MCM 391, Lecturer: Dr. Emmanuel Nzeaka, Room: TYD New classroom",
+        "",
+        "Course: PAU-MCM 305, Lecturer: Mr. Akeem Lasisi, Room: Oshogbo",
+        "",
+        ""
       ],
       [
         "16:00",
+        "Course: PAU-MCM 391, Lecturer: Dr. Emmanuel Nzeaka, Room: TYD New classroom",
         "",
         "",
         "",
-        "Course: MCM 303, Lecturer: Dr. Anuli Agina, Room: Uyo",
-        "Course: PAU-MCM 305, Lecturer: Mr. Akeem Lasisi, Room: Jalingo"
+        ""
       ]
     ]
   },
@@ -2888,31 +2888,31 @@
       [
         "9:00",
         "",
+        "Course: COM 405, Lecturer: Dr. Lakinbofa Goodluck, Room: Maiduguri",
         "",
-        "",
-        "Course: COM 405, Lecturer: Dr. Lakinbofa Goodluck, Room: Oshogbo",
+        "Course: COM 413, Lecturer: Dr. Sunday John, Room: Ibadan",
         ""
       ],
       [
         "10:00",
         "",
-        "Course: COM 415, Lecturer: Dr. Anthony Okoeguale, Room: Umuahia",
-        "Course: COM 401, Lecturer: Barr. Shola Soyele, Room: Umuahia",
+        "Course: COM 405, Lecturer: Dr. Lakinbofa Goodluck, Room: Maiduguri",
         "",
-        "Course: COM 403, Lecturer: Dr. Akin Olaniyan, Room: Abeokuta"
+        "Course: COM 413, Lecturer: Dr. Sunday John, Room: Ibadan",
+        ""
       ],
       [
         "11:00",
         "",
-        "Course: COM 415, Lecturer: Dr. Anthony Okoeguale, Room: Umuahia",
-        "Course: COM 401, Lecturer: Barr. Shola Soyele, Room: Umuahia",
+        "Course: COM 405, Lecturer: Dr. Lakinbofa Goodluck, Room: Maiduguri",
         "",
-        "Course: COM 403, Lecturer: Dr. Akin Olaniyan, Room: Abeokuta"
+        "",
+        ""
       ],
       [
         "12:00",
         "",
-        "Course: COM 415, Lecturer: Dr. Anthony Okoeguale, Room: Umuahia",
+        "",
         "",
         "",
         ""
@@ -2927,26 +2927,26 @@
       ],
       [
         "14:00",
+        "Course: COM 415, Lecturer: Dr. Anthony Okoeguale, Room: Umuahia",
         "",
         "",
         "",
-        "",
-        ""
+        "Course: COM 403, Lecturer: Dr. Akin Olaniyan, Room: Ibadan"
       ],
       [
         "15:00",
-        "Course: COM 413, Lecturer: Dr. Sunday John, Room: Abeokuta",
+        "Course: COM 415, Lecturer: Dr. Anthony Okoeguale, Room: Umuahia",
         "",
+        "Course: COM 401, Lecturer: Barr. Shola Soyele, Room: Jalingo",
         "",
-        "Course: COM 405, Lecturer: Dr. Lakinbofa Goodluck, Room: Oshogbo",
-        ""
+        "Course: COM 403, Lecturer: Dr. Akin Olaniyan, Room: Ibadan"
       ],
       [
         "16:00",
-        "Course: COM 413, Lecturer: Dr. Sunday John, Room: Abeokuta",
+        "Course: COM 415, Lecturer: Dr. Anthony Okoeguale, Room: Umuahia",
         "",
+        "Course: COM 401, Lecturer: Barr. Shola Soyele, Room: Jalingo",
         "",
-        "Course: COM 405, Lecturer: Dr. Lakinbofa Goodluck, Room: Oshogbo",
         ""
       ]
     ]
@@ -2960,33 +2960,33 @@
       [
         "9:00",
         "",
+        "Course: PAU-FMM 108, Lecturer: Mr. Agbo Kelly, Room: Abakaliki",
+        "Course: PAU-FMM-103, Lecturer: Ms. Nkem Agam, Room: Enugu",
         "",
-        "Course: FMM 101, Lecturer: Dr. Chiemela Ogbonna, Room: Ibadan",
-        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Bauchi",
-        ""
+        "Course: CMS 101 - ISM, Lecturer: Dr. Aifuwa Edosomwan, Room: Enugu"
       ],
       [
         "10:00",
         "",
-        "",
-        "Course: FMM 101, Lecturer: Dr. Chiemela Ogbonna, Room: Ibadan",
-        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Bauchi",
-        "Course: PAU-FMM 108, Lecturer: Mr. Agbo Kelly, Room: Zaria"
+        "Course: PAU-FMM 108, Lecturer: Mr. Agbo Kelly, Room: Abakaliki",
+        "Course: PAU-FMM-103, Lecturer: Ms. Nkem Agam, Room: Enugu",
+        "Course: PAU-FMM 104, Lecturer: Ms. Nkem Agam, Room: Oshogbo",
+        "Course: CMS 101 - ISM, Lecturer: Dr. Aifuwa Edosomwan, Room: Enugu"
       ],
       [
         "11:00",
         "",
         "",
         "",
-        "",
-        "Course: PAU-FMM 108, Lecturer: Mr. Agbo Kelly, Room: Zaria"
+        "Course: PAU-FMM 104, Lecturer: Ms. Nkem Agam, Room: Oshogbo",
+        ""
       ],
       [
         "12:00",
         "",
         "",
         "",
-        "Course: CMS 101 - ISM, Lecturer: Dr. Aifuwa Edosomwan, Room: Port-Harcourt",
+        "",
         ""
       ],
       [
@@ -2994,21 +2994,21 @@
         "BREAK",
         "",
         "BREAK",
-        "Course: CMS 101 - ISM, Lecturer: Dr. Aifuwa Edosomwan, Room: Port-Harcourt",
+        "",
         "BREAK"
       ],
       [
         "14:00",
-        "Course: PAU-FMM 104, Lecturer: Ms. Nkem Agam, Room: Ado-Ekiti",
-        "Course: PAU-FMM-103, Lecturer: Ms. Nkem Agam, Room: Uyo",
+        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Uyo",
+        "Course: PAU-FMM-103, Lecturer: Ms. Nkem Agam, Room: Classroom 5",
         "",
         "",
         ""
       ],
       [
         "15:00",
-        "Course: PAU-FMM 104, Lecturer: Ms. Nkem Agam, Room: Ado-Ekiti",
-        "Course: PAU-FMM-103, Lecturer: Ms. Nkem Agam, Room: Uyo",
+        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Uyo",
+        "",
         "",
         "",
         ""
@@ -3016,7 +3016,7 @@
       [
         "16:00",
         "",
-        "Course: PAU-FMM-103, Lecturer: Ms. Nkem Agam, Room: Uyo",
+        "",
         "",
         "",
         ""
@@ -3031,40 +3031,40 @@
     "timetable": [
       [
         "9:00",
-        "Course: CMS 201 - FMM, Lecturer: Dr. Aifuwa Edosomwan, Room: Jos",
         "",
-        "Course: ENT 211 - FMM, Lecturer: Miss Halima Rabiu, Room: Zaria",
         "",
-        "Course: FMM 203, Lecturer: Dr. Chiemela Ogbonna, Room: Ibadan"
+        "",
+        "",
+        "Course: FMM 205, Lecturer: Dr. Wammanda Usaku, Room: Bauchi"
       ],
       [
         "10:00",
-        "Course: FMM 201, Lecturer: Mr. Lawrence Akande, Room: Bauchi",
         "",
-        "Course: ENT 211 - FMM, Lecturer: Miss Halima Rabiu, Room: Zaria",
+        "Course: FMM 201, Lecturer: Mr. Lawrence Akande, Room: Umuahia",
         "",
-        "Course: FMM 203, Lecturer: Dr. Chiemela Ogbonna, Room: Ibadan"
+        "",
+        "Course: FMM 205, Lecturer: Dr. Wammanda Usaku, Room: Bauchi"
       ],
       [
         "11:00",
-        "Course: FMM 201, Lecturer: Mr. Lawrence Akande, Room: Bauchi",
+        "",
+        "Course: FMM 201, Lecturer: Mr. Lawrence Akande, Room: Umuahia",
         "",
         "",
-        "Course: PAU-FMM 291, Lecturer: Dr. Emmanuel Nzeaka, Room: Enugu",
-        "Course: FMM 203, Lecturer: Dr. Chiemela Ogbonna, Room: Ibadan"
+        ""
       ],
       [
         "12:00",
         "",
-        "Course: FMM 205, Lecturer: Dr. Wammanda Usaku, Room: Uyo",
         "",
-        "Course: PAU-FMM 291, Lecturer: Dr. Emmanuel Nzeaka, Room: Enugu",
+        "",
+        "",
         ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: FMM 205, Lecturer: Dr. Wammanda Usaku, Room: Uyo",
+        "",
         "BREAK",
         "",
         "BREAK"
@@ -3073,23 +3073,23 @@
         "14:00",
         "",
         "",
-        "",
-        "",
+        "Course: FMM 203, Lecturer: Dr. Chiemela Ogbonna, Room: Ado-Ekiti",
+        "Course: ENT 211 - FMM, Lecturer: Miss Halima Rabiu, Room: Maiduguri",
         ""
       ],
       [
         "15:00",
-        "",
-        "",
-        "",
-        "",
+        "Course: CMS 201 - FMM, Lecturer: Dr. Aifuwa Edosomwan, Room: Zaria",
+        "Course: PAU-FMM 291, Lecturer: Dr. Emmanuel Nzeaka, Room: Ado-Ekiti",
+        "Course: FMM 203, Lecturer: Dr. Chiemela Ogbonna, Room: Ado-Ekiti",
+        "Course: ENT 211 - FMM, Lecturer: Miss Halima Rabiu, Room: Maiduguri",
         ""
       ],
       [
         "16:00",
-        "",
-        "",
-        "",
+        "Course: CMS 201 - FMM, Lecturer: Dr. Aifuwa Edosomwan, Room: Zaria",
+        "Course: PAU-FMM 291, Lecturer: Dr. Emmanuel Nzeaka, Room: Ado-Ekiti",
+        "Course: FMM 203, Lecturer: Dr. Chiemela Ogbonna, Room: Ado-Ekiti",
         "",
         ""
       ]
@@ -3103,34 +3103,34 @@
     "timetable": [
       [
         "9:00",
-        "Course: PAU‐FMM 309, Lecturer: Dr. Chiemela Ogbonna, Room: Jalingo",
-        "Course: CMS 301 - FMM, Lecturer: Dr. Kizito Alakwe, Room: Maiduguri",
         "",
         "",
-        ""
+        "",
+        "",
+        "Course: PAU‐FMM 309, Lecturer: Dr. Chiemela Ogbonna, Room: Maiduguri"
       ],
       [
         "10:00",
-        "Course: PAU‐FMM 309, Lecturer: Dr. Chiemela Ogbonna, Room: Jalingo",
-        "Course: CMS 301 - FMM, Lecturer: Dr. Kizito Alakwe, Room: Maiduguri",
-        "Course: FMM 301, Lecturer: Dr. Wammanda Usaku, Room: Asaba",
-        "Course: FMM 307, Lecturer: Dr. Wammanda Usaku, Room: Umuahia",
-        ""
+        "",
+        "",
+        "Course: FMM 305, Lecturer: Ms. Nkem Agam, Room: Lokoja",
+        "",
+        "Course: PAU‐FMM 309, Lecturer: Dr. Chiemela Ogbonna, Room: Maiduguri"
       ],
       [
         "11:00",
-        "Course: FMM 305, Lecturer: Ms. Nkem Agam, Room: Jos",
+        "Course: CMS 301 - FMM, Lecturer: Dr. Kizito Alakwe, Room: Abeokuta",
+        "Course: CMS 303, Lecturer: Dr. Kizito Alakwe, Room: Abakaliki",
+        "Course: FMM 305, Lecturer: Ms. Nkem Agam, Room: Lokoja",
         "",
-        "Course: FMM 301, Lecturer: Dr. Wammanda Usaku, Room: Asaba",
-        "Course: FMM 307, Lecturer: Dr. Wammanda Usaku, Room: Umuahia",
-        ""
+        "Course: PAU‐FMM 309, Lecturer: Dr. Chiemela Ogbonna, Room: Maiduguri"
       ],
       [
         "12:00",
-        "Course: FMM 305, Lecturer: Ms. Nkem Agam, Room: Jos",
-        "",
-        "",
-        "Course: FMM 307, Lecturer: Dr. Wammanda Usaku, Room: Umuahia",
+        "Course: CMS 301 - FMM, Lecturer: Dr. Kizito Alakwe, Room: Abeokuta",
+        "Course: CMS 303, Lecturer: Dr. Kizito Alakwe, Room: Abakaliki",
+        "Course: PAU‐FMM 392, Lecturer: Ms. Flora Gabtony, Room: Enugu",
+        "Course: ENT 312 - FMM, Lecturer: Miss Halima Rabiu, Room: Uyo",
         ""
       ],
       [
@@ -3138,32 +3138,32 @@
         "BREAK",
         "",
         "BREAK",
-        "",
+        "Course: ENT 312 - FMM, Lecturer: Miss Halima Rabiu, Room: Uyo",
         "BREAK"
       ],
       [
         "14:00",
         "",
-        "Course: CMS 303, Lecturer: Dr. Kizito Alakwe, Room: Abeokuta",
         "",
         "",
-        ""
+        "Course: FMM 301, Lecturer: Dr. Wammanda Usaku, Room: Jos",
+        "Course: FMM 307, Lecturer: Dr. Wammanda Usaku, Room: Jalingo"
       ],
       [
         "15:00",
         "",
-        "Course: CMS 303, Lecturer: Dr. Kizito Alakwe, Room: Abeokuta",
         "",
-        "Course: PAU‐FMM 392, Lecturer: Ms. Flora Gabtony, Room: TYD New classroom",
-        "Course: FMM 303, Lecturer: Dr. Wammanda Usaku, Room: Abeokuta"
+        "",
+        "Course: FMM 301, Lecturer: Dr. Wammanda Usaku, Room: Jos",
+        "Course: FMM 307, Lecturer: Dr. Wammanda Usaku, Room: Jalingo"
       ],
       [
         "16:00",
         "",
         "",
-        "Course: PAU‐FMM 309, Lecturer: Dr. Chiemela Ogbonna, Room: Ibadan",
-        "Course: PAU‐FMM 392, Lecturer: Ms. Flora Gabtony, Room: TYD New classroom",
-        "Course: FMM 303, Lecturer: Dr. Wammanda Usaku, Room: Abeokuta"
+        "",
+        "",
+        "Course: FMM 307, Lecturer: Dr. Wammanda Usaku, Room: Jalingo"
       ]
     ]
   },
@@ -3175,34 +3175,34 @@
     "timetable": [
       [
         "9:00",
+        "Course: AMS 102 -FIN, Lecturer: Dr. Mesagan, Room: Zaria",
+        "Course: PAU-FIN 103, Lecturer: Prof. Oloyombo, Room: Oshogbo",
         "",
         "",
-        "",
-        "Course: PAU-FIN 102, Lecturer: Dr. Agbonrofo Hope, Room: Abeokuta",
-        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: Lokoja"
+        ""
       ],
       [
         "10:00",
+        "Course: AMS 102 -FIN, Lecturer: Dr. Mesagan, Room: Zaria",
         "",
         "",
         "",
-        "Course: PAU-FIN 102, Lecturer: Dr. Agbonrofo Hope, Room: Abeokuta",
-        "Course: GST 112 -SMSS, Lecturer: Mr. Joseph Eneji, Room: Lokoja"
+        ""
       ],
       [
         "11:00",
         "",
         "",
         "",
-        "Course: PAU-FIN 102, Lecturer: Dr. Agbonrofo Hope, Room: Abeokuta",
+        "Course: PAU-FIN 102, Lecturer: Dr. Agbonrofo Hope, Room: Port-Harcourt",
         ""
       ],
       [
         "12:00",
         "",
-        "Course: PAU-FIN 103, Lecturer: Prof. Oloyombo, Room: Oshogbo",
         "",
         "",
+        "Course: PAU-FIN 102, Lecturer: Dr. Agbonrofo Hope, Room: Port-Harcourt",
         ""
       ],
       [
@@ -3210,20 +3210,20 @@
         "BREAK",
         "Course: PAU-FIN 103, Lecturer: Prof. Oloyombo, Room: Oshogbo",
         "BREAK",
-        "",
+        "Course: PAU-FIN 102, Lecturer: Dr. Agbonrofo Hope, Room: Port-Harcourt",
         "BREAK"
       ],
       [
         "14:00",
         "",
         "Course: PAU-FIN 103, Lecturer: Prof. Oloyombo, Room: Oshogbo",
-        "",
+        "Course: AMS 104 - FIN, Lecturer: Dr. Ebegbetale, Room: Umuahia",
         "",
         ""
       ],
       [
         "15:00",
-        "Course: AMS 102 -FIN, Lecturer: Dr. Mesagan, Room: Jos",
+        "",
         "",
         "Course: AMS 104 - FIN, Lecturer: Dr. Ebegbetale, Room: Umuahia",
         "",
@@ -3231,9 +3231,9 @@
       ],
       [
         "16:00",
-        "Course: AMS 102 -FIN, Lecturer: Dr. Mesagan, Room: Jos",
         "",
-        "Course: AMS 104 - FIN, Lecturer: Dr. Ebegbetale, Room: Umuahia",
+        "",
+        "",
         "",
         ""
       ]
@@ -3259,54 +3259,54 @@
         "",
         "",
         "",
-        "Course: PAU-FIN 201, Lecturer: Dr. Ini Udofia, Room: Bauchi"
+        ""
       ],
       [
         "11:00",
-        "Course: FIN 204, Lecturer: Dr. Anetor, Room: Zaria",
         "",
-        "Course: GST 212 - FIN, Lecturer: Mr. Amaobi Osuala, Room: TYD New classroom",
         "",
-        "Course: PAU-FIN 201, Lecturer: Dr. Ini Udofia, Room: Bauchi"
+        "",
+        "",
+        ""
       ],
       [
         "12:00",
-        "Course: FIN 204, Lecturer: Dr. Anetor, Room: Zaria",
         "",
-        "Course: GST 212 - FIN, Lecturer: Mr. Amaobi Osuala, Room: TYD New classroom",
+        "Course: FIN 204, Lecturer: Dr. Anetor, Room: Bauchi",
         "",
-        "Course: PAU-FIN 201, Lecturer: Dr. Ini Udofia, Room: Bauchi"
+        "",
+        ""
       ],
       [
         "13:00",
         "BREAK",
-        "",
+        "Course: FIN 202, Lecturer: Mrs. Olaniyi Ibironke, Room: Abeokuta",
         "BREAK",
         "",
         "BREAK"
       ],
       [
         "14:00",
+        "Course: PAU-FIN 201, Lecturer: Dr. Ini Udofia, Room: Jalingo",
+        "Course: FIN 202, Lecturer: Mrs. Olaniyi Ibironke, Room: Abeokuta",
+        "Course: GST 212 - FIN, Lecturer: Mr. Amaobi Osuala, Room: TYD New classroom",
         "",
-        "",
-        "",
-        "Course: ENT 211 - FIN, Lecturer: Miss Halima Rabiu, Room: Jalingo",
         ""
       ],
       [
         "15:00",
+        "Course: PAU-FIN 201, Lecturer: Dr. Ini Udofia, Room: Jalingo",
         "",
-        "Course: FIN 202, Lecturer: Mrs. Olaniyi Ibironke, Room: Umuahia",
-        "",
-        "Course: ENT 211 - FIN, Lecturer: Miss Halima Rabiu, Room: Jalingo",
+        "Course: GST 212 - FIN, Lecturer: Mr. Amaobi Osuala, Room: TYD New classroom",
+        "Course: ENT 211 - FIN, Lecturer: Miss Halima Rabiu, Room: Lokoja",
         ""
       ],
       [
         "16:00",
+        "Course: PAU-FIN 201, Lecturer: Dr. Ini Udofia, Room: Jalingo",
         "",
-        "Course: FIN 202, Lecturer: Mrs. Olaniyi Ibironke, Room: Umuahia",
         "",
-        "",
+        "Course: ENT 211 - FIN, Lecturer: Miss Halima Rabiu, Room: Lokoja",
         ""
       ]
     ]
@@ -3319,24 +3319,24 @@
     "timetable": [
       [
         "9:00",
-        "Course: FIN 313, Lecturer: Dr. Unah, Room: Ado-Ekiti",
         "",
-        "",
+        "Course: FIN 315, Lecturer: Prof. Oloyombo, Room: Jalingo",
+        "Course: ENT 312 - FIN, Lecturer: Miss Halima Rabiu, Room: Abeokuta",
         "",
         ""
       ],
       [
         "10:00",
-        "Course: FIN 313, Lecturer: Dr. Unah, Room: Ado-Ekiti",
-        "Course: FIN 304, Lecturer: Mrs. Olaniyi Ibironke, Room: Ibadan",
         "",
+        "",
+        "Course: ENT 312 - FIN, Lecturer: Miss Halima Rabiu, Room: Abeokuta",
         "",
         ""
       ],
       [
         "11:00",
         "",
-        "Course: FIN 304, Lecturer: Mrs. Olaniyi Ibironke, Room: Ibadan",
+        "",
         "",
         "",
         ""
@@ -3344,7 +3344,7 @@
       [
         "12:00",
         "",
-        "",
+        "Course: FIN 315, Lecturer: Prof. Oloyombo, Room: Jalingo",
         "",
         "",
         ""
@@ -3352,7 +3352,7 @@
       [
         "13:00",
         "BREAK",
-        "",
+        "Course: FIN 315, Lecturer: Prof. Oloyombo, Room: Jalingo",
         "BREAK",
         "",
         "BREAK"
@@ -3363,23 +3363,23 @@
         "",
         "",
         "",
-        "Course: FIN 315, Lecturer: Prof. Oloyombo, Room: Zaria"
+        ""
       ],
       [
         "15:00",
+        "Course: FIN 313, Lecturer: Dr. Unah, Room: Abeokuta",
         "",
         "",
-        "",
-        "Course: ENT 312 - FIN, Lecturer: Miss Halima Rabiu, Room: Asaba",
-        "Course: FIN 315, Lecturer: Prof. Oloyombo, Room: Zaria"
+        "Course: FIN 304, Lecturer: Mrs. Olaniyi Ibironke, Room: Abeokuta",
+        ""
       ],
       [
         "16:00",
+        "Course: FIN 313, Lecturer: Dr. Unah, Room: Abeokuta",
         "",
         "",
-        "",
-        "Course: ENT 312 - FIN, Lecturer: Miss Halima Rabiu, Room: Asaba",
-        "Course: FIN 315, Lecturer: Prof. Oloyombo, Room: Zaria"
+        "Course: FIN 304, Lecturer: Mrs. Olaniyi Ibironke, Room: Abeokuta",
+        ""
       ]
     ]
   },
@@ -3391,65 +3391,65 @@
     "timetable": [
       [
         "9:00",
-        "Course: FIN 403, Lecturer: Prof. Oloyombo, Room: Ibadan",
-        "Course: FIN 401 - FIN, Lecturer: Dr. Unah, Room: TYD New classroom",
         "",
+        "Course: FIN 404, Lecturer: Dr. Fredrick Ikpesu, Room: Bauchi",
+        "Course: FIN 403, Lecturer: Prof. Oloyombo, Room: Maiduguri",
         "",
-        "Course: BUS 401 - FIN, Lecturer: Dr. Dakare, Room: Umuahia"
+        ""
       ],
       [
         "10:00",
-        "Course: FIN 403, Lecturer: Prof. Oloyombo, Room: Ibadan",
-        "Course: FIN 401 - FIN, Lecturer: Dr. Unah, Room: TYD New classroom",
         "",
+        "Course: FIN 404, Lecturer: Dr. Fredrick Ikpesu, Room: Bauchi",
+        "Course: FIN 403, Lecturer: Prof. Oloyombo, Room: Maiduguri",
         "",
-        "Course: BUS 401 - FIN, Lecturer: Dr. Dakare, Room: Umuahia"
+        "Course: BUS 401 - FIN, Lecturer: Dr. Dakare, Room: Lokoja"
       ],
       [
         "11:00",
-        "Course: FIN 411, Lecturer: Dr. Unah, Room: Port-Harcourt",
-        "Course: FIN 401 - FIN, Lecturer: Dr. Unah, Room: TYD New classroom",
         "",
-        "",
-        "Course: BUS 401 - FIN, Lecturer: Dr. Dakare, Room: Umuahia"
+        "Course: FIN 404, Lecturer: Dr. Fredrick Ikpesu, Room: Bauchi",
+        "Course: FIN 403, Lecturer: Prof. Oloyombo, Room: Maiduguri",
+        "Course: BUS 403 - FIN, Lecturer: Dr. Lawal, Room: Asaba",
+        "Course: BUS 401 - FIN, Lecturer: Dr. Dakare, Room: Lokoja"
       ],
       [
         "12:00",
-        "Course: FIN 411, Lecturer: Dr. Unah, Room: Port-Harcourt",
         "",
         "",
-        "Course: BUS 403 - FIN, Lecturer: Dr. Lawal, Room: Abeokuta",
-        ""
+        "",
+        "Course: BUS 403 - FIN, Lecturer: Dr. Lawal, Room: Asaba",
+        "Course: BUS 401 - FIN, Lecturer: Dr. Dakare, Room: Lokoja"
       ],
       [
         "13:00",
         "BREAK",
         "",
         "BREAK",
-        "Course: BUS 403 - FIN, Lecturer: Dr. Lawal, Room: Abeokuta",
+        "Course: BUS 403 - FIN, Lecturer: Dr. Lawal, Room: Asaba",
         "BREAK"
       ],
       [
         "14:00",
+        "Course: FIN 401 - FIN, Lecturer: Dr. Unah, Room: Port-Harcourt",
+        "Course: FIN 402, Lecturer: Prof. Vincent, Room: Jalingo",
+        "Course: FIN 411, Lecturer: Dr. Unah, Room: Ibadan",
         "",
-        "",
-        "Course: FIN 402, Lecturer: Prof. Vincent, Room: Abeokuta",
-        "Course: BUS 403 - FIN, Lecturer: Dr. Lawal, Room: Abeokuta",
         ""
       ],
       [
         "15:00",
-        "",
-        "",
-        "Course: FIN 402, Lecturer: Prof. Vincent, Room: Abeokuta",
+        "Course: FIN 401 - FIN, Lecturer: Dr. Unah, Room: Port-Harcourt",
+        "Course: FIN 402, Lecturer: Prof. Vincent, Room: Jalingo",
+        "Course: FIN 411, Lecturer: Dr. Unah, Room: Ibadan",
         "",
         ""
       ],
       [
         "16:00",
-        "Course: FIN 403, Lecturer: Prof. Oloyombo, Room: Ibadan",
-        "",
-        "Course: FIN 402, Lecturer: Prof. Vincent, Room: Abeokuta",
+        "Course: FIN 401 - FIN, Lecturer: Dr. Unah, Room: Port-Harcourt",
+        "Course: FIN 402, Lecturer: Prof. Vincent, Room: Jalingo",
+        "Course: FIN 411, Lecturer: Dr. Unah, Room: Ibadan",
         "",
         ""
       ]
@@ -3463,7 +3463,7 @@
     "timetable": [
       [
         "9:00",
-        "Course: CMS 109, Lecturer: Dr. Aifuwa Edosomwan, Room: Enugu",
+        "Course: CMS 109, Lecturer: Dr. Aifuwa Edosomwan, Room: Abeokuta",
         "",
         "",
         "",
@@ -3471,32 +3471,32 @@
       ],
       [
         "10:00",
-        "Course: CMS 109, Lecturer: Dr. Aifuwa Edosomwan, Room: Enugu",
+        "Course: CMS 109, Lecturer: Dr. Aifuwa Edosomwan, Room: Abeokuta",
         "",
         "",
-        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: TYD New classroom",
+        "",
         ""
       ],
       [
         "11:00",
         "",
+        "Course: STC 101, Lecturer: Dr. Kizito Alakwe, Room: Zaria",
         "",
         "",
-        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: TYD New classroom",
-        "Course: PAU-MCM 191 - STC, Lecturer: Fr. Basil Isiekwe, Room: Enugu"
+        ""
       ],
       [
         "12:00",
         "",
+        "Course: CMS 101 - STC, Lecturer: Dr. Chioma Njoku, Room: Umuahia",
         "",
         "",
-        "",
-        "Course: PAU-MCM 191 - STC, Lecturer: Fr. Basil Isiekwe, Room: Enugu"
+        ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: CMS 101 - STC, Lecturer: Dr. Chioma Njoku, Room: TYD New classroom",
+        "Course: CMS 101 - STC, Lecturer: Dr. Chioma Njoku, Room: Umuahia",
         "BREAK",
         "",
         "BREAK"
@@ -3504,26 +3504,26 @@
       [
         "14:00",
         "",
-        "Course: CMS 101 - STC, Lecturer: Dr. Chioma Njoku, Room: TYD New classroom",
         "",
         "",
+        "Course: PAU-MCM 191 - STC, Lecturer: Fr. Basil Isiekwe, Room: Port-Harcourt",
         ""
       ],
       [
         "15:00",
         "",
-        "Course: STC 101, Lecturer: Dr. Kizito Alakwe, Room: Oshogbo",
         "",
         "",
-        ""
+        "Course: PAU-MCM 191 - STC, Lecturer: Fr. Basil Isiekwe, Room: Port-Harcourt",
+        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Abakaliki"
       ],
       [
         "16:00",
         "",
-        "Course: STC 101, Lecturer: Dr. Kizito Alakwe, Room: Oshogbo",
         "",
         "",
-        ""
+        "",
+        "Course: GST-111, Lecturer: Prof. Akinola Odebunmi, Room: Abakaliki"
       ]
     ]
   },
@@ -3535,7 +3535,7 @@
     "timetable": [
       [
         "9:00",
-        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: Lokoja",
+        "",
         "",
         "",
         "",
@@ -3543,7 +3543,7 @@
       ],
       [
         "10:00",
-        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: Lokoja",
+        "",
         "",
         "",
         "",
@@ -3551,24 +3551,24 @@
       ],
       [
         "11:00",
-        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: Lokoja",
+        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: Umuahia",
         "",
+        "Course: PAU-CSC 192, Lecturer: Fr. Ifeanyi Ogboh, Room: Asaba",
         "",
-        "",
-        "Course: PHY101, Lecturer: Dr. Rilwan Balogun, Room: Lokoja"
+        ""
       ],
       [
         "12:00",
+        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: Umuahia",
         "",
+        "Course: PAU-CSC 192, Lecturer: Fr. Ifeanyi Ogboh, Room: Asaba",
         "",
-        "",
-        "",
-        "Course: PHY101, Lecturer: Dr. Rilwan Balogun, Room: Lokoja"
+        ""
       ],
       [
         "13:00",
         "BREAK",
-        "Course: MTH101, Lecturer: Dr. Clinton Ifegwu, Room: Umuahia",
+        "",
         "BREAK",
         "",
         "BREAK"
@@ -3576,7 +3576,7 @@
       [
         "14:00",
         "",
-        "Course: MTH101, Lecturer: Dr. Clinton Ifegwu, Room: Umuahia",
+        "",
         "",
         "",
         ""
@@ -3584,18 +3584,18 @@
       [
         "15:00",
         "",
+        "Course: MTH101, Lecturer: Dr. Clinton Ifegwu, Room: Port-Harcourt",
         "",
-        "Course: PAU-CSC 192, Lecturer: Fr. Ifeanyi Ogboh, Room: Jos",
         "",
-        ""
+        "Course: PHY101, Lecturer: Dr. Rilwan Balogun, Room: Lokoja"
       ],
       [
         "16:00",
+        "Course: PAU-CSC 111, Lecturer: Jennifer Iloekwe, Room: Maiduguri",
+        "Course: MTH101, Lecturer: Dr. Clinton Ifegwu, Room: Port-Harcourt",
         "",
         "",
-        "Course: PAU-CSC 192, Lecturer: Fr. Ifeanyi Ogboh, Room: Jos",
-        "",
-        ""
+        "Course: PHY101, Lecturer: Dr. Rilwan Balogun, Room: Lokoja"
       ]
     ]
   }

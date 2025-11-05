@@ -4,7 +4,7 @@ import './InstructionsModal.css';
 const InstructionsModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
   const closeButtonRef = useRef(null);
-  const [activeTab, setActiveTab] = useState('uploading');
+  const [activeTab, setActiveTab] = useState('requirements');
   const [expandedImage, setExpandedImage] = useState(null);
 
   useEffect(() => {
@@ -13,6 +13,8 @@ const InstructionsModal = ({ isOpen, onClose }) => {
       if (closeButtonRef.current) {
         closeButtonRef.current.focus();
       }
+      // Ensure default tab each time modal opens
+      setActiveTab('requirements');
       
       // Add body class to prevent scrolling
       document.body.classList.add('modal-open');
@@ -80,17 +82,18 @@ const InstructionsModal = ({ isOpen, onClose }) => {
         
         <div className="modal-body">
           <div className="tab-navigation">
-            <button 
-              className={`tab-button ${activeTab === 'uploading' ? 'active' : ''}`}
-              onClick={() => setActiveTab('uploading')}
-            >
-              Uploading Files
-            </button>
+            {/* Requirements first */}
             <button 
               className={`tab-button ${activeTab === 'requirements' ? 'active' : ''}`}
               onClick={() => setActiveTab('requirements')}
             >
               Input File Requirements
+            </button>
+            <button 
+              className={`tab-button ${activeTab === 'uploading' ? 'active' : ''}`}
+              onClick={() => setActiveTab('uploading')}
+            >
+              Uploading Files
             </button>
           </div>
 
@@ -142,15 +145,15 @@ const InstructionsModal = ({ isOpen, onClose }) => {
             {activeTab === 'requirements' && (
               <div className="requirements-tab">
                 <div className="template-download">
-                  <h4>📁 Download Template File</h4>
+                  <h4>Download Template File</h4>
                   <p>Use our pre-formatted template to ensure compatibility:</p>
                   <button className="download-template-btn" onClick={handleDownloadTemplate}>
-                    📥 Download Timetable_Input_Template.xlsx
+                    Download Timetable_Input_Template.xlsx
                   </button>
                 </div>
 
                 <div className="sheet-requirements">
-                  <h4>📋 Required Excel Sheets</h4>
+                  <h4>Required Excel Sheets</h4>
                   <p>Your Excel file must contain exactly these 4 sheets with these exact names:</p>
                   
                   <div className="sheet-list">
@@ -188,7 +191,7 @@ const InstructionsModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div className="format-examples">
-                  <h4>📊 Format Examples</h4>
+                  <h4>Format Examples</h4>
                   <p>Required column structure for each sheet. Click "View Image Example" to see the exact Excel format:</p>
                   
                   <div className="format-tables">
@@ -199,7 +202,7 @@ const InstructionsModal = ({ isOpen, onClose }) => {
                           className="view-image-btn"
                           onClick={() => handleImageClick('Columns For Courses Sheet.png')}
                         >
-                          📷 View Image Example
+                          View Image Example
                         </button>
                       </div>
                       <div className="table-wrapper">
@@ -258,7 +261,7 @@ const InstructionsModal = ({ isOpen, onClose }) => {
                           className="view-image-btn"
                           onClick={() => handleImageClick('Columns For Lecturer Sheet.png')}
                         >
-                          📷 View Image Example
+                          View Image Example
                         </button>
                       </div>
                       <div className="table-wrapper">
@@ -302,7 +305,7 @@ const InstructionsModal = ({ isOpen, onClose }) => {
                           className="view-image-btn"
                           onClick={() => handleImageClick('Columns For Student Groups Sheet.png')}
                         >
-                          📷 View Image Example
+                          View Image Example
                         </button>
                       </div>
                       <div className="table-wrapper">
@@ -343,7 +346,7 @@ const InstructionsModal = ({ isOpen, onClose }) => {
                           className="view-image-btn"
                           onClick={() => handleImageClick('Columns For Classroom Sheet.png')}
                         >
-                          📷 View Image Example
+                          View Image Example
                         </button>
                       </div>
                       <div className="table-wrapper">
@@ -385,7 +388,7 @@ const InstructionsModal = ({ isOpen, onClose }) => {
                         className="view-image-btn"
                         onClick={() => handleImageClick('Sheets Required.png')}
                       >
-                        📷 View Sheets Overview
+                        View Sheets Overview
                       </button>
                     </div>
                     <p>Click the button above to see how all four required sheets should appear in your Excel workbook.</p>
@@ -403,7 +406,7 @@ const InstructionsModal = ({ isOpen, onClose }) => {
                   </ul>
                   
                   <div className="format-specifics">
-                    <h5>📋 Format-Specific Requirements</h5>
+                    <h5>Format-Specific Requirements</h5>
                     
                     <div className="format-requirement">
                       <h6>Courses Sheet:</h6>
